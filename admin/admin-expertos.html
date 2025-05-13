@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Expertos - ServiTech Admin</title>
+    <link rel="stylesheet" href="../assets/css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="admin-layout">
+        <aside class="admin-sidebar">
+            <div class="sidebar-header">
+                <a href="admin.html" class="logo">
+                    <img src="../assets/img/logo.png" alt="Servitech Logo" class="logo-img">
+                    <span class="logo-text">Admin</span>
+                </a>
+            </div>
+            <div class="sidebar-content">
+                <nav class="sidebar-nav">
+                    <ul>
+                        <li class="nav-item">
+                            <a href="admin.html">
+                                <i class="fas fa-tachometer-alt"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="nav-item active">
+                            <a href="admin-expertos.html">
+                                <i class="fas fa-users"></i>
+                                <span>Gestión de Expertos</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="admin-usuarios.html">
+                                <i class="fas fa-user-friends"></i>
+                                <span>Gestión de Usuarios</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="admin-categorias.html">
+                                <i class="fas fa-tags"></i>
+                                <span>Categorías</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="admin-publicaciones.html">
+                                <i class="fas fa-clipboard-list"></i>
+                                <span>Publicaciones</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="admin-mensajes.html">
+                                <i class="fas fa-envelope"></i>
+                                <span>Mensajes</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="admin-configuracion.html">
+                                <i class="fas fa-cog"></i>
+                                <span>Configuración</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="sidebar-footer">
+                <a href="/feed.html" class="btn-outline">
+                    <i class="fas fa-globe"></i>
+                    <span>Ver sitio</span>
+                </a>
+                <a href="/login.html" class="btn-logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Cerrar sesión</span>
+                </a>
+            </div>
+        </aside>
+        
+        <main class="admin-main">
+            <header class="admin-header">
+                <div class="header-search">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Buscar expertos...">
+                </div>
+                <div class="header-actions">
+                    <div class="notification-icon">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">5</span>
+                    </div>
+                    <div class="admin-profile">
+                        <img src="https://i.pravatar.cc/150?img=11" alt="Admin profile" class="profile-img">
+                        <div class="profile-info">
+                            <span class="profile-name">Admin ServiTech</span>
+                            <span class="profile-role">Administrador</span>
+                        </div>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="admin-content">
+                <div class="page-header">
+                    <h1>Gestión de Expertos</h1>
+                    <div class="page-actions">
+                        <button class="btn-primary" id="btnAddExpert">
+                            <i class="fas fa-plus"></i>
+                            <span>Nuevo experto</span>
+                        </button>
+                        <button class="btn-outline">
+                            <i class="fas fa-file-export"></i>
+                            <span>Exportar</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: 1fr 3fr; gap: 20px; margin-bottom: 25px;">
+                    <div class="table-container" style="padding: 20px;">
+                        <div style="margin-bottom: 20px;">
+                            <h3 style="font-size: 16px; font-weight: 600; color: var(--admin-text-primary); margin-bottom: 15px;">Filtros</h3>
+                            <div style="margin-bottom: 15px;">
+                                <label style="display: block; font-size: 14px; color: var(--admin-text-secondary); margin-bottom: 6px;">Estado</label>
+                                <select style="width: 100%; padding: 8px 12px; background-color: rgba(255, 255, 255, 0.05); border: 1px solid var(--admin-border-color); border-radius: 6px; color: var(--admin-text-primary); font-size: 14px;">
+                                    <option value="">Todos los estados</option>
+                                    <option value="active">Activos</option>
+                                    <option value="pending">Pendientes</option>
+                                    <option value="inactive">Inactivos</option>
+                                </select>
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <label style="display: block; font-size: 14px; color: var(--admin-text-secondary); margin-bottom: 6px;">Categoría</label>
+                                <select style="width: 100%; padding: 8px 12px; background-color: rgba(255, 255, 255, 0.05); border: 1px solid var(--admin-border-color); border-radius: 6px; color: var(--admin-text-primary); font-size: 14px;">
+                                    <option value="">Todas las categorías</option>
+                                    <option value="web">Desarrollo Web</option>
+                                    <option value="mobile">Desarrollo Móvil</option>
+                                    <option value="data">Ciencia de Datos</option>
+                                    <option value="uxui">UX/UI</option>
+                                    <option value="devops">DevOps</option>
+                                    <option value="blockchain">Blockchain</option>
+                                    <option value="cloud">Cloud Computing</option>
+                                </select>
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <label style="display: block; font-size: 14px; color: var(--admin-text-secondary); margin-bottom: 6px;">Calificación mínima</label>
+                                <select style="width: 100%; padding: 8px 12px; background-color: rgba(255, 255, 255, 0.05); border: 1px solid var(--admin-border-color); border-radius: 6px; color: var(--admin-text-primary); font-size: 14px;">
+                                    <option value="">Todas las calificaciones</option>
+                                    <option value="5">5 estrellas</option>
+                                    <option value="4">4+ estrellas</option>
+                                    <option value="3">3+ estrellas</option>
+                                    <option value="2">2+ estrellas</option>
+                                </select>
+                            </div>
+                            <button class="btn-primary" style="width: 100%; margin-top: 10px;">
+                                <i class="fas fa-filter"></i>
+                                <span>Aplicar filtros</span>
+                            </button>
+                        </div>
+                        
+                        <div style="margin-top: 30px;">
+                            <h3 style="font-size: 16px; font-weight: 600; color: var(--admin-text-primary); margin-bottom: 15px;">Estadísticas</h3>
+                            <div style="display: flex; flex-direction: column; gap: 15px;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px; border-radius: 8px; background-color: rgba(58, 142, 255, 0.1); color: var(--admin-text-primary);">
+                                    <div style="display: flex; align-items: center;">
+                                        <i class="fas fa-user-tie" style="font-size: 20px; color: var(--admin-accent-color); margin-right: 12px;"></i>
+                                        <span>Total Expertos</span>
+                                    </div>
+                                    <span style="font-weight: 600; font-size: 16px;">128</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px; border-radius: 8px; background-color: rgba(40, 167, 69, 0.1); color: var(--admin-text-primary);">
+                                    <div style="display: flex; align-items: center;">
+                                        <i class="fas fa-check-circle" style="font-size: 20px; color: #28a745; margin-right: 12px;"></i>
+                                        <span>Expertos Activos</span>
+                                    </div>
+                                    <span style="font-weight: 600; font-size: 16px;">98</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px; border-radius: 8px; background-color: rgba(255, 193, 7, 0.1); color: var(--admin-text-primary);">
+                                    <div style="display: flex; align-items: center;">
+                                        <i class="fas fa-clock" style="font-size: 20px; color: #ffc107; margin-right: 12px;"></i>
+                                        <span>Pendientes</span>
+                                    </div>
+                                    <span style="font-weight: 600; font-size: 16px;">22</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px; border-radius: 8px; background-color: rgba(18, 216, 250, 0.1); color: var(--admin-text-primary);">
+                                    <div style="display: flex; align-items: center;">
+                                        <i class="fas fa-star" style="font-size: 20px; color: var(--admin-accent-secondary); margin-right: 12px;"></i>
+                                        <span>Calificación Promedio</span>
+                                    </div>
+                                    <span style="font-weight: 600; font-size: 16px;">4.7</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="table-container">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <input type="checkbox" id="selectAll" style="accent-color: var(--admin-accent-color);">
+                                    </th>
+                                    <th>Experto</th>
+                                    <th>Especialidad</th>
+                                    <th>Registro</th>
+                                    <th>Sesiones</th>
+                                    <th>Calificación</th>
+                                    <th>Estado</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" id="select1" style="accent-color: var(--admin-accent-color);">
+                                    </td>
+                                    <td>
+                                        <div class="user-info">
+                                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Experto">
+                                            <div>
+                                                <h4>Mario Velázquez</h4>
+                                                <span>mario.v@gmail.com</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>Desarrollo Web</td>
+                                    <td>12/04/2025</td>
+                                    <td>24</td>
+                                    <td>
+                                        <div style="display: flex; align-items: center;">
+                                            <span style="color: #ffbb00; margin-right: 5px;">5.0</span>
+                                            <div style="display: flex; gap: 2px;">
+                                                <i class="fas fa-star" style="font-size: 12px; color: #ffbb00;"></i>
+                                                <i class="fas fa-star" style="font-size: 12px; color: #ffbb00;"></i>
+                                                <i class="fas fa-star" style="font-size: 12px; color: #ffbb00;"></i>
+                                                <i class="fas fa-star" style="font-size: 12px; color: #ffbb00;"></i>
+                                                <i class="fas fa-star" style="font-size: 12px; color: #ffbb00;"></i>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="status active">Activo</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn-icon" title="Editar"><i class="fas fa-edit"></i></button>
+                                            <button class="btn-icon" title="Ver perfil"><i class="fas fa-eye"></i></button>
+                                            <button class="btn-icon" title="Eliminar"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" id="select2" style="accent-color: var(--admin-accent-color);">
+                                    </td>
+                                    <td>
+                                        <div class="user-info">
+                                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Experto">
+                                            <div>
+                                                <h4>Ana García</h4>
+                                                <span>ana.garcia@outlook.com</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>UX/UI Design</td>
+                                    <td>11/04/2025</td>
+                                    <td>18</td>
+                                    <td>
+                                        <div style="display: flex; align-items: center;">
+                                            <span style="color: #ffbb00; margin-right: 5px;">4.5</span>
+                                            <div style="display: flex; gap: 2px;">
+                                                <i class="fas fa-star" style="font-size: 12px; color: #ffbb00;"></i>
+                                                <i class="fas fa-star" style="font-size: 12px; color: #ffbb00;"></i>
+                                                <i class="fas fa-star" style="font-size: 12px; color: #ffbb00;"></i>
+                                                <i class="fas fa-star" style="font-size: 12px; color: #ffbb00;"></i>
+                                                <i class="fas fa-star-half-alt" style="font-size: 12px; color: #ffbb00;"></i>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="status active">Activo</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn-icon" title="Editar"><i class="fas fa-edit"></i></button>
+                                            <button class="btn-icon" title="Ver perfil"><i class="fas fa-eye"></i></button>
+                                            <button class="btn-icon" title="Eliminar"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" id="select3" style="accent-color: var(--admin-accent-color);">
+                                    </td>
+                                    <td>
+                                        <div class="user-info">
+                                            <img src="https://i.pravatar.cc/300?img=59" alt="Experto">
+                                            <div>
+                                                <h4>Roberto Sánchez</h4>
+                                                <span>roberto.s@gmail.com</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>DevOps</td>
+                                    <td>10/04/2025</td>
+                                    <td>0</td>
+                                    <td>
+                                        <span style="color: var(--admin-text-secondary); font-size: 13px;">Sin calificaciones</span>
+                                    </td>
+                                    <td><span class="status pending">Pendiente</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn-icon" title="Editar"><i class="fas fa-edit"></i></button>
+                                            <button class="btn-icon" title="Ver perfil"><i class="fas fa-eye"></i></button>
+                                            <button class="btn-icon" title="Eliminar"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" id="select4" style="accent-color: var(--admin-accent-color);">
+                                    </td>
+                                    <td>
+                                        <div class="user-info">
+                                            <img src="https://i.pravatar.cc/300?img=26" alt="Experto">
+                                            <div>
+                                                <h4>Laura Méndez</h4>
+                                                <span>laura.mendez@hotmail.com</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>Data Science</td>
+                                    <td>09/04/2025</td>
+                                    <td>12</td>
+                                    <td>
+                                        <div style="display: flex; align-items: center;">
+                                            <span style="color: #ffbb00; margin-right: 5px;">4.0</span>
+                                            <div style="display: flex; gap: 2px;">
+                                                <i class="fas fa-star" style="font-size: 12px; color: #ffbb00;"></i>
+                                                <i class="fas fa-star" style="font-size: 12px; color: #ffbb00;"></i>
+                                                <i class="fas fa-star" style="font-size: 12px; color: #ffbb00;"></i>
+                                                <i class="fas fa-star" style="font-size: 12px; color: #ffbb00;"></i>
+                                                <i class="far fa-star" style="font-size: 12px; color: #ffbb00; opacity: 0.3;"></i>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="status inactive">Inactivo</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn-icon" title="Editar"><i class="fas fa-edit"></i></button>
+                                            <button class="btn-icon" title="Ver perfil"><i class="fas fa-eye"></i></button>
+                                            <button class="btn-icon" title="Eliminar"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" id="select5" style="accent-color: var(--admin-accent-color);">
+                                    </td>
+                                    <td>
+                                        <div class="user-info">
+                                            <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Experto">
+                                            <div>
+                                                <h4>Pedro Ramírez</h4>
+                                                <span>pedro.ramirez@gmail.com</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>Mobile Development</td>
+                                    <td>08/04/2025</td>
+                                    <td>16</td>
+                                    <td>
+                                        <div style="display: flex; align-items: center;">
+                                            <span style="color: #ffbb00; margin-right: 5px;">4.8</span>
+                                            <div style="display: flex; gap: 2px;">
+                                                <i class="fas fa-star" style="font-size: 12px; color: #ffbb00;"></i>
+                                                <i class="fas fa-star" style="font-size: 12px; color: #ffbb00;"></i>
+                                                <i class="fas fa-star" style="font-size: 12px; color: #ffbb00;"></i>
+                                                <i class="fas fa-star" style="font-size: 12px; color: #ffbb00;"></i>
+                                                <i class="fas fa-star" style="font-size: 12px; color: #ffbb00;"></i>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="status active">Activo</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn-icon" title="Editar"><i class="fas fa-edit"></i></button>
+                                            <button class="btn-icon" title="Ver perfil"><i class="fas fa-eye"></i></button>
+                                            <button class="btn-icon" title="Eliminar"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" id="select6" style="accent-color: var(--admin-accent-color);">
+                                    </td>
+                                    <td>
+                                        <div class="user-info">
+                                            <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Experto">
+                                            <div>
+                                                <h4>Carla Jiménez</h4>
+                                                <span>carla.j@gmail.com</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>Blockchain</td>
+                                    <td>07/04/2025</td>
+                                    <td>5</td>
+                                    <td>
+                                        <div style="display: flex; align-items: center;">
+                                            <span style="color: #ffbb00; margin-right: 5px;">3.5</span>
+                                            <div style="display: flex; gap: 2px;">
+                                                <i class="fas fa-star" style="font-size: 12px; color: #ffbb00;"></i>
+                                                <i class="fas fa-star" style="font-size: 12px; color: #ffbb00;"></i>
+                                                <i class="fas fa-star" style="font-size: 12px; color: #ffbb00;"></i>
+                                                <i class="fas fa-star-half-alt" style="font-size: 12px; color: #ffbb00;"></i>
+                                                <i class="far fa-star" style="font-size: 12px; color: #ffbb00; opacity: 0.3;"></i>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="status active">Activo</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn-icon" title="Editar"><i class="fas fa-edit"></i></button>
+                                            <button class="btn-icon" title="Ver perfil"><i class="fas fa-eye"></i></button>
+                                            <button class="btn-icon" title="Eliminar"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" id="select7" style="accent-color: var(--admin-accent-color);">
+                                    </td>
+                                    <td>
+                                        <div class="user-info">
+                                            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Experto">
+                                            <div>
+                                                <h4>Alejandro Ruiz</h4>
+                                                <span>alejandro.r@outlook.com</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>Cloud Computing</td>
+                                    <td>06/04/2025</td>
+                                    <td>0</td>
+                                    <td>
+                                        <span style="color: var(--admin-text-secondary); font-size: 13px;">Sin calificaciones</span>
+                                    </td>
+                                    <td><span class="status pending">Pendiente</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn-icon" title="Editar"><i class="fas fa-edit"></i></button>
+                                            <button class="btn-icon" title="Ver perfil"><i class="fas fa-eye"></i></button>
+                                            <button class="btn-icon" title="Eliminar"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <div style="padding: 20px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--admin-border-color);">
+                            <span style="color: var(--admin-text-secondary); font-size: 14px;">Mostrando 1-7 de 128 expertos</span>
+                            <div style="display: flex; gap: 5px;">
+                                <button style="width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--admin-border-color); border-radius: 6px; background: none; color: var(--admin-text-secondary); cursor: not-allowed; opacity: 0.5;"><i class="fas fa-chevron-left"></i></button>
+                                <button style="width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 6px; background: var(--admin-accent-color); color: #fff; border: none;">1</button>
+                                <button style="width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--admin-border-color); border-radius: 6px; background: none; color: var(--admin-text-primary);">2</button>
+                                <button style="width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--admin-border-color); border-radius: 6px; background: none; color: var(--admin-text-primary);">3</button>
+                                <span style="display: flex; align-items: center; color: var(--admin-text-secondary);">...</span>
+                                <button style="width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--admin-border-color); border-radius: 6px; background: none; color: var(--admin-text-primary);">18</button>
+                                <button style="width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--admin-border-color); border-radius: 6px; background: none; color: var(--admin-text-primary);"><i class="fas fa-chevron-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Modal para agregar/editar experto -->
+    <div id="expertModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 1000; align-items: center; justify-content: center;">
+        <div style="width: 600px; max-width: 95%; background-color: var(--admin-card-bg); border-radius: 12px; box-shadow: var(--admin-shadow); overflow: hidden;">
+            <div style="padding: 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--admin-border-color);">
+                <h2 style="margin: 0; font-size: 18px; color: var(--admin-text-primary);">Agregar nuevo experto</h2>
+                <button class="btn-close" style="background: none; border: none; font-size: 18px; color: var(--admin-text-secondary); cursor: pointer;"><i class="fas fa-times"></i></button>
+            </div>
+            <div style="padding: 20px;">
+                <form id="expertForm">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
+                        <div>
+                            <label style="display: block; font-size: 14px; color: var(--admin-text-secondary); margin-bottom: 6px;">Nombre completo</label>
+                            <input type="text" id="name" placeholder="Nombre y apellidos" style="width: 100%; padding: 10px 12px; background-color: rgba(255, 255, 255, 0.05); border: 1px solid var(--admin-border-color); border-radius: 6px; color: var(--admin-text-primary); font-size: 14px;">
+                        </div>
+                        <div>
+                            <label style="display: block; font-size: 14px; color: var(--admin-text-secondary); margin-bottom: 6px;">Correo electrónico</label>
+                            <input type="email" id="email" placeholder="correo@ejemplo.com" style="width: 100%; padding: 10px 12px; background-color: rgba(255, 255, 255, 0.05); border: 1px solid var(--admin-border-color); border-radius: 6px; color: var(--admin-text-primary); font-size: 14px;">
+                        </div>
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
+                        <div>
+                            <label style="display: block; font-size: 14px; color: var(--admin-text-secondary); margin-bottom: 6px;">Especialidad principal</label>
+                            <select id="specialty" style="width: 100%; padding: 10px 12px; background-color: rgba(255, 255, 255, 0.05); border: 1px solid var(--admin-border-color); border-radius: 6px; color: var(--admin-text-primary); font-size: 14px;">
+                                <option value="">Seleccionar especialidad</option>
+                                <option value="web">Desarrollo Web</option>
+                                <option value="mobile">Desarrollo Móvil</option>
+                                <option value="data">Ciencia de Datos</option>
+                                <option value="uxui">UX/UI</option>
+                                <option value="devops">DevOps</option>
+                                <option value="blockchain">Blockchain</option>
+                                <option value="cloud">Cloud Computing</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label style="display: block; font-size: 14px; color: var(--admin-text-secondary); margin-bottom: 6px;">Estado</label>
+                            <select id="status" style="width: 100%; padding: 10px 12px; background-color: rgba(255, 255, 255, 0.05); border: 1px solid var(--admin-border-color); border-radius: 6px; color: var(--admin-text-primary); font-size: 14px;">
+                                <option value="active">Activo</option>
+                                <option value="pending">Pendiente</option>
+                                <option value="inactive">Inactivo</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; font-size: 14px; color: var(--admin-text-secondary); margin-bottom: 6px;">Habilidades</label>
+                        <input type="text" id="skills" placeholder="React, Node.js, MongoDB, etc." style="width: 100%; padding: 10px 12px; background-color: rgba(255, 255, 255, 0.05); border: 1px solid var(--admin-border-color); border-radius: 6px; color: var(--admin-text-primary); font-size: 14px;">
+                        <small style="display: block; margin-top: 5px; color: var(--admin-text-secondary); font-size: 12px;">Separar con comas las diferentes habilidades</small>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; font-size: 14px; color: var(--admin-text-secondary); margin-bottom: 6px;">Biografía profesional</label>
+                        <textarea id="bio" rows="4" placeholder="Descripción breve de experiencia y especialización" style="width: 100%; padding: 10px 12px; background-color: rgba(255, 255, 255, 0.05); border: 1px solid var(--admin-border-color); border-radius: 6px; color: var(--admin-text-primary); font-size: 14px; resize: vertical;"></textarea>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; font-size: 14px; color: var(--admin-text-secondary); margin-bottom: 6px;">Imagen de perfil</label>
+                        <div style="position: relative;">
+                            <input type="file" id="profileImage" style="position: absolute; opacity: 0; width: 100%; height: 100%; cursor: pointer;">
+                            <div style="display: flex; align-items: center; justify-content: center; padding: 12px; background-color: rgba(255, 255, 255, 0.05); border: 1px dashed var(--admin-border-color); border-radius: 6px; color: var(--admin-text-primary);">
+                                <i class="fas fa-upload" style="margin-right: 8px;"></i>
+                                <span>Seleccionar imagen</span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div style="padding: 20px; display: flex; justify-content: flex-end; gap: 10px; border-top: 1px solid var(--admin-border-color);">
+                <button class="btn-outline" data-dismiss="modal" style="padding: 10px 15px;">Cancelar</button>
+                <button class="btn-primary" id="saveExpert" style="padding: 10px 15px;">Guardar experto</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/admin/admin-common.js"></script>
+    <script src="../assets/js/admin/admin-expertos.js"></script>
+</body>
+</html>

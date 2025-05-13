@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Mensajes - ServiTech Admin</title>
+    <link rel="stylesheet" href="../assets/css/admin.css">
+    <link rel="stylesheet" href="../assets/css/admin-mensajes.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="admin-layout">
+        <aside class="admin-sidebar">
+            <div class="sidebar-header">
+                <a href="admin.html" class="logo">
+                    <img src="../assets/img/logo.png" alt="Servitech Logo" class="logo-img">
+                    <span class="logo-text">Admin</span>
+                </a>
+            </div>
+            <div class="sidebar-content">
+                <nav class="sidebar-nav">
+                    <ul>
+                        <li class="nav-item">
+                            <a href="admin.html">
+                                <i class="fas fa-tachometer-alt"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="admin-expertos.html">
+                                <i class="fas fa-users"></i>
+                                <span>Gestión de Expertos</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="admin-usuarios.html">
+                                <i class="fas fa-user-friends"></i>
+                                <span>Gestión de Usuarios</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="admin-categorias.html">
+                                <i class="fas fa-tags"></i>
+                                <span>Categorías</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="admin-publicaciones.html">
+                                <i class="fas fa-clipboard-list"></i>
+                                <span>Publicaciones</span>
+                            </a>
+                        </li>
+                        <li class="nav-item active">
+                            <a href="admin-mensajes.html">
+                                <i class="fas fa-envelope"></i>
+                                <span>Mensajes</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="admin-configuracion.html">
+                                <i class="fas fa-cog"></i>
+                                <span>Configuración</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="sidebar-footer">
+                <a href="/feed.html" class="btn-outline">
+                    <i class="fas fa-globe"></i>
+                    <span>Ver sitio</span>
+                </a>
+                <a href="/login.html" class="btn-logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Cerrar sesión</span>
+                </a>
+            </div>
+        </aside>
+        
+        <main class="admin-main">
+            <header class="admin-header">
+                <div class="header-search">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Buscar mensajes...">
+                </div>
+                <div class="header-actions">
+                    <div class="notification-icon">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">5</span>
+                    </div>
+                    <div class="admin-profile">
+                        <img src="https://i.pravatar.cc/150?img=11" alt="Admin profile" class="profile-img">
+                        <div class="profile-info">
+                            <span class="profile-name">Admin ServiTech</span>
+                            <span class="profile-role">Administrador</span>
+                        </div>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="admin-content">
+                <div class="page-header">
+                    <h1>Gestión de Mensajes</h1>
+                    <div class="page-actions">
+                        <button class="btn-primary" id="btnComposeMessage">
+                            <i class="fas fa-plus"></i>
+                            <span>Nuevo mensaje</span>
+                        </button>
+                        <button class="btn-outline">
+                            <i class="fas fa-file-export"></i>
+                            <span>Exportar</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: 280px 1fr; gap: 20px; margin-bottom: 25px;">
+                    <div class="table-container" style="padding: 20px;">
+                        <div style="margin-bottom: 20px;">
+                            <h3 style="font-size: 16px; font-weight: 600; color: var(--admin-text-primary); margin-bottom: 20px;">Filtros</h3>
+                            <div class="filter-group" style="display: flex; flex-direction: column; gap: 8px;">
+                                <button class="filter-btn active" style="display: flex; align-items: center; background: rgba(58, 142, 255, 0.1); border: none; padding: 10px 15px; border-radius: 8px; color: var(--admin-accent-color); text-align: left; font-size: 14px; font-weight: 500; cursor: pointer; justify-content: space-between;">
+                                    <div style="display: flex; align-items: center; gap: 12px;">
+                                        <i class="fas fa-inbox"></i>
+                                        <span>Bandeja de entrada</span>
+                                    </div>
+                                    <span class="message-count" style="background-color: var(--admin-accent-color); color: white; padding: 2px 8px; border-radius: 10px; font-size: 12px;">18</span>
+                                </button>
+                                <button class="filter-btn" style="display: flex; align-items: center; background: none; border: none; padding: 10px 15px; border-radius: 8px; color: var(--admin-text-primary); text-align: left; font-size: 14px; font-weight: 500; cursor: pointer; justify-content: space-between;">
+                                    <div style="display: flex; align-items: center; gap: 12px;">
+                                        <i class="fas fa-star"></i>
+                                        <span>Destacados</span>
+                                    </div>
+                                    <span class="message-count" style="background-color: var(--admin-border-color); color: var(--admin-text-secondary); padding: 2px 8px; border-radius: 10px; font-size: 12px;">5</span>
+                                </button>
+                                <button class="filter-btn" style="display: flex; align-items: center; background: none; border: none; padding: 10px 15px; border-radius: 8px; color: var(--admin-text-primary); text-align: left; font-size: 14px; font-weight: 500; cursor: pointer; justify-content: space-between;">
+                                    <div style="display: flex; align-items: center; gap: 12px;">
+                                        <i class="fas fa-paper-plane"></i>
+                                        <span>Enviados</span>
+                                    </div>
+                                    <span class="message-count" style="background-color: var(--admin-border-color); color: var(--admin-text-secondary); padding: 2px 8px; border-radius: 10px; font-size: 12px;">12</span>
+                                </button>
+                                <button class="filter-btn" style="display: flex; align-items: center; background: none; border: none; padding: 10px 15px; border-radius: 8px; color: var(--admin-text-primary); text-align: left; font-size: 14px; font-weight: 500; cursor: pointer; justify-content: space-between;">
+                                    <div style="display: flex; align-items: center; gap: 12px;">
+                                        <i class="fas fa-exclamation-circle"></i>
+                                        <span>Importantes</span>
+                                    </div>
+                                    <span class="message-count" style="background-color: var(--admin-border-color); color: var(--admin-text-secondary); padding: 2px 8px; border-radius: 10px; font-size: 12px;">3</span>
+                                </button>
+                                <button class="filter-btn" style="display: flex; align-items: center; background: none; border: none; padding: 10px 15px; border-radius: 8px; color: var(--admin-text-primary); text-align: left; font-size: 14px; font-weight: 500; cursor: pointer; justify-content: space-between;">
+                                    <div style="display: flex; align-items: center; gap: 12px;">
+                                        <i class="fas fa-trash-alt"></i>
+                                        <span>Eliminados</span>
+                                    </div>
+                                    <span class="message-count" style="background-color: var(--admin-border-color); color: var(--admin-text-secondary); padding: 2px 8px; border-radius: 10px; font-size: 12px;">8</span>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 30px; margin-bottom: 20px;">
+                            <h3 style="font-size: 16px; font-weight: 600; color: var(--admin-text-primary); margin-bottom: 15px;">Etiquetas</h3>
+                            <div style="display: flex; flex-direction: column; gap: 10px;">
+                                <div style="display: flex; align-items: center; gap: 10px; cursor: pointer; padding: 6px 8px; border-radius: 6px; transition: background-color 0.2s;">
+                                    <span style="width: 12px; height: 12px; border-radius: 3px; background-color: #3a8eff; display: block;"></span>
+                                    <span style="color: var(--admin-text-primary); font-size: 14px;">Soporte</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 10px; cursor: pointer; padding: 6px 8px; border-radius: 6px; transition: background-color 0.2s;">
+                                    <span style="width: 12px; height: 12px; border-radius: 3px; background-color: #28a745; display: block;"></span>
+                                    <span style="color: var(--admin-text-primary); font-size: 14px;">Proyectos</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 10px; cursor: pointer; padding: 6px 8px; border-radius: 6px; transition: background-color 0.2s;">
+                                    <span style="width: 12px; height: 12px; border-radius: 3px; background-color: #ffc107; display: block;"></span>
+                                    <span style="color: var(--admin-text-primary); font-size: 14px;">Clientes</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 10px; cursor: pointer; padding: 6px 8px; border-radius: 6px; transition: background-color 0.2s;">
+                                    <span style="width: 12px; height: 12px; border-radius: 3px; background-color: #dc3545; display: block;"></span>
+                                    <span style="color: var(--admin-text-primary); font-size: 14px;">Urgente</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 10px; cursor: pointer; padding: 6px 8px; border-radius: 6px; transition: background-color 0.2s;">
+                                    <span style="width: 12px; height: 12px; border-radius: 3px; background-color: #6c757d; display: block;"></span>
+                                    <span style="color: var(--admin-text-primary); font-size: 14px;">Personal</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 30px;">
+                            <h3 style="font-size: 16px; font-weight: 600; color: var(--admin-text-primary); margin-bottom: 15px;">Estadísticas</h3>
+                            <div style="display: flex; flex-direction: column; gap: 15px;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px; border-radius: 8px; background-color: rgba(58, 142, 255, 0.1); color: var(--admin-text-primary);">
+                                    <div style="display: flex; align-items: center;">
+                                        <i class="fas fa-envelope-open" style="font-size: 20px; color: var(--admin-accent-color); margin-right: 12px;"></i>
+                                        <span>Total Mensajes</span>
+                                    </div>
+                                    <span style="font-weight: 600; font-size: 16px;">436</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px; border-radius: 8px; background-color: rgba(255, 193, 7, 0.1); color: var(--admin-text-primary);">
+                                    <div style="display: flex; align-items: center;">
+                                        <i class="fas fa-envelope" style="font-size: 20px; color: #ffc107; margin-right: 12px;"></i>
+                                        <span>No leídos</span>
+                                    </div>
+                                    <span style="font-weight: 600; font-size: 16px;">18</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px; border-radius: 8px; background-color: rgba(40, 167, 69, 0.1); color: var(--admin-text-primary);">
+                                    <div style="display: flex; align-items: center;">
+                                        <i class="fas fa-paper-plane" style="font-size: 20px; color: #28a745; margin-right: 12px;"></i>
+                                        <span>Enviados hoy</span>
+                                    </div>
+                                    <span style="font-weight: 600; font-size: 16px;">8</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="table-container">
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; border-bottom: 1px solid var(--admin-border-color);">
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <div style="display: flex; align-items: center;">
+                                    <input type="checkbox" id="selectAll" style="accent-color: var(--admin-accent-color); width: 18px; height: 18px;">
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 5px;">
+                                    <button class="btn-icon" style="color: var(--admin-text-secondary); background: none; border: none; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 6px;">
+                                        <i class="fas fa-chevron-down"></i>
+                                    </button>
+                                </div>
+                                <button class="btn-icon" title="Actualizar" style="color: var(--admin-text-secondary); background: none; border: none; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 6px;">
+                                    <i class="fas fa-sync-alt"></i>
+                                </button>
+                                <button class="btn-icon" title="Archivar" style="color: var(--admin-text-secondary); background: none; border: none; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 6px;">
+                                    <i class="fas fa-archive"></i>
+                                </button>
+                                <button class="btn-icon" title="Marcar como spam" style="color: var(--admin-text-secondary); background: none; border: none; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 6px;">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                </button>
+                                <button class="btn-icon" title="Eliminar" style="color: var(--admin-text-secondary); background: none; border: none; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 6px;">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 15px;">
+                                <span style="color: var(--admin-text-secondary); font-size: 14px;">1-7 de 18</span>
+                                <div style="display: flex; gap: 5px;">
+                                    <button style="width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--admin-border-color); border-radius: 6px; background: none; color: var(--admin-text-secondary); cursor: not-allowed; opacity: 0.5;"><i class="fas fa-chevron-left"></i></button>
+                                    <button style="width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--admin-border-color); border-radius: 6px; background: none; color: var(--admin-text-primary);"><i class="fas fa-chevron-right"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; flex-direction: column;">
+                            <div class="message-item unread" style="display: flex; align-items: center; padding: 16px 20px; border-bottom: 1px solid var(--admin-border-color); cursor: pointer; background-color: rgba(58, 142, 255, 0.05);">
+                                <div style="margin-right: 15px; display: flex; align-items: center;">
+                                    <input type="checkbox" id="msg1" style="accent-color: var(--admin-accent-color); width: 18px; height: 18px;">
+                                </div>
+                                <div style="margin-right: 15px; color: var(--admin-text-secondary); cursor: pointer; width: 24px; text-align: center;">
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <div style="width: 200px; display: flex; align-items: center; gap: 10px; margin-right: 15px;">
+                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Remitente" style="width: 36px; height: 36px; border-radius: 50%; object-fit: cover;">
+                                    <span style="font-weight: 600; color: var(--admin-text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Mario Velázquez</span>
+                                </div>
+                                <div style="flex: 1; margin-right: 15px;">
+                                    <div style="font-weight: 600; color: var(--admin-text-primary); margin-bottom: 4px;">
+                                        Consulta sobre proyecto de desarrollo web
+                                    </div>
+                                    <div style="font-size: 14px; color: var(--admin-text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 500px;">
+                                        Hola, necesito información sobre los tiempos estimados para el proyecto de desarrollo que estamos...
+                                    </div>
+                                </div>
+                                <div style="margin-right: 15px; width: 24px; color: var(--admin-accent-color); text-align: center;">
+                                    <i class="fas fa-paperclip"></i>
+                                </div>
+                                <div style="width: 80px; text-align: right; color: var(--admin-text-secondary); font-size: 14px;">
+                                    12:45 PM
+                                </div>
+                            </div>
+                            
+                            <div class="message-item unread" style="display: flex; align-items: center; padding: 16px 20px; border-bottom: 1px solid var(--admin-border-color); cursor: pointer; background-color: rgba(58, 142, 255, 0.05);">
+                                <div style="margin-right: 15px; display: flex; align-items: center;">
+                                    <input type="checkbox" id="msg2" style="accent-color: var(--admin-accent-color); width: 18px; height: 18px;">
+                                </div>
+                                <div style="margin-right: 15px; color: var(--admin-accent-color); cursor: pointer; width: 24px; text-align: center;">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div style="width: 200px; display: flex; align-items: center; gap: 10px; margin-right: 15px;">
+                                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Remitente" style="width: 36px; height: 36px; border-radius: 50%; object-fit: cover;">
+                                    <span style="font-weight: 600; color: var(--admin-text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Ana García</span>
+                                </div>
+                                <div style="flex: 1; margin-right: 15px;">
+                                    <div style="font-weight: 600; color: var(--admin-text-primary); margin-bottom: 4px;">
+                                        Actualizaciones de diseño para aplicación
+                                    </div>
+                                    <div style="font-size: 14px; color: var(--admin-text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 500px;">
+                                        Te envío los mockups actualizados para que los revises. Hice los cambios que solicitaste en la última reunión...
+                                    </div>
+                                </div>
+                                <div style="margin-right: 15px; width: 24px; color: var(--admin-accent-color); text-align: center;">
+                                    <i class="fas fa-paperclip"></i>
+                                </div>
+                                <div style="width: 80px; text-align: right; color: var(--admin-text-secondary); font-size: 14px;">
+                                    11:20 AM
+                                </div>
+                            </div>
+                            
+                            <div class="message-item" style="display: flex; align-items: center; padding: 16px 20px; border-bottom: 1px solid var(--admin-border-color); cursor: pointer;">
+                                <div style="margin-right: 15px; display: flex; align-items: center;">
+                                    <input type="checkbox" id="msg3" style="accent-color: var(--admin-accent-color); width: 18px; height: 18px;">
+                                </div>
+                                <div style="margin-right: 15px; color: var(--admin-text-secondary); cursor: pointer; width: 24px; text-align: center;">
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <div style="width: 200px; display: flex; align-items: center; gap: 10px; margin-right: 15px;">
+                                    <img src="https://randomuser.me/api/portraits/men/59.jpg" alt="Remitente" style="width: 36px; height: 36px; border-radius: 50%; object-fit: cover;">
+                                    <span style="font-weight: 500; color: var(--admin-text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Roberto Sánchez</span>
+                                </div>
+                                <div style="flex: 1; margin-right: 15px;">
+                                    <div style="font-weight: 500; color: var(--admin-text-primary); margin-bottom: 4px;">
+                                        Informe mensual de actividades
+                                    </div>
+                                    <div style="font-size: 14px; color: var(--admin-text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 500px;">
+                                        Adjunto te envío el informe mensual de actividades con los KPIs actualizados. El rendimiento ha mejorado...
+                                    </div>
+                                </div>
+                                <div style="margin-right: 15px; width: 24px; color: var(--admin-accent-color); text-align: center;">
+                                    <i class="fas fa-paperclip"></i>
+                                </div>
+                                <div style="width: 80px; text-align: right; color: var(--admin-text-secondary); font-size: 14px;">
+                                    Ayer
+                                </div>
+                            </div>
+                            
+                            <div class="message-item" style="display: flex; align-items: center; padding: 16px 20px; border-bottom: 1px solid var(--admin-border-color); cursor: pointer;">
+                                <div style="margin-right: 15px; display: flex; align-items: center;">
+                                    <input type="checkbox" id="msg4" style="accent-color: var (--admin-accent-color); width: 18px; height: 18px;">
+                                </div>
+                                <div style="margin-right: 15px; color: var(--admin-text-secondary); cursor: pointer; width: 24px; text-align: center;">
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <div style="width: 200px; display: flex; align-items: center; gap: 10px; margin-right: 15px;">
+                                    <img src="https://randomuser.me/api/portraits/women/26.jpg" alt="Remitente" style="width: 36px; height: 36px; border-radius: 50%; object-fit: cover;">
+                                    <span style="font-weight: 500; color: var(--admin-text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Laura Méndez</span>
+                                </div>
+                                <div style="flex: 1; margin-right: 15px;">
+                                    <div style="font-weight: 500; color: var(--admin-text-primary); margin-bottom: 4px;">
+                                        Problema en la integración de la API
+                                    </div>
+                                    <div style="font-size: 14px; color: var(--admin-text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 500px;">
+                                        Estamos teniendo problemas con la integración de la API de pagos. Los usuarios están reportando errores al...
+                                    </div>
+                                </div>
+                                <div style="margin-right: 15px; width: 24px; color: var(--admin-text-secondary); text-align: center;">
+                                </div>
+                                <div style="width: 80px; text-align: right; color: var(--admin-text-secondary); font-size: 14px;">
+                                    Ayer
+                                </div>
+                            </div>
+                            
+                            <div class="message-item unread" style="display: flex; align-items: center; padding: 16px 20px; border-bottom: 1px solid var(--admin-border-color); cursor: pointer; background-color: rgba(58, 142, 255, 0.05);">
+                                <div style="margin-right: 15px; display: flex; align-items: center;">
+                                    <input type="checkbox" id="msg5" style="accent-color: var(--admin-accent-color); width: 18px; height: 18px;">
+                                </div>
+                                <div style="margin-right: 15px; color: var(--admin-accent-color); cursor: pointer; width: 24px; text-align: center;">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div style="width: 200px; display: flex; align-items: center; gap: 10px; margin-right: 15px;">
+                                    <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Remitente" style="width: 36px; height: 36px; border-radius: 50%; object-fit: cover;">
+                                    <span style="font-weight: 600; color: var(--admin-text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Pedro Ramírez</span>
+                                </div>
+                                <div style="flex: 1; margin-right: 15px;">
+                                    <div style="font-weight: 600; color: var(--admin-text-primary); margin-bottom: 4px;">
+                                        Nueva oportunidad de proyecto
+                                    </div>
+                                    <div style="font-size: 14px; color: var(--admin-text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 500px;">
+                                        He estado hablando con un cliente potencial que está interesado en nuestros servicios de desarrollo móvil...
+                                    </div>
+                                </div>
+                                <div style="margin-right: 15px; width: 24px; color: var(--admin-text-secondary); text-align: center;">
+                                </div>
+                                <div style="width: 80px; text-align: right; color: var(--admin-text-secondary); font-size: 14px;">
+                                    3 Abr
+                                </div>
+                            </div>
+                            
+                            <div class="message-item" style="display: flex; align-items: center; padding: 16px 20px; border-bottom: 1px solid var(--admin-border-color); cursor: pointer;">
+                                <div style="margin-right: 15px; display: flex; align-items: center;">
+                                    <input type="checkbox" id="msg6" style="accent-color: var(--admin-accent-color); width: 18px; height: 18px;">
+                                </div>
+                                <div style="margin-right: 15px; color: var(--admin-text-secondary); cursor: pointer; width: 24px; text-align: center;">
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <div style="width: 200px; display: flex; align-items: center; gap: 10px; margin-right: 15px;">
+                                    <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Remitente" style="width: 36px; height: 36px; border-radius: 50%; object-fit: cover;">
+                                    <span style="font-weight: 500; color: var(--admin-text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Carla Jiménez</span>
+                                </div>
+                                <div style="flex: 1; margin-right: 15px;">
+                                    <div style="font-weight: 500; color: var(--admin-text-primary); margin-bottom: 4px;">
+                                        Solicitud de cambios en la plataforma
+                                    </div>
+                                    <div style="font-size: 14px; color: var(--admin-text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 500px;">
+                                        Necesitamos realizar algunos cambios en la plataforma antes del lanzamiento. Te adjunto el documento con...
+                                    </div>
+                                </div>
+                                <div style="margin-right: 15px; width: 24px; color: var(--admin-accent-color); text-align: center;">
+                                    <i class="fas fa-paperclip"></i>
+                                </div>
+                                <div style="width: 80px; text-align: right; color: var(--admin-text-secondary); font-size: 14px;">
+                                    2 Abr
+                                </div>
+                            </div>
+                            
+                            <div class="message-item" style="display: flex; align-items: center; padding: 16px 20px; border-bottom: 1px solid var(--admin-border-color); cursor: pointer;">
+                                <div style="margin-right: 15px; display: flex; align-items: center;">
+                                    <input type="checkbox" id="msg7" style="accent-color: var(--admin-accent-color); width: 18px; height: 18px;">
+                                </div>
+                                <div style="margin-right: 15px; color: var(--admin-accent-color); cursor: pointer; width: 24px; text-align: center;">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div style="width: 200px; display: flex; align-items: center; gap: 10px; margin-right: 15px;">
+                                    <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Remitente" style="width: 36px; height: 36px; border-radius: 50%; object-fit: cover;">
+                                    <span style="font-weight: 500; color: var(--admin-text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Alejandro Ruiz</span>
+                                </div>
+                                <div style="flex: 1; margin-right: 15px;">
+                                    <div style="font-weight: 500; color: var(--admin-text-primary); margin-bottom: 4px;">
+                                        Propuesta de colaboración
+                                    </div>
+                                    <div style="font-size: 14px; color: var(--admin-text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 500px;">
+                                        Me gustaría proponerte una colaboración para el proyecto de blockchain que estamos desarrollando. Creo que...
+                                    </div>
+                                </div>
+                                <div style="margin-right: 15px; width: 24px; color: var(--admin-text-secondary); text-align: center;">
+                                </div>
+                                <div style="width: 80px; text-align: right; color: var(--admin-text-secondary); font-size: 14px;">
+                                    28 Mar
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="padding: 20px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--admin-border-color);">
+                            <span style="color: var(--admin-text-secondary); font-size: 14px;">Mostrando 1-7 de 18 mensajes</span>
+                            <div style="display: flex; gap: 5px;">
+                                <button style="width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--admin-border-color); border-radius: 6px; background: none; color: var(--admin-text-secondary); cursor: not-allowed; opacity: 0.5;"><i class="fas fa-chevron-left"></i></button>
+                                <button style="width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 6px; background: var(--admin-accent-color); color: #fff; border: none;">1</button>
+                                <button style="width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--admin-border-color); border-radius: 6px; background: none; color: var(--admin-text-primary);">2</button>
+                                <button style="width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--admin-border-color); border-radius: 6px; background: none; color: var(--admin-text-primary);">3</button>
+                                <button style="width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--admin-border-color); border-radius: 6px; background: none; color: var(--admin-text-primary);"><i class="fas fa-chevron-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Modal para redactar mensaje -->
+    <div id="composeModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 1000; align-items: center; justify-content: center; overflow-y: auto;">
+        <div style="width: 800px; max-width: 95%; background-color: var(--admin-card-bg); border-radius: 12px; box-shadow: var(--admin-shadow); overflow: hidden; margin: 30px auto;">
+            <div style="padding: 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--admin-border-color);">
+                <h2 style="margin: 0; font-size: 18px; color: var(--admin-text-primary);">Nuevo mensaje</h2>
+                <button class="btn-close" style="background: none; border: none; font-size: 18px; color: var(--admin-text-secondary); cursor: pointer;"><i class="fas fa-times"></i></button>
+            </div>
+            <div style="padding: 20px;">
+                <form id="composeForm">
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; font-size: 14px; color: var(--admin-text-secondary); margin-bottom: 6px;">Para</label>
+                        <input type="text" id="messageTo" placeholder="Ingresa destinatarios" style="width: 100%; padding: 10px 12px; background-color: rgba(255, 255, 255, 0.05); border: 1px solid var(--admin-border-color); border-radius: 6px; color: var(--admin-text-primary); font-size: 14px;">
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
+                        <div>
+                            <label style="display: block; font-size: 14px; color: var(--admin-text-secondary); margin-bottom: 6px;">CC</label>
+                            <input type="text" id="messageCc" placeholder="Copia a" style="width: 100%; padding: 10px 12px; background-color: rgba(255, 255, 255, 0.05); border: 1px solid var(--admin-border-color); border-radius: 6px; color: var(--admin-text-primary); font-size: 14px;">
+                        </div>
+                        <div>
+                            <label style="display: block; font-size: 14px; color: var(--admin-text-secondary); margin-bottom: 6px;">CCO</label>
+                            <input type="text" id="messageBcc" placeholder="Copia oculta a" style="width: 100%; padding: 10px 12px; background-color: rgba(255, 255, 255, 0.05); border: 1px solid var(--admin-border-color); border-radius: 6px; color: var(--admin-text-primary); font-size: 14px;">
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; font-size: 14px; color: var(--admin-text-secondary); margin-bottom: 6px;">Asunto</label>
+                        <input type="text" id="messageSubject" placeholder="Asunto del mensaje" style="width: 100%; padding: 10px 12px; background-color: rgba(255, 255, 255, 0.05); border: 1px solid var(--admin-border-color); border-radius: 6px; color: var(--admin-text-primary); font-size: 14px;">
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; font-size: 14px; color: var(--admin-text-secondary); margin-bottom: 6px;">Mensaje</label>
+                        <textarea id="messageBody" rows="10" placeholder="Escribe tu mensaje aquí" style="width: 100%; padding: 10px 12px; background-color: rgba(255, 255, 255, 0.05); border: 1px solid var(--admin-border-color); border-radius: 6px; color: var(--admin-text-primary); font-size: 14px; resize: vertical;"></textarea>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; font-size: 14px; color: var(--admin-text-secondary); margin-bottom: 6px;">Adjuntos</label>
+                        <div style="position: relative;">
+                            <input type="file" id="messageAttachments" style="position: absolute; opacity: 0; width: 100%; height: 100%; cursor: pointer;" multiple>
+                            <div style="display: flex; align-items: center; justify-content: center; padding: 15px; background-color: rgba(255, 255, 255, 0.05); border: 1px dashed var(--admin-border-color); border-radius: 6px; color: var(--admin-text-primary);">
+                                <i class="fas fa-paperclip" style="margin-right: 8px;"></i>
+                                <span>Arrastra archivos o haz clic para seleccionar</span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div style="padding: 20px; display: flex; justify-content: flex-end; gap: 10px; border-top: 1px solid var(--admin-border-color);">
+                <button class="btn-outline" data-dismiss="modal" style="padding: 10px 15px;">Descartar</button>
+                <button class="btn-primary" id="sendMessage" style="padding: 10px 15px;">Enviar mensaje</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/admin/admin-common.js"></script>
+    <script src="../assets/js/admin/admin-mensajes.js"></script>
+</body>
+</html>
