@@ -122,7 +122,6 @@ box-shadow:0 5px 15px #fff3
 header {
 background-color:#1a1a1acc;
 backdrop-filter:blur(10px);
-border-bottom:1px solid var(--border-light);
 position:sticky;
 top:0;
 z-index:100;
@@ -131,10 +130,10 @@ box-shadow:0 4px 20px #0000004d
 
 .navbar {
 display:flex;
-justify-content:space-between;
+justify-content:center;
 align-items:center;
-padding:1rem 5%;
-max-width:var(--content-max-width);
+padding:2.4rem 4%;
+max-width:100%;
 margin:0 auto;
 height:var(--header-height)
 }
@@ -145,8 +144,10 @@ align-items:center
 }
 
 .logo img {
-height:40px;
+height:50px;
 transition:transform .3s
+width=120
+height=50
 }
 
 .logo:hover img {
@@ -155,10 +156,14 @@ transform:scale(1.05)
 
 .nav-links {
 display:flex;
-gap:1.5rem
+gap:2rem;
+align-items:center
 }
 
 .nav-item {
+display:flex;
+align-items:center;
+gap:.5rem;
 color:var(--text-secondary);
 padding:.5rem .75rem;
 border-radius:6px;
@@ -173,7 +178,8 @@ background-color:#ffffff0d
 
 .auth-buttons {
 display:flex;
-gap:12px
+gap:1rem;
+align-items:center
 }
 
 .card {
