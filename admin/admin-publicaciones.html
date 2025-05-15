@@ -1,523 +1,953 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gestión de Publicaciones - ServiTech Admin</title>
-    <link rel="stylesheet" href="../assets/css/admin.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
+    <link rel="stylesheet" href="../assets/css/admin.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <div class="admin-layout">
-        <aside class="admin-sidebar">
-            <div class="sidebar-header">
-                <a href="admin.html" class="logo">
-                    <img src="../assets/img/logo.png" alt="Servitech Logo" class="logo-img">
-                    <span class="logo-text">Admin</span>
-                </a>
-            </div>
-            <div class="sidebar-content">
-                <nav class="sidebar-nav">
-                    <ul>
-                        <li class="nav-item">
-                            <a href="admin.html">
-                                <i class="fas fa-tachometer-alt"></i>
-                                <span>Dashboard</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="admin-expertos.html">
-                                <i class="fas fa-users"></i>
-                                <span>Gestión de Expertos</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="admin-usuarios.html">
-                                <i class="fas fa-user-friends"></i>
-                                <span>Gestión de Usuarios</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="admin-categorias.html">
-                                <i class="fas fa-tags"></i>
-                                <span>Categorías</span>
-                            </a>
-                        </li>
-                        <li class="nav-item active">
-                            <a href="admin-publicaciones.html">
-                                <i class="fas fa-clipboard-list"></i>
-                                <span>Publicaciones</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="admin-mensajes.html">
-                                <i class="fas fa-envelope"></i>
-                                <span>Mensajes</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="admin-configuracion.html">
-                                <i class="fas fa-cog"></i>
-                                <span>Configuración</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-            <div class="sidebar-footer">
-                <a href="/feed.html" class="btn-outline">
-                    <i class="fas fa-globe"></i>
-                    <span>Ver sitio</span>
-                </a>
-                <a href="/login.html" class="btn-logout">
-                    <i class="fas fa-sign-out-alt"></i>
-                    <span>Cerrar sesión</span>
-                </a>
-            </div>
-        </aside>
-        
-        <main class="admin-main">
-            <header class="admin-header">
-                <div class="header-search">
-                    <i class="fas fa-search"></i>
-                    <input type="text" placeholder="Buscar publicaciones...">
-                </div>
-                <div class="header-actions">
-                    <div class="notification-icon">
-                        <i class="fas fa-bell"></i>
-                        <span class="notification-badge">5</span>
-                    </div>
-                    <div class="admin-profile">
-                        <img src="https://i.pravatar.cc/150?img=11" alt="Admin profile" class="profile-img">
-                        <div class="profile-info">
-                            <span class="profile-name">Admin ServiTech</span>
-                            <span class="profile-role">Administrador</span>
-                        </div>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                </div>
-            </header>
-            
-            <div class="admin-content">
-                <div class="page-header">
-                    <h1>Gestión de Publicaciones</h1>
-                    <div class="page-actions">
-                        <button class="btn-primary" id="btnAddPost">
-                            <i class="fas fa-plus"></i>
-                            <span>Nueva publicación</span>
-                        </button>
-                        <button class="btn-outline">
-                            <i class="fas fa-file-export"></i>
-                            <span>Exportar</span>
-                        </button>
-                    </div>
-                </div>
-                
-                <div style="display: grid; grid-template-columns: 1fr 3fr; gap: 20px; margin-bottom: 25px;">
-                    <div class="table-container" style="padding: 20px;">
-                        <div style="margin-bottom: 20px;">
-                            <h3 style="font-size: 16px; font-weight: 600; color: var(--admin-text-primary); margin-bottom: 15px;">Filtros</h3>
-                            <div style="margin-bottom: 15px;">
-                                <label style="display: block; font-size: 14px; color: var(--admin-text-secondary); margin-bottom: 6px;">Estado</label>
-                                <select style="width: 100%; padding: 8px 12px; background-color: rgba(255, 255, 255, 0.05); border: 1px solid var(--admin-border-color); border-radius: 6px; color: var(--admin-text-primary); font-size: 14px;">
-                                    <option value="">Todos los estados</option>
-                                    <option value="published">Publicadas</option>
-                                    <option value="pending">Pendientes</option>
-                                    <option value="rejected">Rechazadas</option>
-                                    <option value="completed">Completadas</option>
-                                </select>
-                            </div>
-                            <div style="margin-bottom: 15px;">
-                                <label style="display: block; font-size: 14px; color: var(--admin-text-secondary); margin-bottom: 6px;">Categoría</label>
-                                <select style="width: 100%; padding: 8px 12px; background-color: rgba(255, 255, 255, 0.05); border: 1px solid var(--admin-border-color); border-radius: 6px; color: var(--admin-text-primary); font-size: 14px;">
-                                    <option value="">Todas las categorías</option>
-                                    <option value="web">Desarrollo Web</option>
-                                    <option value="mobile">Desarrollo Móvil</option>
-                                    <option value="uxui">UX/UI Design</option>
-                                    <option value="data">Ciencia de Datos</option>
-                                    <option value="devops">DevOps</option>
-                                    <option value="blockchain">Blockchain</option>
-                                    <option value="cloud">Cloud Computing</option>
-                                </select>
-                            </div>
-                            <div style="margin-bottom: 15px;">
-                                <label style="display: block; font-size: 14px; color: var(--admin-text-secondary); margin-bottom: 6px;">Fecha de publicación</label>
-                                <select style="width: 100%; padding: 8px 12px; background-color: rgba(255, 255, 255, 0.05); border: 1px solid var(--admin-border-color); border-radius: 6px; color: var(--admin-text-primary); font-size: 14px;">
-                                    <option value="">Todas las fechas</option>
-                                    <option value="today">Hoy</option>
-                                    <option value="week">Esta semana</option>
-                                    <option value="month">Este mes</option>
-                                    <option value="year">Este año</option>
-                                </select>
-                            </div>
-                            <div style="margin-bottom: 15px;">
-                                <label style="display: block; font-size: 14px; color: var(--admin-text-secondary); margin-bottom: 6px;">Rango de presupuesto</label>
-                                <div style="display: flex; gap: 10px; align-items: center;">
-                                    <input type="number" placeholder="Min $" style="width: 50%; padding: 8px 12px; background-color: rgba(255, 255, 255, 0.05); border: 1px solid var(--admin-border-color); border-radius: 6px; color: var(--admin-text-primary); font-size: 14px;">
-                                    <span style="color: var(--admin-text-secondary);">-</span>
-                                    <input type="number" placeholder="Max $" style="width: 50%; padding: 8px 12px; background-color: rgba(255, 255, 255, 0.05); border: 1px solid var(--admin-border-color); border-radius: 6px; color: var(--admin-text-primary); font-size: 14px;">
-                                </div>
-                            </div>
-                            <button class="btn-primary" style="width: 100%; margin-top: 10px;">
-                                <i class="fas fa-filter"></i>
-                                <span>Aplicar filtros</span>
-                            </button>
-                        </div>
-                        
-                        <div style="margin-top: 30px;">
-                            <h3 style="font-size: 16px; font-weight: 600; color: var(--admin-text-primary); margin-bottom: 15px;">Estadísticas</h3>
-                            <div style="display: flex; flex-direction: column; gap: 15px;">
-                                <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px; border-radius: 8px; background-color: rgba(58, 142, 255, 0.1); color: var(--admin-text-primary);">
-                                    <div style="display: flex; align-items: center;">
-                                        <i class="fas fa-clipboard-list" style="font-size: 20px; color: var(--admin-accent-color); margin-right: 12px;"></i>
-                                        <span>Total Publicaciones</span>
-                                    </div>
-                                    <span style="font-weight: 600; font-size: 16px;">2,875</span>
-                                </div>
-                                <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px; border-radius: 8px; background-color: rgba(40, 167, 69, 0.1); color: var(--admin-text-primary);">
-                                    <div style="display: flex; align-items: center;">
-                                        <i class="fas fa-check-circle" style="font-size: 20px; color: #28a745; margin-right: 12px;"></i>
-                                        <span>Publicadas</span>
-                                    </div>
-                                    <span style="font-weight: 600; font-size: 16px;">2,164</span>
-                                </div>
-                                <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px; border-radius: 8px; background-color: rgba(255, 193, 7, 0.1); color: var(--admin-text-primary);">
-                                    <div style="display: flex; align-items: center;">
-                                        <i class="fas fa-clock" style="font-size: 20px; color: #ffc107; margin-right: 12px;"></i>
-                                        <span>Pendientes</span>
-                                    </div>
-                                    <span style="font-weight: 600; font-size: 16px;">412</span>
-                                </div>
-                                <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px; border-radius: 8px; background-color: rgba(18, 216, 250, 0.1); color: var(--admin-text-primary);">
-                                    <div style="display: flex; align-items: center;">
-                                        <i class="fas fa-handshake" style="font-size: 20px; color: var(--admin-accent-secondary); margin-right: 12px;"></i>
-                                        <span>Completadas</span>
-                                    </div>
-                                    <span style="font-weight: 600; font-size: 16px;">1,245</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="table-container">
-                        <table class="admin-table">
-                            <thead>
-                                <tr>
-                                    <th>
-                                        <input type="checkbox" id="selectAll" style="accent-color: var(--admin-accent-color);">
-                                    </th>
-                                    <th>Título</th>
-                                    <th>Autor</th>
-                                    <th>Categoría</th>
-                                    <th>Fecha</th>
-                                    <th>Presupuesto</th>
-                                    <th>Estado</th>
-                                    <th>Acciones</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <input type="checkbox" id="select1" style="accent-color: var(--admin-accent-color);">
-                                    </td>
-                                    <td>
-                                        <div style="max-width: 250px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
-                                            Diseño de sitio web para empresa de construcción
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div style="display: flex; align-items: center;">
-                                            <img src="https://randomuser.me/api/portraits/women/26.jpg" alt="Usuario" style="width: 32px; height: 32px; border-radius: 50%; margin-right: 10px;">
-                                            <span>María Rodríguez</span>
-                                        </div>
-                                    </td>
-                                    <td>Desarrollo Web</td>
-                                    <td>12/04/2025</td>
-                                    <td>$1,500</td>
-                                    <td><span class="status active">Publicada</span></td>
-                                    <td>
-                                        <div class="action-buttons">
-                                            <button class="btn-icon" title="Editar"><i class="fas fa-edit"></i></button>
-                                            <button class="btn-icon" title="Ver detalles"><i class="fas fa-eye"></i></button>
-                                            <button class="btn-icon" title="Eliminar"><i class="fas fa-trash"></i></button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <input type="checkbox" id="select2" style="accent-color: var(--admin-accent-color);">
-                                    </td>
-                                    <td>
-                                        <div style="max-width: 250px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
-                                            Desarrollar aplicación móvil para delivery
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div style="display: flex; align-items: center;">
-                                            <img src="https://randomuser.me/api/portraits/men/28.jpg" alt="Usuario" style="width: 32px; height: 32px; border-radius: 50%; margin-right: 10px;">
-                                            <span>Carlos Hernández</span>
-                                        </div>
-                                    </td>
-                                    <td>Desarrollo Móvil</td>
-                                    <td>11/04/2025</td>
-                                    <td>$2,800</td>
-                                    <td><span class="status" style="background-color: rgba(18, 216, 250, 0.15); color: var(--admin-accent-secondary);">Completada</span></td>
-                                    <td>
-                                        <div class="action-buttons">
-                                            <button class="btn-icon" title="Editar"><i class="fas fa-edit"></i></button>
-                                            <button class="btn-icon" title="Ver detalles"><i class="fas fa-eye"></i></button>
-                                            <button class="btn-icon" title="Eliminar"><i class="fas fa-trash"></i></button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <input type="checkbox" id="select3" style="accent-color: var(--admin-accent-color);">
-                                    </td>
-                                    <td>
-                                        <div style="max-width: 250px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
-                                            Rediseño de la interfaz de usuario para app financiera
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div style="display: flex; align-items: center;">
-                                            <img src="https://randomuser.me/api/portraits/women/42.jpg" alt="Usuario" style="width: 32px; height: 32px; border-radius: 50%; margin-right: 10px;">
-                                            <span>Laura Gómez</span>
-                                        </div>
-                                    </td>
-                                    <td>UX/UI Design</td>
-                                    <td>10/04/2025</td>
-                                    <td>$950</td>
-                                    <td><span class="status active">Publicada</span></td>
-                                    <td>
-                                        <div class="action-buttons">
-                                            <button class="btn-icon" title="Editar"><i class="fas fa-edit"></i></button>
-                                            <button class="btn-icon" title="Ver detalles"><i class="fas fa-eye"></i></button>
-                                            <button class="btn-icon" title="Eliminar"><i class="fas fa-trash"></i></button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <input type="checkbox" id="select4" style="accent-color: var(--admin-accent-color);">
-                                    </td>
-                                    <td>
-                                        <div style="max-width: 250px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
-                                            Implementación de pipelines CI/CD con Jenkins
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div style="display: flex; align-items: center;">
-                                            <img src="https://randomuser.me/api/portraits/men/56.jpg" alt="Usuario" style="width: 32px; height: 32px; border-radius: 50%; margin-right: 10px;">
-                                            <span>Pablo Martínez</span>
-                                        </div>
-                                    </td>
-                                    <td>DevOps</td>
-                                    <td>09/04/2025</td>
-                                    <td>$1,200</td>
-                                    <td><span class="status" style="background-color: rgba(220, 53, 69, 0.15); color: #dc3545;">Rechazada</span></td>
-                                    <td>
-                                        <div class="action-buttons">
-                                            <button class="btn-icon" title="Editar"><i class="fas fa-edit"></i></button>
-                                            <button class="btn-icon" title="Ver detalles"><i class="fas fa-eye"></i></button>
-                                            <button class="btn-icon" title="Eliminar"><i class="fas fa-trash"></i></button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <input type="checkbox" id="select5" style="accent-color: var (--admin-accent-color);">
-                                    </td>
-                                    <td>
-                                        <div style="max-width: 250px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
-                                            Análisis de datos para optimización de ventas
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div style="display: flex; align-items: center;">
-                                            <img src="https://randomuser.me/api/portraits/women/16.jpg" alt="Usuario" style="width: 32px; height: 32px; border-radius: 50%; margin-right: 10px;">
-                                            <span>Sofía López</span>
-                                        </div>
-                                    </td>
-                                    <td>Ciencia de Datos</td>
-                                    <td>08/04/2025</td>
-                                    <td>$1,800</td>
-                                    <td><span class="status" style="background-color: rgba(255, 193, 7, 0.15); color: #ffc107;">Pendiente</span></td>
-                                    <td>
-                                        <div class="action-buttons">
-                                            <button class="btn-icon" title="Editar"><i class="fas fa-edit"></i></button>
-                                            <button class="btn-icon" title="Ver detalles"><i class="fas fa-eye"></i></button>
-                                            <button class="btn-icon" title="Eliminar"><i class="fas fa-trash"></i></button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <input type="checkbox" id="select6" style="accent-color: var(--admin-accent-color);">
-                                    </td>
-                                    <td>
-                                        <div style="max-width: 250px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
-                                            Desarrollo de smart contract para marketplace NFT
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div style="display: flex; align-items: center;">
-                                            <img src="https://randomuser.me/api/portraits/men/33.jpg" alt="Usuario" style="width: 32px; height: 32px; border-radius: 50%; margin-right: 10px;">
-                                            <span>Miguel Sánchez</span>
-                                        </div>
-                                    </td>
-                                    <td>Blockchain</td>
-                                    <td>07/04/2025</td>
-                                    <td>$3,200</td>
-                                    <td><span class="status active">Publicada</span></td>
-                                    <td>
-                                        <div class="action-buttons">
-                                            <button class="btn-icon" title="Editar"><i class="fas fa-edit"></i></button>
-                                            <button class="btn-icon" title="Ver detalles"><i class="fas fa-eye"></i></button>
-                                            <button class="btn-icon" title="Eliminar"><i class="fas fa-trash"></i></button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <input type="checkbox" id="select7" style="accent-color: var(--admin-accent-color);">
-                                    </td>
-                                    <td>
-                                        <div style="max-width: 250px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
-                                            Migración de infraestructura a AWS Cloud
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div style="display: flex; align-items: center;">
-                                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Usuario" style="width: 32px; height: 32px; border-radius: 50%; margin-right: 10px;">
-                                            <span>Ana Torres</span>
-                                        </div>
-                                    </td>
-                                    <td>Cloud Computing</td>
-                                    <td>06/04/2025</td>
-                                    <td>$2,500</td>
-                                    <td><span class="status" style="background-color: rgba(18, 216, 250, 0.15); color: var(--admin-accent-secondary);">Completada</span></td>
-                                    <td>
-                                        <div class="action-buttons">
-                                            <button class="btn-icon" title="Editar"><i class="fas fa-edit"></i></button>
-                                            <button class="btn-icon" title="Ver detalles"><i class="fas fa-eye"></i></button>
-                                            <button class="btn-icon" title="Eliminar"><i class="fas fa-trash"></i></button>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        
-                        <div style="padding: 20px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--admin-border-color);">
-                            <span style="color: var(--admin-text-secondary); font-size: 14px;">Mostrando 1-7 de 2,875 publicaciones</span>
-                            <div style="display: flex; gap: 5px;">
-                                <button style="width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--admin-border-color); border-radius: 6px; background: none; color: var(--admin-text-secondary); cursor: not-allowed; opacity: 0.5;"><i class="fas fa-chevron-left"></i></button>
-                                <button style="width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 6px; background: var(--admin-accent-color); color: #fff; border: none;">1</button>
-                                <button style="width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--admin-border-color); border-radius: 6px; background: none; color: var(--admin-text-primary);">2</button>
-                                <button style="width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--admin-border-color); border-radius: 6px; background: none; color: var(--admin-text-primary);">3</button>
-                                <span style="display: flex; align-items: center; color: var(--admin-text-secondary);">...</span>
-                                <button style="width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--admin-border-color); border-radius: 6px; background: none; color: var(--admin-text-primary);">411</button>
-                                <button style="width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--admin-border-color); border-radius: 6px; background: none; color: var(--admin-text-primary);"><i class="fas fa-chevron-right"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </main>
-    </div>
-    
-    <!-- Modal para agregar/editar publicación -->
-    <div id="postModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 1000; align-items: center; justify-content: center; overflow-y: auto;">
-        <div style="width: 800px; max-width: 95%; background-color: var(--admin-card-bg); border-radius: 12px; box-shadow: var(--admin-shadow); overflow: hidden; margin: 30px auto;">
-            <div style="padding: 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--admin-border-color);">
-                <h2 style="margin: 0; font-size: 18px; color: var(--admin-text-primary);">Agregar nueva publicación</h2>
-                <button class="btn-close" style="background: none; border: none; font-size: 18px; color: var(--admin-text-secondary); cursor: pointer;"><i class="fas fa-times"></i></button>
-            </div>
-            <div style="padding: 20px;">
-                <form id="postForm">
-                    <div style="margin-bottom: 15px;">
-                        <label style="display: block; font-size: 14px; color: var(--admin-text-secondary); margin-bottom: 6px;">Título</label>
-                        <input type="text" id="postTitle" placeholder="Título de la publicación" style="width: 100%; padding: 10px 12px; background-color: rgba(255, 255, 255, 0.05); border: 1px solid var(--admin-border-color); border-radius: 6px; color: var(--admin-text-primary); font-size: 14px;">
-                    </div>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
-                        <div>
-                            <label style="display: block; font-size: 14px; color: var(--admin-text-secondary); margin-bottom: 6px;">Categoría</label>
-                            <select id="postCategory" style="width: 100%; padding: 10px 12px; background-color: rgba(255, 255, 255, 0.05); border: 1px solid var(--admin-border-color); border-radius: 6px; color: var(--admin-text-primary); font-size: 14px;">
-                                <option value="">Seleccionar categoría</option>
-                                <option value="web">Desarrollo Web</option>
-                                <option value="mobile">Desarrollo Móvil</option>
-                                <option value="uxui">UX/UI Design</option>
-                                <option value="data">Ciencia de Datos</option>
-                                <option value="devops">DevOps</option>
-                                <option value="blockchain">Blockchain</option>
-                                <option value="cloud">Cloud Computing</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label style="display: block; font-size: 14px; color: var(--admin-text-secondary); margin-bottom: 6px;">Autor</label>
-                            <select id="postAuthor" style="width: 100%; padding: 10px 12px; background-color: rgba(255, 255, 255, 0.05); border: 1px solid var(--admin-border-color); border-radius: 6px; color: var(--admin-text-primary); font-size: 14px;">
-                                <option value="">Seleccionar usuario</option>
-                                <option value="1">María Rodríguez</option>
-                                <option value="2">Carlos Hernández</option>
-                                <option value="3">Laura Gómez</option>
-                                <option value="4">Pablo Martínez</option>
-                                <option value="5">Sofía López</option>
-                                <option value="6">Miguel Sánchez</option>
-                                <option value="7">Ana Torres</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
-                        <div>
-                            <label style="display: block; font-size: 14px; color: var(--admin-text-secondary); margin-bottom: 6px;">Presupuesto ($)</label>
-                            <input type="number" id="postBudget" placeholder="Ej: 1500" style="width: 100%; padding: 10px 12px; background-color: rgba(255, 255, 255, 0.05); border: 1px solid var(--admin-border-color); border-radius: 6px; color: var(--admin-text-primary); font-size: 14px;">
-                        </div>
-                        <div>
-                            <label style="display: block; font-size: 14px; color: var(--admin-text-secondary); margin-bottom: 6px;">Estado</label>
-                            <select id="postStatus" style="width: 100%; padding: 10px 12px; background-color: rgba(255, 255, 255, 0.05); border: 1px solid var(--admin-border-color); border-radius: 6px; color: var(--admin-text-primary); font-size: 14px;">
-                                <option value="published">Publicada</option>
-                                <option value="pending">Pendiente</option>
-                                <option value="rejected">Rechazada</option>
-                                <option value="completed">Completada</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div style="margin-bottom: 15px;">
-                        <label style="display: block; font-size: 14px; color: var(--admin-text-secondary); margin-bottom: 6px;">Descripción</label>
-                        <textarea id="postDescription" rows="6" placeholder="Describe detalladamente la publicación" style="width: 100%; padding: 10px 12px; background-color: rgba(255, 255, 255, 0.05); border: 1px solid var(--admin-border-color); border-radius: 6px; color: var(--admin-text-primary); font-size: 14px; resize: vertical;"></textarea>
-                    </div>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
-                        <div>
-                            <label style="display: block; font-size: 14px; color: var(--admin-text-secondary); margin-bottom: 6px;">Fecha límite</label>
-                            <input type="date" id="postDeadline" style="width: 100%; padding: 10px 12px; background-color: rgba(255, 255, 255, 0.05); border: 1px solid var(--admin-border-color); border-radius: 6px; color: var(--admin-text-primary); font-size: 14px;">
-                        </div>
-                        <div>
-                            <label style="display: block; font-size: 14px; color: var(--admin-text-secondary); margin-bottom: 6px;">Etiquetas</label>
-                            <input type="text" id="postTags" placeholder="Ej: diseño, responsive, frontend" style="width: 100%; padding: 10px 12px; background-color: rgba(255, 255, 255, 0.05); border: 1px solid var(--admin-border-color); border-radius: 6px; color: var(--admin-text-primary); font-size: 14px;">
-                            <small style="display: block; margin-top: 5px; color: var(--admin-text-secondary); font-size: 12px;">Separar con comas las diferentes etiquetas</small>
-                        </div>
-                    </div>
-                    <div style="margin-bottom: 15px;">
-                        <label style="display: block; font-size: 14px; color: var(--admin-text-secondary); margin-bottom: 6px;">Imágenes adjuntas</label>
-                        <div style="position: relative;">
-                            <input type="file" id="postImages" style="position: absolute; opacity: 0; width: 100%; height: 100%; cursor: pointer;" multiple>
-                            <div style="display: flex; align-items: center; justify-content: center; padding: 15px; background-color: rgba(255, 255, 255, 0.05); border: 1px dashed var(--admin-border-color); border-radius: 6px; color: var(--admin-text-primary);">
-                                <i class="fas fa-upload" style="margin-right: 8px;"></i>
-                                <span>Arrastra imágenes o haz clic para seleccionar</span>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div style="padding: 20px; display: flex; justify-content: flex-end; gap: 10px; border-top: 1px solid var(--admin-border-color);">
-                <button class="btn-outline" data-dismiss="modal" style="padding: 10px 15px;">Cancelar</button>
-                <button class="btn-primary" id="savePost" style="padding: 10px 15px;">Guardar publicación</button>
-            </div>
+      <aside class="admin-sidebar">
+        <div class="sidebar-header">
+          <a href="admin.html" class="logo">
+            <img
+              src="../assets/img/logo.png"
+              alt="Servitech Logo"
+              class="logo-img"
+            />
+            <span class="logo-text">Admin</span>
+          </a>
         </div>
+        <div class="sidebar-content">
+          <nav class="sidebar-nav">
+            <ul>
+              <li class="nav-item">
+                <a href="admin.html">
+                  <i class="fas fa-tachometer-alt"></i>
+                  <span>Dashboard</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="admin-expertos.html">
+                  <i class="fas fa-users"></i>
+                  <span>Gestión de Expertos</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="admin-usuarios.html">
+                  <i class="fas fa-user-friends"></i>
+                  <span>Gestión de Usuarios</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="admin-categorias.html">
+                  <i class="fas fa-tags"></i>
+                  <span>Categorías</span>
+                </a>
+              </li>
+              <li class="nav-item active">
+                <a href="admin-publicaciones.html">
+                  <i class="fas fa-clipboard-list"></i>
+                  <span>Publicaciones</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="admin-mensajes.html">
+                  <i class="fas fa-envelope"></i>
+                  <span>Mensajes</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="admin-configuracion.html">
+                  <i class="fas fa-cog"></i>
+                  <span>Configuración</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="sidebar-footer">
+          <a href="/feed.html" class="btn-outline">
+            <i class="fas fa-globe"></i>
+            <span>Ver sitio</span>
+          </a>
+          <a href="/login.html" class="btn-logout">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Cerrar sesión</span>
+          </a>
+        </div>
+      </aside>
+
+      <main class="admin-main">
+        <header class="admin-header">
+          <div class="header-search">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Buscar publicaciones..." />
+          </div>
+          <div class="header-actions">
+            <div class="notification-icon">
+              <i class="fas fa-bell"></i>
+              <span class="notification-badge">5</span>
+            </div>
+            <div class="admin-profile">
+              <img
+                src="https://i.pravatar.cc/150?img=11"
+                alt="Admin profile"
+                class="profile-img"
+              />
+              <div class="profile-info">
+                <span class="profile-name">Admin ServiTech</span>
+                <span class="profile-role">Administrador</span>
+              </div>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+          </div>
+        </header>
+
+        <div class="admin-content">
+          <div class="page-header">
+            <h1>Gestión de Publicaciones</h1>
+            <div class="page-actions">
+              <button class="btn-primary" id="btnAddPost">
+                <i class="fas fa-plus"></i>
+                <span>Nueva publicación</span>
+              </button>
+              <button class="btn-outline">
+                <i class="fas fa-file-export"></i>
+                <span>Exportar</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="publicaciones-grid">
+            <div class="table-container publicaciones-grid__filters">
+              <div class="publicaciones-filtros">
+                <h3 class="publicaciones-filtros__title">Filtros</h3>
+                <div class="publicaciones-filtros__group">
+                  <label class="publicaciones-filtros__label">Estado</label>
+                  <select class="publicaciones-filtros__select">
+                    <option value="">Todos los estados</option>
+                    <option value="published">Publicadas</option>
+                    <option value="pending">Pendientes</option>
+                    <option value="rejected">Rechazadas</option>
+                    <option value="completed">Completadas</option>
+                  </select>
+                </div>
+                <div class="publicaciones-filtros__group">
+                  <label class="publicaciones-filtros__label">Categoría</label>
+                  <select class="publicaciones-filtros__select">
+                    <option value="">Todas las categorías</option>
+                    <option value="web">Desarrollo Web</option>
+                    <option value="mobile">Desarrollo Móvil</option>
+                    <option value="uxui">UX/UI Design</option>
+                    <option value="data">Ciencia de Datos</option>
+                    <option value="devops">DevOps</option>
+                    <option value="blockchain">Blockchain</option>
+                    <option value="cloud">Cloud Computing</option>
+                  </select>
+                </div>
+                <div class="publicaciones-filtros__group">
+                  <label class="publicaciones-filtros__label"
+                    >Fecha de publicación</label
+                  >
+                  <select class="publicaciones-filtros__select">
+                    <option value="">Todas las fechas</option>
+                    <option value="today">Hoy</option>
+                    <option value="week">Esta semana</option>
+                    <option value="month">Este mes</option>
+                    <option value="year">Este año</option>
+                  </select>
+                </div>
+                <div class="publicaciones-filtros__group">
+                  <label class="publicaciones-filtros__label"
+                    >Rango de presupuesto</label
+                  >
+                  <div class="publicaciones-filtros__presupuesto">
+                    <input
+                      type="number"
+                      placeholder="Min $"
+                      class="publicaciones-filtros__input"
+                    />
+                    <span class="publicaciones-filtros__presupuesto-sep"
+                      >-</span
+                    >
+                    <input
+                      type="number"
+                      placeholder="Max $"
+                      class="publicaciones-filtros__input"
+                    />
+                  </div>
+                </div>
+                <button
+                  class="btn-primary publicaciones-filtros__btn publicaciones-filtros__btn--center"
+                >
+                  <i class="fas fa-filter"></i>
+                  <span>Aplicar filtros</span>
+                </button>
+              </div>
+
+              <div class="publicaciones-estadisticas">
+                <h3 class="publicaciones-estadisticas__title">Estadísticas</h3>
+                <div class="publicaciones-estadisticas__list">
+                  <div
+                    class="publicaciones-estadisticas__item publicaciones-estadisticas__item--total"
+                  >
+                    <div class="publicaciones-estadisticas__item-info">
+                      <i
+                        class="fas fa-clipboard-list publicaciones-estadisticas__icon publicaciones-estadisticas__icon--total"
+                      ></i>
+                      <span>Total Publicaciones</span>
+                    </div>
+                    <span class="publicaciones-estadisticas__value">2,875</span>
+                  </div>
+                  <div
+                    class="publicaciones-estadisticas__item publicaciones-estadisticas__item--publicadas"
+                  >
+                    <div class="publicaciones-estadisticas__item-info">
+                      <i
+                        class="fas fa-check-circle publicaciones-estadisticas__icon publicaciones-estadisticas__icon--publicadas"
+                      ></i>
+                      <span>Publicadas</span>
+                    </div>
+                    <span class="publicaciones-estadisticas__value">2,164</span>
+                  </div>
+                  <div
+                    class="publicaciones-estadisticas__item publicaciones-estadisticas__item--pendientes"
+                  >
+                    <div class="publicaciones-estadisticas__item-info">
+                      <i
+                        class="fas fa-clock publicaciones-estadisticas__icon publicaciones-estadisticas__icon--pendientes"
+                      ></i>
+                      <span>Pendientes</span>
+                    </div>
+                    <span class="publicaciones-estadisticas__value">412</span>
+                  </div>
+                  <div
+                    class="publicaciones-estadisticas__item publicaciones-estadisticas__item--completadas"
+                  >
+                    <div class="publicaciones-estadisticas__item-info">
+                      <i
+                        class="fas fa-handshake publicaciones-estadisticas__icon publicaciones-estadisticas__icon--completadas"
+                      ></i>
+                      <span>Completadas</span>
+                    </div>
+                    <span class="publicaciones-estadisticas__value">1,245</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="table-container publicaciones-grid__tabla">
+              <table class="admin-table publicaciones-table">
+                <thead>
+                  <tr>
+                    <th>
+                      <input
+                        type="checkbox"
+                        id="selectAll"
+                        class="publicaciones-checkbox"
+                      />
+                    </th>
+                    <th>Título</th>
+                    <th>Autor</th>
+                    <th>Categoría</th>
+                    <th>Fecha</th>
+                    <th>Presupuesto</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <input
+                        type="checkbox"
+                        id="select1"
+                        class="publicaciones-checkbox"
+                      />
+                    </td>
+                    <td>
+                      <div class="publicaciones-table__titulo">
+                        Diseño de sitio web para empresa de construcción
+                      </div>
+                    </td>
+                    <td>
+                      <div class="publicaciones-table__autor">
+                        <img
+                          src="https://randomuser.me/api/portraits/women/26.jpg"
+                          alt="Usuario"
+                          class="publicaciones-table__autor-img"
+                        />
+                        <span>María Rodríguez</span>
+                      </div>
+                    </td>
+                    <td>Desarrollo Web</td>
+                    <td>12/04/2025</td>
+                    <td>$1,500</td>
+                    <td><span class="status active">Publicada</span></td>
+                    <td>
+                      <div class="action-buttons">
+                        <button class="btn-icon" title="Editar">
+                          <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn-icon" title="Ver detalles">
+                          <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="btn-icon" title="Eliminar">
+                          <i class="fas fa-trash"></i>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input
+                        type="checkbox"
+                        id="select2"
+                        class="publicaciones-checkbox"
+                      />
+                    </td>
+                    <td>
+                      <div class="publicaciones-table__titulo">
+                        Desarrollar aplicación móvil para delivery
+                      </div>
+                    </td>
+                    <td>
+                      <div class="publicaciones-table__autor">
+                        <img
+                          src="https://randomuser.me/api/portraits/men/28.jpg"
+                          alt="Usuario"
+                          class="publicaciones-table__autor-img"
+                        />
+                        <span>Carlos Hernández</span>
+                      </div>
+                    </td>
+                    <td>Desarrollo Móvil</td>
+                    <td>11/04/2025</td>
+                    <td>$2,800</td>
+                    <td>
+                      <span class="status status--completada">Completada</span>
+                    </td>
+                    <td>
+                      <div class="action-buttons">
+                        <button class="btn-icon" title="Editar">
+                          <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn-icon" title="Ver detalles">
+                          <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="btn-icon" title="Eliminar">
+                          <i class="fas fa-trash"></i>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input
+                        type="checkbox"
+                        id="select3"
+                        class="publicaciones-checkbox"
+                      />
+                    </td>
+                    <td>
+                      <div class="publicaciones-table__titulo">
+                        Rediseño de la interfaz de usuario para app financiera
+                      </div>
+                    </td>
+                    <td>
+                      <div class="publicaciones-table__autor">
+                        <img
+                          src="https://randomuser.me/api/portraits/women/42.jpg"
+                          alt="Usuario"
+                          class="publicaciones-table__autor-img"
+                        />
+                        <span>Laura Gómez</span>
+                      </div>
+                    </td>
+                    <td>UX/UI Design</td>
+                    <td>10/04/2025</td>
+                    <td>$950</td>
+                    <td><span class="status active">Publicada</span></td>
+                    <td>
+                      <div class="action-buttons">
+                        <button class="btn-icon" title="Editar">
+                          <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn-icon" title="Ver detalles">
+                          <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="btn-icon" title="Eliminar">
+                          <i class="fas fa-trash"></i>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input
+                        type="checkbox"
+                        id="select4"
+                        class="publicaciones-checkbox"
+                      />
+                    </td>
+                    <td>
+                      <div class="publicaciones-table__titulo">
+                        Implementación de pipelines CI/CD con Jenkins
+                      </div>
+                    </td>
+                    <td>
+                      <div class="publicaciones-table__autor">
+                        <img
+                          src="https://randomuser.me/api/portraits/men/56.jpg"
+                          alt="Usuario"
+                          class="publicaciones-table__autor-img"
+                        />
+                        <span>Pablo Martínez</span>
+                      </div>
+                    </td>
+                    <td>DevOps</td>
+                    <td>09/04/2025</td>
+                    <td>$1,200</td>
+                    <td>
+                      <span class="status status--rechazada">Rechazada</span>
+                    </td>
+                    <td>
+                      <div class="action-buttons">
+                        <button class="btn-icon" title="Editar">
+                          <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn-icon" title="Ver detalles">
+                          <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="btn-icon" title="Eliminar">
+                          <i class="fas fa-trash"></i>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input
+                        type="checkbox"
+                        id="select5"
+                        class="publicaciones-checkbox"
+                      />
+                    </td>
+                    <td>
+                      <div class="publicaciones-table__titulo">
+                        Análisis de datos para optimización de ventas
+                      </div>
+                    </td>
+                    <td>
+                      <div class="publicaciones-table__autor">
+                        <img
+                          src="https://randomuser.me/api/portraits/women/16.jpg"
+                          alt="Usuario"
+                          class="publicaciones-table__autor-img"
+                        />
+                        <span>Sofía López</span>
+                      </div>
+                    </td>
+                    <td>Ciencia de Datos</td>
+                    <td>08/04/2025</td>
+                    <td>$1,800</td>
+                    <td>
+                      <span class="status status--pendiente">Pendiente</span>
+                    </td>
+                    <td>
+                      <div class="action-buttons">
+                        <button class="btn-icon" title="Editar">
+                          <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn-icon" title="Ver detalles">
+                          <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="btn-icon" title="Eliminar">
+                          <i class="fas fa-trash"></i>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input
+                        type="checkbox"
+                        id="select6"
+                        class="publicaciones-checkbox"
+                      />
+                    </td>
+                    <td>
+                      <div class="publicaciones-table__titulo">
+                        Desarrollo de smart contract para marketplace NFT
+                      </div>
+                    </td>
+                    <td>
+                      <div class="publicaciones-table__autor">
+                        <img
+                          src="https://randomuser.me/api/portraits/men/33.jpg"
+                          alt="Usuario"
+                          class="publicaciones-table__autor-img"
+                        />
+                        <span>Miguel Sánchez</span>
+                      </div>
+                    </td>
+                    <td>Blockchain</td>
+                    <td>07/04/2025</td>
+                    <td>$3,200</td>
+                    <td><span class="status active">Publicada</span></td>
+                    <td>
+                      <div class="action-buttons">
+                        <button class="btn-icon" title="Editar">
+                          <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn-icon" title="Ver detalles">
+                          <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="btn-icon" title="Eliminar">
+                          <i class="fas fa-trash"></i>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input
+                        type="checkbox"
+                        id="select7"
+                        class="publicaciones-checkbox"
+                      />
+                    </td>
+                    <td>
+                      <div class="publicaciones-table__titulo">
+                        Migración de infraestructura a AWS Cloud
+                      </div>
+                    </td>
+                    <td>
+                      <div class="publicaciones-table__autor">
+                        <img
+                          src="https://randomuser.me/api/portraits/women/68.jpg"
+                          alt="Usuario"
+                          class="publicaciones-table__autor-img"
+                        />
+                        <span>Ana Torres</span>
+                      </div>
+                    </td>
+                    <td>Cloud Computing</td>
+                    <td>06/04/2025</td>
+                    <td>$2,500</td>
+                    <td>
+                      <span class="status status--completada">Completada</span>
+                    </td>
+                    <td>
+                      <div class="action-buttons">
+                        <button class="btn-icon" title="Editar">
+                          <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn-icon" title="Ver detalles">
+                          <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="btn-icon" title="Eliminar">
+                          <i class="fas fa-trash"></i>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div class="publicaciones-paginacion">
+                <span class="publicaciones-paginacion__info"
+                  >Mostrando 1-7 de 2,875 publicaciones</span
+                >
+                <div class="publicaciones-paginacion__controles">
+                  <button
+                    class="publicaciones-paginacion__btn publicaciones-paginacion__btn--disabled"
+                  >
+                    <i class="fas fa-chevron-left"></i>
+                  </button>
+                  <button
+                    class="publicaciones-paginacion__btn publicaciones-paginacion__btn--active"
+                  >
+                    1
+                  </button>
+                  <button class="publicaciones-paginacion__btn">2</button>
+                  <button class="publicaciones-paginacion__btn">3</button>
+                  <span class="publicaciones-paginacion__ellipsis">...</span>
+                  <button class="publicaciones-paginacion__btn">411</button>
+                  <button class="publicaciones-paginacion__btn">
+                    <i class="fas fa-chevron-right"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Modal para agregar/editar publicación -->
+    <div id="postModal" class="modal-publicacion">
+      <div class="modal-publicacion__content">
+        <div class="modal-publicacion__header">
+          <h2 class="modal-publicacion__title">Agregar nueva publicación</h2>
+          <button class="btn-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="modal-publicacion__body">
+          <form id="postForm">
+            <div class="modal-publicacion__group">
+              <label class="modal-publicacion__label">Título</label>
+              <input
+                type="text"
+                id="postTitle"
+                placeholder="Título de la publicación"
+                class="modal-publicacion__input"
+              />
+            </div>
+            <div class="modal-publicacion__grid">
+              <div>
+                <label class="modal-publicacion__label">Categoría</label>
+                <select id="postCategory" class="modal-publicacion__input">
+                  <option value="">Seleccionar categoría</option>
+                  <option value="web">Desarrollo Web</option>
+                  <option value="mobile">Desarrollo Móvil</option>
+                  <option value="uxui">UX/UI Design</option>
+                  <option value="data">Ciencia de Datos</option>
+                  <option value="devops">DevOps</option>
+                  <option value="blockchain">Blockchain</option>
+                  <option value="cloud">Cloud Computing</option>
+                </select>
+              </div>
+              <div>
+                <label class="modal-publicacion__label">Autor</label>
+                <select id="postAuthor" class="modal-publicacion__input">
+                  <option value="">Seleccionar usuario</option>
+                  <option value="1">María Rodríguez</option>
+                  <option value="2">Carlos Hernández</option>
+                  <option value="3">Laura Gómez</option>
+                  <option value="4">Pablo Martínez</option>
+                  <option value="5">Sofía López</option>
+                  <option value="6">Miguel Sánchez</option>
+                  <option value="7">Ana Torres</option>
+                </select>
+              </div>
+            </div>
+            <div class="modal-publicacion__grid">
+              <div>
+                <label class="modal-publicacion__label">Presupuesto ($)</label>
+                <input
+                  type="number"
+                  id="postBudget"
+                  placeholder="Ej: 1500"
+                  class="modal-publicacion__input"
+                />
+              </div>
+              <div>
+                <label class="modal-publicacion__label">Estado</label>
+                <select id="postStatus" class="modal-publicacion__input">
+                  <option value="published">Publicada</option>
+                  <option value="pending">Pendiente</option>
+                  <option value="rejected">Rechazada</option>
+                  <option value="completed">Completada</option>
+                </select>
+              </div>
+            </div>
+            <div class="modal-publicacion__group">
+              <label class="modal-publicacion__label">Descripción</label>
+              <textarea
+                id="postDescription"
+                rows="6"
+                placeholder="Describe detalladamente la publicación"
+                class="modal-publicacion__input modal-publicacion__textarea"
+              ></textarea>
+            </div>
+            <div class="modal-publicacion__grid">
+              <div>
+                <label class="modal-publicacion__label">Fecha límite</label>
+                <input
+                  type="date"
+                  id="postDeadline"
+                  class="modal-publicacion__input"
+                />
+              </div>
+              <div>
+                <label class="modal-publicacion__label">Etiquetas</label>
+                <input
+                  type="text"
+                  id="postTags"
+                  placeholder="Ej: diseño, responsive, frontend"
+                  class="modal-publicacion__input"
+                />
+                <small class="modal-publicacion__hint"
+                  >Separar con comas las diferentes etiquetas</small
+                >
+              </div>
+            </div>
+            <div class="modal-publicacion__group">
+              <label class="modal-publicacion__label">Imágenes adjuntas</label>
+              <div class="modal-publicacion__upload-wrapper">
+                <input
+                  type="file"
+                  id="postImages"
+                  class="modal-publicacion__file-input"
+                  multiple
+                />
+                <div class="modal-publicacion__upload-box">
+                  <i class="fas fa-upload"></i>
+                  <span>Arrastra imágenes o haz clic para seleccionar</span>
+                </div>
+              </div>
+            </div>
+            <div class="modal-publicacion__group">
+              <label class="modal-publicacion__label"
+                >Contenido de la publicación</label
+              >
+              <textarea
+                id="postContent"
+                rows="8"
+                placeholder="Contenido completo de la publicación"
+                class="modal-publicacion__input modal-publicacion__textarea"
+              ></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-publicacion__footer">
+          <button class="btn-outline" data-dismiss="modal">Cancelar</button>
+          <button class="btn-primary" id="savePost">Guardar publicación</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Editar Publicación -->
+    <div id="modalEditarPublicacion" class="modal-publicacion">
+      <div class="modal-publicacion__content">
+        <div class="modal-publicacion__header">
+          <h2 class="modal-publicacion__title">Editar publicación</h2>
+          <button class="btn-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="modal-publicacion__body">
+          <form id="formEditarPublicacion">
+            <div class="modal-publicacion__group">
+              <label class="modal-publicacion__label">Título</label>
+              <input
+                type="text"
+                id="editarTituloPublicacion"
+                class="modal-publicacion__input"
+              />
+            </div>
+            <div class="modal-publicacion__grid">
+              <div>
+                <label class="modal-publicacion__label">Categoría</label>
+                <input
+                  type="text"
+                  id="editarCategoriaPublicacion"
+                  class="modal-publicacion__input"
+                />
+              </div>
+              <div>
+                <label class="modal-publicacion__label">Autor</label>
+                <input
+                  type="text"
+                  id="editarAutorPublicacion"
+                  class="modal-publicacion__input"
+                />
+              </div>
+            </div>
+            <div class="modal-publicacion__grid">
+              <div>
+                <label class="modal-publicacion__label">Presupuesto ($)</label>
+                <input
+                  type="number"
+                  id="editarPresupuestoPublicacion"
+                  class="modal-publicacion__input"
+                />
+              </div>
+              <div>
+                <label class="modal-publicacion__label">Estado</label>
+                <input
+                  type="text"
+                  id="editarEstadoPublicacion"
+                  class="modal-publicacion__input"
+                />
+              </div>
+            </div>
+            <div class="modal-publicacion__group">
+              <label class="modal-publicacion__label">Fecha</label>
+              <input
+                type="text"
+                id="editarFechaPublicacion"
+                class="modal-publicacion__input"
+              />
+            </div>
+            <div class="modal-publicacion__group">
+              <label class="modal-publicacion__label"
+                >Contenido de la publicación</label
+              >
+              <textarea
+                id="editarContenidoPublicacion"
+                rows="8"
+                placeholder="Contenido completo de la publicación"
+                class="modal-publicacion__input modal-publicacion__textarea"
+              ></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-publicacion__footer">
+          <button
+            type="button"
+            class="btn-outline modal-publicacion-editar-cancelar"
+          >
+            Cancelar
+          </button>
+          <button
+            class="btn-primary"
+            type="submit"
+            form="formEditarPublicacion"
+          >
+            Guardar cambios
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Ver Publicación -->
+    <div id="modalVerPublicacion" class="modal-publicacion">
+      <div class="modal-publicacion__content">
+        <div class="modal-publicacion__header">
+          <h2 class="modal-publicacion__title">Detalle de la publicación</h2>
+          <button class="btn-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="modal-publicacion__body">
+          <form id="formVerPublicacion">
+            <div class="modal-publicacion__group">
+              <label class="modal-publicacion__label">Título</label>
+              <input
+                type="text"
+                id="verTituloPublicacion"
+                class="modal-publicacion__input"
+                disabled
+              />
+            </div>
+            <div class="modal-publicacion__grid">
+              <div>
+                <label class="modal-publicacion__label">Categoría</label>
+                <input
+                  type="text"
+                  id="verCategoriaPublicacion"
+                  class="modal-publicacion__input"
+                  disabled
+                />
+              </div>
+              <div>
+                <label class="modal-publicacion__label">Autor</label>
+                <input
+                  type="text"
+                  id="verAutorPublicacion"
+                  class="modal-publicacion__input"
+                  disabled
+                />
+              </div>
+            </div>
+            <div class="modal-publicacion__grid">
+              <div>
+                <label class="modal-publicacion__label">Presupuesto ($)</label>
+                <input
+                  type="number"
+                  id="verPresupuestoPublicacion"
+                  class="modal-publicacion__input"
+                  disabled
+                />
+              </div>
+              <div>
+                <label class="modal-publicacion__label">Estado</label>
+                <input
+                  type="text"
+                  id="verEstadoPublicacion"
+                  class="modal-publicacion__input"
+                  disabled
+                />
+              </div>
+            </div>
+            <div class="modal-publicacion__group">
+              <label class="modal-publicacion__label">Fecha</label>
+              <input
+                type="text"
+                id="verFechaPublicacion"
+                class="modal-publicacion__input"
+                disabled
+              />
+            </div>
+            <div class="modal-publicacion__group">
+              <label class="modal-publicacion__label"
+                >Contenido de la publicación</label
+              >
+              <textarea
+                id="verContenidoPublicacion"
+                rows="8"
+                class="modal-publicacion__input modal-publicacion__textarea"
+                disabled
+              ></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-publicacion__footer">
+          <button
+            type="button"
+            class="btn-outline modal-publicacion-ver-cerrar"
+          >
+            Cerrar
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Inactivar Publicación -->
+    <div id="modalInactivarPublicacion" class="modal-publicacion">
+      <div class="modal-publicacion__content">
+        <div class="modal-publicacion__header">
+          <h2 class="modal-publicacion__title">Inactivar publicación</h2>
+          <button class="btn-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="modal-publicacion__body">
+          <p
+            id="modalInactivarPublicacionTitulo"
+            class="modal-publicacion__nombre-destacado"
+          ></p>
+          <p>
+            ¿Está seguro que desea inactivar esta publicación?<br />
+            <span class="modal-publicacion__texto-secundario">
+              La publicación <b>no será visible</b> en la plataforma, pero
+              <b>no se eliminará</b> de la base de datos.
+            </span>
+          </p>
+        </div>
+        <div class="modal-publicacion__footer">
+          <button
+            type="button"
+            class="btn-outline modal-publicacion-inactivar-cancelar"
+          >
+            Cancelar
+          </button>
+          <button
+            type="button"
+            class="btn-primary modal-publicacion-inactivar-confirmar"
+          >
+            Inactivar
+          </button>
+        </div>
+      </div>
     </div>
 
     <script src="../assets/js/admin/admin-common.js"></script>
     <script src="../assets/js/admin/admin-publicaciones.js"></script>
-</body>
+  </body>
 </html>
