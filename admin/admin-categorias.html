@@ -162,7 +162,9 @@
                     <option value="low">Bajo uso</option>
                   </select>
                 </div>
-                <button class="btn-primary categorias-filtros__btn">
+                <button
+                  class="btn-primary categorias-filtros__btn categorias-filtros__btn--center"
+                >
                   <i class="fas fa-filter"></i>
                   <span>Aplicar filtros</span>
                 </button>
@@ -776,11 +778,11 @@
         <div class="modal-categoria__body">
           <p
             id="modalEliminarCategoriaNombre"
-            style="font-weight: bold; margin-bottom: 10px"
+            class="modal-categoria__nombre-destacado"
           ></p>
           <p>
             ¿Está seguro que desea eliminar esta categoría?<br />
-            <span style="color: var(--admin-text-secondary); font-size: 14px">
+            <span class="modal-categoria__texto-secundario">
               Esta acción <b>no se puede deshacer</b>.
             </span>
           </p>
