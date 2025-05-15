@@ -4,90 +4,105 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Servitech - Plataforma de Expertos en Informática</title>
+    <!-- Enlaces a estilos externos -->
     <link rel="stylesheet" href="assets/css/base.css">
-    <link rel="stylesheet" href="assets/css/feed.css"> <!-- Added link to new CSS file -->
+    <link rel="stylesheet" href="assets/css/feed.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Encabezado del sitio -->
     <header>
-        <div class="navbar">
+        <nav class="navbar">
+            <!-- Logo del sitio -->
             <a href="index.html" class="logo">
                 <img src="assets/img/logo.png" alt="logo" class="logo-img">
             </a>
+            <!-- Navegación principal -->
             <div class="nav-links">
                 <a href="feed.html" class="nav-item"><i class="fas fa-home"></i> Inicio</a>
                 <a href="expertos.html" class="nav-item"><i class="fas fa-users"></i> Expertos</a>
                 <a href="contacto.html" class="nav-item"><i class="fas fa-envelope"></i> Contacto</a>
             </div>
+            <!-- Botones de autenticación -->
             <div class="auth-buttons">
                 <a href="login.html" class="btn btn-outline">Iniciar sesión</a>
                 <a href="registro.html" class="btn btn-primary">Registrarse</a>
             </div>
-        </div>
+        </nav>
     </header>
 
-    <div class="container">
-        <div class="main-layout">
+    <main class="container">
+        <section class="main-layout">
+            <!-- Barra lateral con filtros -->
             <aside class="sidebar">
-                <h3 class="sidebar-heading">Filtrar por categoría</h3>
-                
-                <div class="filter-group">
-                    <h4 class="filter-title">Desarrollo Frontend</h4>
-                    <ul class="filter-options">
-                        <li class="filter-option"><i class="fas fa-code"></i> Lenguajes básicos</li>
-                        <li class="filter-option"><i class="fab fa-react"></i> Frameworks y librerías</li>
-                        <li class="filter-option"><i class="fas fa-mobile-alt"></i> Diseño responsivo</li>
-                    </ul>
-                </div>
-                
-                <div class="filter-group">
-                    <h4 class="filter-title">Desarrollo Backend</h4>
-                    <ul class="filter-options">
-                        <li class="filter-option"><i class="fab fa-node-js"></i> Node.js</li>
-                        <li class="filter-option"><i class="fab fa-python"></i> Python</li>
-                        <li class="filter-option"><i class="fab fa-java"></i> Java</li>
-                    </ul>
-                </div>
-                
-                <div class="filter-group">
-                    <h4 class="filter-title">Bases de Datos</h4>
-                    <ul class="filter-options">
-                        <li class="filter-option"><i class="fas fa-database"></i> SQL</li>
-                        <li class="filter-option"><i class="fas fa-server"></i> NoSQL</li>
-                    </ul>
-                </div>
+                <!-- Botón para crear nueva publicación -->
+                <button class="btn negotiate btn-lg" id="open-modal-btn">
+                    Crear nueva publicación
+                </button>
+
+                <!-- Filtros -->
+                <section class="filter-section">
+                    <h3 class="sidebar-heading">Filtrar por categoría</h3>
+                    
+                    <!-- Grupo de filtros: Desarrollo Frontend -->
+                    <article class="filter-group">
+                        <h4 class="filter-title accordion-header" data-target="#frontend-filters">
+                            <i class="fas fa-laptop-code"></i> Desarrollo Frontend <i class="fas fa-chevron-down accordion-icon"></i>
+                        </h4>
+                        <ul class="filter-options accordion-content" id="frontend-filters">
+                            <li class="filter-option"><input type="checkbox" id="frontend-basic"><label for="frontend-basic"> Lenguajes básicos</label></li>
+                            <li class="filter-option"><input type="checkbox" id="frontend-frameworks"><label for="frontend-frameworks"> Frameworks y librerías</label></li>
+                            <li class="filter-option"><input type="checkbox" id="frontend-responsive"><label for="frontend-responsive"> Diseño responsivo</label></li>
+                        </ul>
+                    </article>
+                    
+                    <!-- Grupo de filtros: Desarrollo Backend -->
+                    <article class="filter-group">
+                        <h4 class="filter-title accordion-header" data-target="#backend-filters">
+                            <i class="fas fa-database"></i> Desarrollo Backend <i class="fas fa-chevron-down accordion-icon"></i>
+                        </h4>
+                        <ul class="filter-options accordion-content" id="backend-filters">
+                            <li class="filter-option"><input type="checkbox" id="backend-databases"><label for="backend-databases"> Bases de datos</label></li>
+                            <li class="filter-option"><input type="checkbox" id="backend-apis"><label for="backend-apis"> APIs REST</label></li>
+                            <li class="filter-option"><input type="checkbox" id="backend-auth"><label for="backend-auth"> Autenticación</label></li>
+                        </ul>
+                    </article>
+                    
+                    <!-- Grupo de filtros: Lenguajes -->
+                    <article class="filter-group">
+                        <h4 class="filter-title accordion-header" data-target="#languages-filters">
+                            <i class="fas fa-palette"></i> Lenguajes <i class="fas fa-chevron-down accordion-icon"></i>
+                        </h4>
+                        <ul class="filter-options accordion-content" id="languages-filters">
+                            <li class="filter-option"><input type="checkbox" id="lang-python"><label for="lang-python"> Python</label></li>
+                            <li class="filter-option"><input type="checkbox" id="lang-js"><label for="lang-js"> JavaScript</label></li>
+                            <li class="filter-option"><input type="checkbox" id="lang-cpp"><label for="lang-cpp"> C++</label></li>
+                            <li class="filter-option"><input type="checkbox" id="lang-php"><label for="lang-php"> PHP</label></li>
+                            <li class="filter-option"><input type="checkbox" id="lang-ruby"><label for="lang-ruby"> Ruby</label></li>
+                        </ul>
+                    </article>
+                    
+                    <!-- Grupo de filtros: Frameworks -->
+                    <article class="filter-group">
+                        <h4 class="filter-title accordion-header" data-target="#frameworks-filters">
+                            <i class="fas fa-chart-bar"></i> Frameworks <i class="fas fa-chevron-down accordion-icon"></i>
+                        </h4>
+                        <ul class="filter-options accordion-content" id="frameworks-filters">
+                            <li class="filter-option"><input type="checkbox" id="framework-react"><label for="framework-react"> React</label></li>
+                            <li class="filter-option"><input type="checkbox" id="framework-angular"><label for="framework-angular"> Angular</label></li>
+                            <li class="filter-option"><input type="checkbox" id="framework-vue"><label for="framework-vue"> Vue.js</label></li>
+                            <li class="filter-option"><input type="checkbox" id="framework-tailwind"><label for="framework-tailwind"> Tailwind</label></li>
+                        </ul>
+                    </article>
+                </section>
             </aside>
             
-            <section class="main-content">
-                <div class="card animate-fade">
-                    <h3 class="card-title"><i class="fas fa-search"></i> Encuentra tu Experto</h3>
-                    <form class="search-form">
-                        <div class="form-group">
-                            <label class="form-label">Buscar por nombre o especialización</label>
-                            <input type="text" class="form-control" placeholder="Ej: JavaScript, React, Bases de datos...">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label class="form-label">Precio por hora</label>
-                            <input type="text" class="form-control" placeholder="Ej: 20">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label class="form-label">Disponibilidad</label>
-                            <select class="form-control">
-                                <option>Todos los horarios</option>
-                                <option>Diurna</option>
-                                <option>Nocturna</option>
-                            </select>
-                        </div>
-                        
-                        <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i> Buscar</button>
-                    </form>
-                </div>
-                
-                <div class="card animate-fade">
-                    <h3 class="card-title"><i class="fas fa-plus-circle"></i> Nueva solicitud de asesoría</h3>
+            <!-- Modal para nueva publicación -->
+            <section class="modal" id="modal">
+                <div class="modal-content">
+                    <button class="close-modal" id="close-modal-btn">&times;</button>
+                    <h3 class="modal-title"><i class="fas fa-plus-circle"></i> Nueva solicitud de asesoría</h3>
                     <form>
                         <div class="form-group">
                             <textarea class="form-control" rows="4" placeholder="Escribe aquí los detalles de tu solicitud de asesoría..."></textarea>
@@ -105,72 +120,113 @@
                         <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Publicar</button>
                     </form>
                 </div>
+            </section>
+            
+            <!-- Contenido principal -->
+            <section class="main-content">
+                <!-- Formulario de búsqueda -->
+                <article class="card animate-fade">
+                    <h3 class="card-title"><i class="fas fa-search"></i> Encuentra tu Experto</h3>
+                    <form class="search-form">
+                        <div class="form-group">
+                            <label class="form-label">Por nombre o especialización</label>
+                            <input type="text" class="form-control" placeholder="Ej: JavaScript, React, Bases de datos...">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Precio por hora</label>
+                            <input type="text" class="form-control" placeholder="Ej: 20">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Disponibilidad</label>
+                            <select class="form-control">
+                                <option>Todos los horarios</option>
+                                <option>Diurna</option>
+                                <option>Nocturna</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i> Buscar</button>
+                    </form>
+                </article>
                 
-                <div class="posts">
-                    <div class="card post-card animate-fade">
-                        <div class="post-header">
+                <!-- Formulario de nueva solicitud de asesoría (duplicado) -->
+                <article class="card animate-fade">
+                    <h3 class="card-title"><i class="fas fa-plus-circle"></i> Nueva solicitud de asesoría</h3>
+                    <form>
+                        <div class="form-group">
+                            <textarea class="form-control" rows="4" placeholder="Escribe aquí los detalles de tu solicitud de asesoría..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control">
+                                <option>Selecciona una categoría</option>
+                                <option>Desarrollo Frontend</option>
+                                <option>Desarrollo Backend</option>
+                                <option>Bases de Datos</option>
+                                <option>Diseño UX/UI</option>
+                                <option>DevOps</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Publicar</button>
+                    </form>
+                </article>
+
+                <!-- Publicaciones -->
+                <section class="posts">
+                    <!-- Publicación 1 -->
+                    <article class="card post-card animate-fade">
+                        <header class="post-header">
                             <div class="post-author">
                                 <i class="fas fa-user-circle"></i>
                                 <span>usuario123</span>
                             </div>
-                            <div class="post-time">
-                                <i class="far fa-clock"></i> hace 4 h
-                            </div>
-                        </div>
-                        <div class="post-content">
-                            <p>Busco asesoría sobre JavaScript desde cero. Necesito aprender los fundamentos para poder empezar a desarrollar aplicaciones web interactivas. Me gustaría recibir orientación sobre qué recursos utilizar y cómo estructurar mi aprendizaje.</p>
-                        </div>
-                        <div class="post-actions">
+                            <time class="post-time"><i class="far fa-clock"></i> hace 4 h</time>
+                        </header>
+                        <p class="post-content">Busco asesoría sobre JavaScript desde cero. Necesito aprender los fundamentos para poder empezar a desarrollar aplicaciones web interactivas. Me gustaría recibir orientación sobre qué recursos utilizar y cómo estructurar mi aprendizaje.</p>
+                        <footer class="post-actions">
                             <button class="action-btn"><i class="fas fa-thumbs-up"></i> 14</button>
                             <button class="action-btn"><i class="fas fa-comment"></i> 5</button>
                             <button class="action-btn negotiate"><i class="fas fa-handshake"></i> Negociar</button>
-                        </div>
-                    </div>
+                        </footer>
+                    </article>
                     
-                    <div class="card post-card animate-fade">
-                        <div class="post-header">
+                    <!-- Publicación 2 -->
+                    <article class="card post-card animate-fade">
+                        <header class="post-header">
                             <div class="post-author">
                                 <i class="fas fa-user-circle"></i>
                                 <span>desarrollador_web</span>
                             </div>
-                            <div class="post-time">
-                                <i class="far fa-clock"></i> hace 6 h
-                            </div>
-                        </div>
-                        <div class="post-content">
-                            <p>Necesito ayuda con React.js para un proyecto de e-commerce. Tengo problemas implementando el carrito de compras y la gestión de estados con Redux. Busco un experto que pueda guiarme en videollamada.</p>
-                        </div>
-                        <div class="post-actions">
+                            <time class="post-time"><i class="far fa-clock"></i> hace 6 h</time>
+                        </header>
+                        <p class="post-content">Necesito ayuda con React.js para un proyecto de e-commerce. Tengo problemas implementando el carrito de compras y la gestión de estados con Redux. Busco un experto que pueda guiarme en videollamada.</p>
+                        <footer class="post-actions">
                             <button class="action-btn"><i class="fas fa-thumbs-up"></i> 8</button>
                             <button class="action-btn"><i class="fas fa-comment"></i> 3</button>
                             <button class="action-btn negotiate"><i class="fas fa-handshake"></i> Negociar</button>
-                        </div>
-                    </div>
+                        </footer>
+                    </article>
                     
-                    <div class="card post-card animate-fade">
-                        <div class="post-header">
+                    <!-- Publicación 3 -->
+                    <article class="card post-card animate-fade">
+                        <header class="post-header">
                             <div class="post-author">
                                 <i class="fas fa-user-circle"></i>
                                 <span>data_analyst</span>
                             </div>
-                            <div class="post-time">
-                                <i class="far fa-clock"></i> hace 12 h
-                            </div>
-                        </div>
-                        <div class="post-content">
-                            <p>Busco asesoría en SQL avanzado para análisis de datos. Necesito optimizar consultas complejas y aprender a trabajar con grandes volúmenes de información de manera eficiente.</p>
-                        </div>
-                        <div class="post-actions">
+                            <time class="post-time"><i class="far fa-clock"></i> hace 12 h</time>
+                        </header>
+                        <p class="post-content">Busco asesoría en SQL avanzado para análisis de datos. Necesito optimizar consultas complejas y aprender a trabajar con grandes volúmenes de información de manera eficiente.</p>
+                        <footer class="post-actions">
                             <button class="action-btn"><i class="fas fa-thumbs-up"></i> 5</button>
                             <button class="action-btn"><i class="fas fa-comment"></i> 2</button>
                             <button class="action-btn negotiate"><i class="fas fa-handshake"></i> Negociar</button>
-                        </div>
-                    </div>
-                </div>
+                        </footer>
+                    </article>
+                </section>
             </section>
-        </div>
-    </div>
+        </section>
+    </main>
 
+    <!-- Pie de página -->
     <footer>
         <div class="footer-content">
             <div class="footer-logo">
@@ -207,6 +263,7 @@
         </div>
     </footer>
 
+    <!-- Scripts -->
     <script src="assets/js/common.js"></script>
     <script src="assets/js/feed.js"></script>
 </body>
