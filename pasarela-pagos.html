@@ -1,0 +1,65 @@
+<!-- haz la pasarela de pago como gustes, esto solo es la base del archivo y links. estaría bien que se pareciera al diseño de registrarse. ten cuidado con poner styles en todas partes,se organizado.-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pasarela de Pago</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/pasarela-pagos.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+</head>
+
+<body class="bg-dark text-black">
+  <main class="container py-5">
+    <section class="payment-card mx-auto shadow bg-darker text-black" style="max-width: 700px;">
+      <header class="payment-header bg-secondary text-white text-center">
+        <h5 class="mb-0">SERVITECH PASARELA DE PAGOS</h5>
+        <p class="mb-0">Pago de 1h de asesoría</p>
+        <h6 class="fw-bold">$20.000 COP</h6>
+      </header>
+      <article class="payment-body card-body">
+        <form>
+          <div class="mb-3">
+            <label for="country" class="form-label text-black">País:</label>
+            <select id="country" class="form-select bg-dark text-white border-muted">
+              <option value="colombia" selected>Colombia</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label text-black">Correo electrónico:</label>
+            <input type="email" id="email" class="form-control bg-dark text-white border-muted" placeholder="Ingresa tu correo electrónico" required>
+          </div>
+          <p class="mb-2 text-black">Elige tu método de pago:</p>
+          <div class="payment-methods list-group">
+            <button type="button" class="list-group-item list-group-item-action d-flex align-items-center bg-dark text-white border-muted">
+              Davivienda
+            </button>
+            <button type="button" class="list-group-item list-group-item-action d-flex align-items-center bg-dark text-white border-muted">
+              Tarjeta de Crédito y Débito
+            </button>
+            <button type="button" class="list-group-item list-group-item-action d-flex align-items-center bg-dark text-white border-muted">
+              Cuentas de ahorro y corriente
+            </button>
+            <button type="button" class="list-group-item list-group-item-action d-flex align-items-center bg-dark text-white border-muted">
+              DaviPlata
+            </button>
+            <button type="button" class="list-group-item list-group-item-action d-flex align-items-center bg-dark text-white border-muted">
+              Nequi
+            </button>
+          </div>
+        </form>
+        <div class="text-center mt-4 d-flex justify-content-center gap-3">
+          <button class="btn btn-warning px-4 py-2">Continuar</button>
+          <button class="btn btn-outline-primary px-4 py-2" onclick="window.location.href='calendario.html'">Ver el calendario del experto</button>
+        </div>
+        <br>
+      </article>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

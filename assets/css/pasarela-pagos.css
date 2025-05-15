@@ -1,0 +1,141 @@
+/* --- pasarela-pagos.css (refactorizado para usar solo variables de base.css) --- */
+
+/* Tarjeta de pago */
+.payment-card {
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  background-color: var(--card-bg);
+  box-shadow: var(--card-shadow);
+  transition: var(--transition);
+}
+
+/* Encabezado de la tarjeta de pago */
+.payment-header {
+  background-color: var(--background);
+  color: var(--text-color);
+  padding: 1rem;
+  text-align: center;
+}
+
+.payment-header h5,
+.payment-header p,
+.payment-header h6 {
+  margin: 0;
+}
+
+.payment-header h6 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+/* Lista de métodos de pago */
+.payment-methods .list-group-item {
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+}
+
+.payment-methods .list-group-item:hover {
+  background-color: var(--accent-color);
+  color: var(--card-bg);
+}
+
+/* Formularios */
+.form-label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.form-control,
+.form-select {
+  background-color: var(--input-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--input-radius);
+  color: var(--text-color);
+  padding: 0.5rem;
+  transition: var(--transition);
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--primary-color);
+  box-shadow: var(--focus-shadow);
+}
+
+/* Botones */
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--btn-radius);
+  font-weight: 600;
+  transition: var(--transition);
+  text-align: center;
+}
+
+.btn-warning {
+  background-color: var(--accent-color);
+  color: var(--background);
+}
+
+.btn-warning:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--btn-shadow);
+}
+
+.btn-outline-primary {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--primary-color);
+  color: var(--card-bg);
+  transform: translateY(-2px);
+}
+
+/* Tipografía */
+h6 {
+  font-size: 1.25rem;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+
+p {
+  font-size: 1rem;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+
+/* Contenedor principal */
+main.container {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+/* Fondo y texto del body */
+body.bg-dark {
+  background-color: var(--background);
+  color: var(--text-color);
+}
+
+/* Responsividad */
+@media (max-width: 576px) {
+  .btn {
+    width: 100%;
+  }
+
+  .payment-card {
+    max-width: 100%;
+    margin: 0 1rem;
+  }
+}

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calendario</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/calendario.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+        <div class="navbar">
+            <a href="index.html" class="logo">
+                <img src="assets/img/logo.png" alt="logo" class="logo-img">
+            </a>
+            <div class="nav-links">
+                <a href="feed.html" class="nav-item"><i class="fas fa-home"></i> Inicio</a>
+                <a href="expertos.html" class="nav-item"><i class="fas fa-users"></i> Expertos</a>
+                <a href="contacto.html" class="nav-item"><i class="fas fa-envelope"></i> Contacto</a>
+            </div>
+            <div class="auth-buttons">
+                <a href="login.html" class="btn btn-outline">Iniciar sesión</a>
+                <a href="registro.html" class="btn btn-primary">Registrarse</a>
+            </div>
+        </div>
+    </header>
+  <main class="container mt-3">
+    <section>
+      <h1 class="text-center mb-4">Agenda tu asesoría con tu experto <br>aquí</h1>
+    </section>
+    
+    <section class="mb-4 text-white">
+      <article class="d-flex align-items-center mb-3">
+        <img src="assets/img/expert/expert03.png" alt="Carlos Rodríguez" class="rounded-circle me-3" width="80">
+        <div>
+          <h5 class="mb-0">Carlos Rodríguez</h5>
+          <p class="mb-0">Especialista en IA</p>
+          <p class="text-warning mb-0"><i class="bi bi-star-fill"></i> 4.0 (56 Reviews)</p>
+        </div>
+      </article>
+      <article>
+        <h6>Descripción del asesor:</h6>
+        <p>Soy un profesional en inteligencia artificial con más de 5 años de experiencia en el desarrollo de soluciones innovadoras para empresas tecnológicas.<br>Mi enfoque principal es la implementación de modelos de aprendizaje automático y análisis de datos, estaré para brindarte asesoría y resolver tus dudas de tus proyectos y así seguir contribuyendo a la innovación y crecimiento.</p>
+      </article>
+      <br>
+    </section>
+    <section class="row align-items-start">
+      <article class="col-lg-6 col-md-12 d-flex justify-content-center mb-4">
+        <section id="calendar" class="p-3 bg-dark text-white rounded">
+          <header class="d-flex justify-content-between align-items-center mb-3">
+            <button class="btn btn-outline-light" id="prevMonth">&lt;</button>
+            <h5 id="currentMonth">Mayo 2025</h5>
+            <button class="btn btn-outline-light" id="nextMonth">&gt;</button>
+          </header>
+          <div class="table-responsive">
+            <table class="table table-bordered text-center text-white">
+              <thead>
+                <tr>
+                  <th>LUN</th>
+                  <th>MAR</th>
+                  <th>MIÉ</th>
+                  <th>JUE</th>
+                  <th>VIE</th>
+                  <th>SÁB</th>
+                  <th>DOM</th>
+                </tr>
+              </thead>
+              <tbody id="calendarBody">
+                <!-- Días generados dinámicamente. Buscar como hacer bien el calendario... -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </article>
+      
+      <aside class="col-lg-6 col-md-12 d-flex flex-column align-items-center">
+        <h5 class="text-white mb-4">Horas Disponibles</h5>
+        <div class="row text-center">
+          <div class="col-6 mb-2"><button class="btn btn-outline-secondary w-100">07:00</button></div>
+          <div class="col-6 mb-2"><button class="btn btn-outline-secondary w-100">08:00</button></div>
+          <div class="col-6 mb-2"><button class="btn btn-outline-secondary w-100" disabled>9:00</button></div>
+          <div class="col-6 mb-2"><button class="btn btn-outline-secondary w-100">10:00</button></div>
+          <div class="col-6 mb-2"><button class="btn btn-outline-secondary w-100">11:00</button></div>
+          <div class="col-6 mb-2"><button class="btn btn-outline-secondary w-100" disabled>12:00</button></div>
+          <div class="col-6 mb-2"><button class="btn btn-outline-secondary w-100">14:00</button></div>
+          <div class="col-6 mb-2"><button class="btn btn-outline-secondary w-100">15:00</button></div> 
+          <div class="col-6 mb-2"><button class="btn btn-outline-secondary w-100">16:00</button></div>
+          <div class="col-6 mb-2"><button class="btn btn-outline-secondary w-100">17:00</button></div>
+        </div>
+      </aside>
+    </section>
+  </main>
+  
+  <div class="text-center mt-4">
+    <button class="btn btn-primary px-4 py-2" onclick="window.location.href='pasarela-pagos.html' ">Pagar asesoría</button>
+    <button class="btn btn-outline-warning border border-warning px-4 py-2" onclick="window.location.href='expertos.html'">
+      <i class="bi bi-person-lines-fill"></i> Ver más expertos
+    </button>
+  </div>
+  <br><br>
+  <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="assets/img/logo.png" alt="Servitech Logo" srcset="" fill="currentColor" class="footer-logo-img" width="120" height="40">
+                <p>Conectando expertos con estudiantes</p>
+            </div>
+            <div class="link-column">
+                <h3>Empresa</h3>
+                <a href="nosotros.html">Sobre nosotros</a>
+                <a href="empleo.html">Carreras</a>
+                <a href="blog.html">Blog</a>
+            </div>
+            <div class="link-column">
+                <h3>Recursos</h3>
+                <a href="faq.html">Centro de ayuda</a>
+                <a href="guias.html">Guías</a>
+                <a href="testimonios.html">Testimonios</a>
+            </div>
+            <div class="link-column">
+                <h3>Legal</h3>
+                <a href="terminos.html">Términos de servicio</a>
+                <a href="privacidad.html">Política de privacidad</a>
+                <a href="cookies.html">Cookies</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Servitech. Todos los derechos reservados.</p>
+            <div class="social-links">
+                <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
