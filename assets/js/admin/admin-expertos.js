@@ -56,7 +56,8 @@ function setupExpertModal() {
 /* editar experto */
 document.addEventListener("DOMContentLoaded", () => {
   const modal = document.getElementById("editarExperto");
-  const closeBtn = modal.querySelector(".close");
+  const closeBtn = modal.querySelector(".btn-close");
+  const cancelBtn = modal.querySelector(".modal-editar-cancelar");
 
   const nombreInput = document.getElementById("nombreExperto");
   const correoInput = document.getElementById("correoExperto");
@@ -64,11 +65,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const estadoSelect = document.getElementById("estadoExperto");
   const fechaRegistroInput = document.getElementById("fechaRegistroExperto");
   const sesionesInput = document.getElementById("sesionesExperto");
-  const btnGuardar = document.getElementById("btnGuardar");
-  const btnCancelar = document.getElementById("btnCancelar");
+  const calificacionInput = document.getElementById("calificacionExperto");
 
   // Abrir modal con datos del experto
-  document.querySelectorAll(".btn-icon[title='Editar']").forEach((button) => {
+  document.querySelectorAll(".edit-btn").forEach((button) => {
     button.addEventListener("click", () => {
       const row = button.closest("tr");
       const nombre = row.querySelector("h4").textContent.trim();
@@ -82,13 +82,22 @@ document.addEventListener("DOMContentLoaded", () => {
       especialidadInput.value = especialidad;
       estadoSelect.value = estado;
       fechaRegistroInput.value = fechaRegistro;
+      sesionesInput.value = row.children[4].textContent.trim();
+      calificacionInput.value = row.children[5].textContent.trim();
 
       modal.style.display = "flex";
     });
   });
 
-  // Cerrar modal
+  // Cerrar modal con la X
   closeBtn.addEventListener("click", () => (modal.style.display = "none"));
+
+  // Cerrar modal con el botón cancelar
+  if (cancelBtn) {
+    cancelBtn.addEventListener("click", () => (modal.style.display = "none"));
+  }
+
+  // Cerrar modal al hacer click fuera del contenido
   window.addEventListener("click", (e) => {
     if (e.target === modal) modal.style.display = "none";
   });
@@ -100,6 +109,124 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
       modal.style.display = "none";
     });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Modal ver perfil experto
+  const modalVer = document.getElementById("verPerfilExperto");
+  const closeBtnVer = modalVer ? modalVer.querySelector(".btn-close") : null;
+  const cerrarBtnVer = modalVer
+    ? modalVer.querySelector(".modal-ver-cerrar")
+    : null;
+
+  const verNombreInput = document.getElementById("verNombreExperto");
+  const verCorreoInput = document.getElementById("verCorreoExperto");
+  const verEspecialidadInput = document.getElementById(
+    "verEspecialidadExperto"
+  );
+  const verEstadoInput = document.getElementById("verEstadoExperto");
+  const verFechaRegistroInput = document.getElementById(
+    "verFechaRegistroExperto"
+  );
+  const verSesionesInput = document.getElementById("verSesionesExperto");
+  const verCalificacionInput = document.getElementById(
+    "verCalificacionExperto"
+  );
+
+  document
+    .querySelectorAll(".btn-icon[title='Ver perfil']")
+    .forEach((button) => {
+      button.addEventListener("click", () => {
+        const row = button.closest("tr");
+        verNombreInput.value = row.querySelector("h4").textContent.trim();
+        verCorreoInput.value = row.querySelector("span").textContent.trim();
+        verEspecialidadInput.value = row.children[2].textContent.trim();
+        verEstadoInput.value = row.querySelector(".status").textContent.trim();
+        verFechaRegistroInput.value = row
+          .querySelector("td")
+          .textContent.trim();
+        verSesionesInput.value = row.children[4].textContent.trim();
+        verCalificacionInput.value = row.children[5].textContent.trim();
+
+        modalVer.style.display = "flex";
+      });
+    });
+
+  if (closeBtnVer) {
+    closeBtnVer.addEventListener(
+      "click",
+      () => (modalVer.style.display = "none")
+    );
+  }
+  if (cerrarBtnVer) {
+    cerrarBtnVer.addEventListener(
+      "click",
+      () => (modalVer.style.display = "none")
+    );
+  }
+  if (modalVer) {
+    window.addEventListener("click", (e) => {
+      if (e.target === modalVer) modalVer.style.display = "none";
+    });
+  }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Modal inactivar experto
+  const modalInactivar = document.getElementById("modalInactivarExperto");
+  const closeBtnInactivar = modalInactivar
+    ? modalInactivar.querySelector(".btn-close")
+    : null;
+  const cancelarBtnInactivar = modalInactivar
+    ? modalInactivar.querySelector(".modal-inactivar-cancelar")
+    : null;
+  const confirmarBtnInactivar = modalInactivar
+    ? modalInactivar.querySelector(".modal-inactivar-confirmar")
+    : null;
+  const nombreInactivar = document.getElementById(
+    "modalInactivarExpertoNombre"
+  );
+  let rowToInactivate = null;
+
+  document.querySelectorAll(".btn-icon[title='Eliminar']").forEach((button) => {
+    button.addEventListener("click", () => {
+      rowToInactivate = button.closest("tr");
+      const nombre = rowToInactivate.querySelector("h4").textContent.trim();
+      nombreInactivar.textContent = nombre;
+      modalInactivar.style.display = "flex";
+    });
+  });
+
+  if (closeBtnInactivar) {
+    closeBtnInactivar.addEventListener(
+      "click",
+      () => (modalInactivar.style.display = "none")
+    );
+  }
+  if (cancelarBtnInactivar) {
+    cancelarBtnInactivar.addEventListener(
+      "click",
+      () => (modalInactivar.style.display = "none")
+    );
+  }
+  if (modalInactivar) {
+    window.addEventListener("click", (e) => {
+      if (e.target === modalInactivar) modalInactivar.style.display = "none";
+    });
+  }
+  if (confirmarBtnInactivar) {
+    confirmarBtnInactivar.addEventListener("click", () => {
+      if (rowToInactivate) {
+        // Cambia el estado visualmente a inactivo
+        const statusCell = rowToInactivate.querySelector(".status");
+        if (statusCell) {
+          statusCell.className = "status inactive";
+          statusCell.textContent = "Inactivo";
+        }
+      }
+      modalInactivar.style.display = "none";
+    });
+  }
 });
 
 /**

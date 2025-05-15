@@ -668,6 +668,92 @@
   cursor: pointer;
 }
 
+/* --- Modal Usuario (similar a modal-expert) --- */
+.modal-usuario {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+.modal-usuario__content {
+  width: 600px;
+  max-width: 95%;
+  background-color: var(--admin-card-bg);
+  border-radius: 12px;
+  box-shadow: var(--admin-shadow);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.modal-usuario__header {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--admin-border-color);
+}
+.modal-usuario__title {
+  margin: 0;
+  font-size: 18px;
+  color: var(--admin-text-primary);
+}
+.modal-usuario__body {
+  padding: 20px;
+}
+.modal-usuario__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+.modal-usuario__label {
+  display: block;
+  font-size: 14px;
+  color: var(--admin-text-secondary);
+  margin-bottom: 6px;
+}
+.modal-usuario__input {
+  width: 100%;
+  padding: 10px 12px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--admin-border-color);
+  border-radius: 6px;
+  color: var(--admin-text-primary);
+  font-size: 14px;
+}
+.modal-usuario__footer {
+  padding: 20px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  border-top: 1px solid var(--admin-border-color);
+}
+
+/* Select personalizado para modal-usuario */
+.modal-usuario__input[type="select"],
+.modal-usuario__input select,
+.modal-usuario__input option,
+select.modal-usuario__input,
+select.usuarios-filtros__select {
+  background-color: #181c23 !important;
+  color: #fff !important;
+}
+select.modal-usuario__input option {
+  background-color: #181c23;
+  color: #fff;
+}
+
+/* Checkbox color para usuarios */
+.usuarios-checkbox {
+  accent-color: var(--admin-accent-color);
+}
+
 /* --- Expertos Grid Layout --- */
 .expertos-grid {
   display: grid;
@@ -846,6 +932,155 @@
   font-size: 13px;
 }
 
+/* --- Usuarios Grid Layout --- */
+.usuarios-grid {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 20px;
+  margin-bottom: 25px;
+}
+.usuarios-grid__filters {
+  padding: 20px;
+}
+
+/* --- Filtros Usuarios --- */
+.usuarios-filtros__title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--admin-text-primary);
+  margin-bottom: 15px;
+}
+.usuarios-filtros__group {
+  margin-bottom: 15px;
+}
+.usuarios-filtros__label {
+  display: block;
+  font-size: 14px;
+  color: var(--admin-text-secondary);
+  margin-bottom: 6px;
+}
+.usuarios-filtros__select {
+  width: 100%;
+  padding: 8px 12px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--admin-border-color);
+  border-radius: 6px;
+  color: var(--admin-text-primary);
+  font-size: 14px;
+}
+.usuarios-filtros__btn {
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* --- Estadísticas Usuarios --- */
+.usuarios-estadisticas {
+  margin-top: 30px;
+}
+.usuarios-estadisticas__title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--admin-text-primary);
+  margin-bottom: 15px;
+}
+.usuarios-estadisticas__list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.usuarios-estadisticas__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border-radius: 8px;
+  color: var(--admin-text-primary);
+}
+.usuarios-estadisticas__item--total {
+  background-color: rgba(58, 142, 255, 0.1);
+}
+.usuarios-estadisticas__item--activos {
+  background-color: rgba(40, 167, 69, 0.1);
+}
+.usuarios-estadisticas__item--nuevos {
+  background-color: rgba(255, 193, 7, 0.1);
+}
+.usuarios-estadisticas__item--conversion {
+  background-color: rgba(18, 216, 250, 0.1);
+}
+.usuarios-estadisticas__item-info {
+  display: flex;
+  align-items: center;
+}
+.usuarios-estadisticas__icon {
+  font-size: 20px;
+  margin-right: 12px;
+}
+.usuarios-estadisticas__icon--total {
+  color: var(--admin-accent-color);
+}
+.usuarios-estadisticas__icon--activos {
+  color: #28a745;
+}
+.usuarios-estadisticas__icon--nuevos {
+  color: #ffc107;
+}
+.usuarios-estadisticas__icon--conversion {
+  color: var(--admin-accent-secondary);
+}
+.usuarios-estadisticas__value {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+/* --- Paginación Usuarios --- */
+.usuarios-paginacion {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--admin-border-color);
+}
+.usuarios-paginacion__info {
+  color: var(--admin-text-secondary);
+  font-size: 14px;
+}
+.usuarios-paginacion__controles {
+  display: flex;
+  gap: 5px;
+}
+.usuarios-paginacion__btn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--admin-border-color);
+  border-radius: 6px;
+  background: none;
+  color: var(--admin-text-primary);
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s, color 0.2s;
+}
+.usuarios-paginacion__btn--active {
+  background: var(--admin-accent-color);
+  color: #fff;
+  border: none;
+}
+.usuarios-paginacion__btn--disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  color: var(--admin-text-secondary);
+  background: none;
+  border: 1px solid var(--admin-border-color);
+}
+.usuarios-paginacion__ellipsis {
+  display: flex;
+  align-items: center;
+  color: var(--admin-text-secondary);
+}
+
 /* --- Responsive --- */
 @media (max-width: 992px) {
   .admin-sidebar {
@@ -865,6 +1100,13 @@
     grid-template-columns: 1fr;
   }
   .expertos-grid__filters {
+    margin-bottom: 20px;
+  }
+
+  .usuarios-grid {
+    grid-template-columns: 1fr;
+  }
+  .usuarios-grid__filters {
     margin-bottom: 20px;
   }
 }
@@ -895,6 +1137,18 @@
     gap: 10px;
   }
   .expertos-paginacion {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .usuarios-filtros__btn {
+    margin-top: 10px;
+  }
+  .usuarios-estadisticas__list {
+    gap: 10px;
+  }
+  .usuarios-paginacion {
     flex-direction: column;
     gap: 10px;
     align-items: flex-start;
