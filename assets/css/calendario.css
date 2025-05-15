@@ -1,0 +1,159 @@
+/* Tipografía principal */
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  text-align: center;
+}
+
+/* Párrafos */
+p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+/* Botones genéricos */
+button {
+  display: inline-block;
+  padding: .6rem 1.2rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--btn-radius);
+  background-color: transparent;
+  color: var(--text-color);
+  font-weight: 600;
+  transition: var(--transition);
+  cursor: pointer;
+  text-align: center;
+}
+
+button:hover:not(:disabled) {
+  background-color: var(--border-color);
+  color: var(--card-bg);
+  transform: translateY(-2px);
+}
+
+button:disabled {
+  background-color: var(--input-bg);
+  color: var(--text-light);
+  cursor: not-allowed;
+}
+
+/* Contenedores y filas */
+.row div {
+  color: var(--text-color);
+}
+
+/* Imágenes decorativas */
+img.rounded-circle {
+  border: 3px solid var(--accent-color);
+}
+
+/* Textos de advertencia */
+p.text-warning {
+  font-size: 1rem;
+  color: var(--accent-color);
+}
+
+/* Subtítulos */
+h6 {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  color: var(--text-color);
+}
+
+/* --- Estilos del calendario --- */
+#calendar {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  width: 100%;
+  color: var(--text-color);
+}
+
+#calendar header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+#calendar header h5 {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+#calendar table {
+  width: 100%;
+  font-size: 1rem;
+}
+
+#calendar th,
+#calendar td {
+  padding: 10px;
+  border: 1px solid var(--border-color);
+}
+
+#calendar td {
+  cursor: pointer;
+}
+
+#calendar td:hover {
+  background-color: var(--accent-color);
+  color: var(--card-bg);
+}
+
+/* Horas disponibles */
+aside h5 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+aside .row div {
+  margin-bottom: 10px;
+}
+
+aside .row button {
+  width: 100%;
+}
+
+aside .row button:hover:not(:disabled) {
+  background-color: var(--border-color);
+  color: var(--card-bg);
+}
+
+/* Ajustes de margen */
+.col-md-4 {
+  margin-left: 10px;
+}
+
+.col-md-5 {
+  margin-left: 20px;
+}
+
+/* Contenedor principal */
+.container {
+  max-width: var(--content-max-width);
+}
+
+/* Responsividad */
+@media (max-width: 992px) {
+  .row {
+    flex-direction: column;
+  }
+
+  .col-lg-4,
+  .col-lg-8 {
+    max-width: 100%;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  article#calendar {
+    margin-bottom: 20px;
+  }
+}
