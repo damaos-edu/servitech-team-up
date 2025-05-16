@@ -8,9 +8,6 @@
 .publicaciones-grid__filters {
   padding: 20px;
 }
-.publicaciones-grid__tabla {
-  /* No extra styles needed, uses .table-container */
-}
 
 /* --- Filtros Publicaciones --- */
 .publicaciones-filtros__title {
