@@ -2,125 +2,252 @@
 
 /* === Estilos para publicaciones === */
 .post-title {
-    max-width: 300px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    font-weight: 500;
+  max-width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 500;
 }
 
 .status.completed {
-    background-color: rgba(0, 198, 137, 0.1);
-    color: #00c689;
+  background-color: rgba(0, 198, 137, 0.1);
+  color: #00c689;
 }
 
 .status.rejected {
-    background-color: rgba(220, 53, 69, 0.1);
-    color: #dc3545;
+  background-color: rgba(220, 53, 69, 0.1);
+  color: #dc3545;
 }
 
 .table-container .user-info {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .table-container .user-info img {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
 }
 
 /* === Estilos para categorías === */
 .category-info {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .category-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
 }
 
 .status.blocked {
-    background-color: rgba(108, 117, 125, 0.1);
-    color: #6c757d;
+  background-color: rgba(108, 117, 125, 0.1);
+  color: #6c757d;
 }
 
 /* === Estilos para configuraciones === */
 .tab-navigation {
-    display: flex;
-    border-bottom: 1px solid var(--border-color);
-    margin-bottom: 24px;
-    overflow-x: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+  display: flex;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 24px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .tab-navigation::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .tab-button {
-    padding: 15px 20px;
-    background: none;
-    border: none;
-    color: var(--text-secondary);
-    font-weight: 500;
-    cursor: pointer;
-    position: relative;
-    white-space: nowrap;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: color 0.3s;
+  padding: 15px 20px;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-weight: 500;
+  cursor: pointer;
+  position: relative;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.3s;
 }
 
 .tab-button i {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 .tab-button:hover {
-    color: var(--text-primary);
+  color: var(--text-primary);
 }
 
 .tab-button.active {
-    color: var(--primary-color);
+  color: var(--primary-color);
 }
 
 .tab-button.active::after {
-    content: '';
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: var(--primary-color);
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary-color);
 }
 
 .tab-content {
-    display: none;
+  display: none;
 }
 
 .tab-content.active {
-    display: block;
+  display: block;
 }
 
 /* Estilos para campos especiales */
 input[type="color"] {
-    padding: 0;
-    width: 100%;
-    height: 40px;
-    cursor: pointer;
+  padding: 0;
+  width: 100%;
+  height: 40px;
+  cursor: pointer;
 }
 
 /* Estilos para configuración de tipo */
 #configType {
-    font-weight: 500;
+  font-weight: 500;
+}
+
+/* Área de filtros reutilizable */
+.admin-filtros-box,
+.expertos-filtros,
+.usuarios-filtros,
+.categorias-filtros,
+.publicaciones-filtros {
+  background: none;
+  padding: 0;
+  margin: 0;
+}
+
+.admin-filtros__title,
+.expertos-filtros__title,
+.usuarios-filtros__title,
+.categorias-filtros__title,
+.publicaciones-filtros__title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--admin-text-primary);
+  margin-bottom: 15px;
+}
+
+.admin-filtros__group,
+.expertos-filtros__group,
+.usuarios-filtros__group,
+.categorias-filtros__group,
+.publicaciones-filtros__group {
+  margin-bottom: 15px;
+}
+
+.admin-filtros__label,
+.expertos-filtros__label,
+.usuarios-filtros__label,
+.categorias-filtros__label,
+.publicaciones-filtros__label {
+  display: block;
+  font-size: 14px;
+  color: var(--admin-text-secondary);
+  margin-bottom: 6px;
+}
+
+.admin-filtros__select,
+.expertos-filtros__select,
+.usuarios-filtros__select,
+.categorias-filtros__select,
+.publicaciones-filtros__select {
+  width: 100%;
+  padding: 8px 12px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--admin-border-color);
+  border-radius: 6px;
+  color: var(--admin-text-primary);
+  font-size: 14px;
+}
+
+.admin-filtros__btn,
+.expertos-filtros__btn,
+.usuarios-filtros__btn,
+.categorias-filtros__btn,
+.publicaciones-filtros__btn {
+  width: 100%;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Tarjetas de estadísticas reutilizables */
+.admin-estadisticas__list,
+.expertos-estadisticas__list,
+.usuarios-estadisticas__list,
+.categorias-estadisticas__list,
+.publicaciones-estadisticas__list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.admin-estadisticas__item,
+.expertos-estadisticas__item,
+.usuarios-estadisticas__item,
+.categorias-estadisticas__item,
+.publicaciones-estadisticas__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border-radius: 8px;
+  color: var(--admin-text-primary);
+}
+
+.admin-estadisticas__item-info,
+.expertos-estadisticas__item-info,
+.usuarios-estadisticas__item-info,
+.categorias-estadisticas__item-info,
+.publicaciones-estadisticas__item-info {
+  display: flex;
+  align-items: center;
+}
+
+.admin-estadisticas__icon,
+.expertos-estadisticas__icon,
+.usuarios-estadisticas__icon,
+.categorias-estadisticas__icon,
+.publicaciones-estadisticas__icon {
+  font-size: 20px;
+  margin-right: 12px;
+}
+
+.admin-estadisticas__value,
+.expertos-estadisticas__value,
+.usuarios-estadisticas__value,
+.categorias-estadisticas__value,
+.publicaciones-estadisticas__value {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+/* Utilidad para centrar el botón de filtros */
+.admin-filtros__btn--center,
+.expertos-filtros__btn--center,
+.usuarios-filtros__btn--center,
+.categorias-filtros__btn--center,
+.publicaciones-filtros__btn--center {
+  justify-content: center;
 }
