@@ -400,7 +400,7 @@
                   <td><span class="status pending">Pendiente</span></td>
                   <td>
                     <div class="action-buttons">
-                      <button class="btn-icon" title="Ver detalles">
+                      <button class="btn-icon dashboard-view-btn" title="Ver detalles">
                         <i class="fas fa-eye"></i>
                       </button>
 
@@ -427,7 +427,7 @@
                   <td><span class="status active">Asignado</span></td>
                   <td>
                     <div class="action-buttons">
-                      <button class="btn-icon" title="Ver detalles">
+                      <button class="btn-icon dashboard-view-btn" title="Ver detalles">
                         <i class="fas fa-eye"></i>
                       </button>
                     </div>
@@ -453,7 +453,7 @@
                   <td><span class="status inactive">Cerrado</span></td>
                   <td>
                     <div class="action-buttons">
-                      <button class="btn-icon" title="Ver detalles">
+                      <button class="btn-icon dashboard-view-btn" title="Ver detalles">
                         <i class="fas fa-eye"></i>
                       </button>
                     </div>
@@ -479,7 +479,7 @@
                   <td><span class="status active">Asignado</span></td>
                   <td>
                     <div class="action-buttons">
-                      <button class="btn-icon" title="Ver detalles">
+                      <button class="btn-icon dashboard-view-btn" title="Ver detalles">
                         <i class="fas fa-eye"></i>
                       </button>
                   </td>
@@ -497,9 +497,29 @@
       </main>
     </div>
 
+    <!-- Modal Detalle Novedad Dashboard -->
+    <div id="dashboardModal" class="modal-publicacion">
+      <div class="modal-publicacion__content">
+        <div class="modal-publicacion__header">
+          <h2 class="modal-publicacion__title">Detalle de la novedad</h2>
+          <button class="btn-close" id="dashboardModalClose"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="modal-publicacion__body">
+          <form id="dashboardModalForm">
+            <div id="dashboardModalFields">
+              <!-- Aquí se llenan los campos dinámicamente -->
+            </div>
+          </form>
+        </div>
+        <div class="modal-publicacion__footer">
+          <button class="btn-primary" id="dashboardModalViewBtn">Ver la novedad</button>
+          <button class="btn-outline" id="dashboardModalCloseBtn">Cerrar</button>
+        </div>
+      </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../assets/js/admin/admin-common.js"></script>
     <script src="../assets/js/admin/admin.js"></script>
   </body>
 </html>
-```
