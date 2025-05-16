@@ -1,0 +1,341 @@
+.modal-expert {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-expert__content {
+  width: 600px;
+  max-width: 95%;
+  background-color: var(--admin-card-bg);
+  border-radius: 12px;
+  box-shadow: var(--admin-shadow);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-expert__container {
+  width: 600px;
+  max-width: 95%;
+  background-color: var(--admin-card-bg);
+  border-radius: 12px;
+  box-shadow: var(--admin-shadow);
+  overflow: hidden;
+}
+
+.modal-expert__header {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--admin-border-color);
+}
+
+.modal-expert__title {
+  margin: 0;
+  font-size: 18px;
+  color: var(--admin-text-primary);
+}
+
+.modal-expert__body {
+  padding: 20px;
+}
+
+.modal-expert__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.modal-expert__label {
+  display: block;
+  font-size: 14px;
+  color: var(--admin-text-secondary);
+  margin-bottom: 6px;
+}
+
+.modal-expert__input {
+  width: 100%;
+  padding: 10px 12px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--admin-border-color);
+  border-radius: 6px;
+  color: var(--admin-text-primary);
+  font-size: 14px;
+}
+
+.modal-expert__textarea {
+  resize: vertical;
+}
+
+.modal-expert__hint {
+  display: block;
+  margin-top: 5px;
+  color: var(--admin-text-secondary);
+  font-size: 12px;
+}
+
+.modal-expert__group {
+  margin-bottom: 15px;
+}
+
+.modal-expert__upload-wrapper {
+  position: relative;
+}
+
+.modal-expert__file-input {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.modal-expert__upload-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px dashed var(--admin-border-color);
+  border-radius: 6px;
+  color: var(--admin-text-primary);
+}
+
+.modal-expert__upload-box i {
+  margin-right: 8px;
+}
+
+.modal-expert__footer {
+  padding: 20px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  border-top: 1px solid var(--admin-border-color);
+}
+
+/* Select personalizado para expertos */
+.expertos-filtros__select,
+.modal-expert__input[type="select"],
+select.expertos-filtros__select,
+select.modal-expert__input,
+select.modal-expert__input option {
+  background-color: #181c23 !important;
+  color: #fff !important;
+}
+select.expertos-filtros__select option,
+select.modal-expert__input option {
+  background-color: #181c23;
+  color: #fff;
+}
+
+/* Utilidades para modales de expertos */
+.modal-expert__nombre-destacado {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.modal-expert__texto-secundario {
+  color: var(--admin-text-secondary);
+  font-size: 14px;
+}
+
+#formEditarExperto,
+#formEditarExperto > input,
+#formEditarExperto > select {
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+}
+
+#formEditarExperto > label,
+#formEditarExperto > button {
+  margin-top: 1em;
+}
+
+/* --- Expertos Grid Layout --- */
+.expertos-grid {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 20px;
+  margin-bottom: 25px;
+}
+.expertos-grid__filters {
+  padding: 20px;
+}
+
+.expertos-filtros__title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--admin-text-primary);
+  margin-bottom: 15px;
+}
+.expertos-filtros__group {
+  margin-bottom: 15px;
+}
+.expertos-filtros__label {
+  display: block;
+  font-size: 14px;
+  color: var(--admin-text-secondary);
+  margin-bottom: 6px;
+}
+.expertos-filtros__select {
+  width: 100%;
+  padding: 8px 12px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--admin-border-color);
+  border-radius: 6px;
+  color: var(--admin-text-primary);
+  font-size: 14px;
+}
+.expertos-filtros__btn {
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* --- Estadísticas --- */
+.expertos-estadisticas {
+  margin-top: 30px;
+}
+.expertos-estadisticas__title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--admin-text-primary);
+  margin-bottom: 15px;
+}
+.expertos-estadisticas__list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.expertos-estadisticas__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border-radius: 8px;
+  color: var(--admin-text-primary);
+}
+.expertos-estadisticas__item--total {
+  background-color: rgba(58, 142, 255, 0.1);
+}
+.expertos-estadisticas__item--activos {
+  background-color: rgba(40, 167, 69, 0.1);
+}
+.expertos-estadisticas__item--pendientes {
+  background-color: rgba(255, 193, 7, 0.1);
+}
+.expertos-estadisticas__item--promedio {
+  background-color: rgba(18, 216, 250, 0.1);
+}
+.expertos-estadisticas__item-info {
+  display: flex;
+  align-items: center;
+}
+.expertos-estadisticas__icon {
+  font-size: 20px;
+  margin-right: 12px;
+}
+.expertos-estadisticas__icon--total {
+  color: var(--admin-accent-color);
+}
+.expertos-estadisticas__icon--activos {
+  color: #28a745;
+}
+.expertos-estadisticas__icon--pendientes {
+  color: #ffc107;
+}
+.expertos-estadisticas__icon--promedio {
+  color: var(--admin-accent-secondary);
+}
+.expertos-estadisticas__value {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+/* --- Paginación --- */
+.expertos-paginacion {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--admin-border-color);
+}
+.expertos-paginacion__info {
+  color: var(--admin-text-secondary);
+  font-size: 14px;
+}
+.expertos-paginacion__controles {
+  display: flex;
+  gap: 5px;
+}
+.expertos-paginacion__btn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--admin-border-color);
+  border-radius: 6px;
+  background: none;
+  color: var(--admin-text-primary);
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s, color 0.2s;
+}
+.expertos-paginacion__btn--active {
+  background: var(--admin-accent-color);
+  color: #fff;
+  border: none;
+}
+.expertos-paginacion__btn--disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  color: var(--admin-text-secondary);
+  background: none;
+  border: 1px solid var(--admin-border-color);
+}
+.expertos-paginacion__ellipsis {
+  display: flex;
+  align-items: center;
+  color: var(--admin-text-secondary);
+}
+
+/* Checkbox color para expertos */
+.expertos-checkbox {
+  accent-color: var(--admin-accent-color);
+}
+
+/* Rating de expertos */
+.expertos-rating {
+  display: flex;
+  align-items: center;
+}
+.expertos-rating__value {
+  color: #ffbb00;
+  margin-right: 5px;
+}
+.expertos-rating__stars {
+  display: flex;
+  gap: 2px;
+}
+.expertos-rating__star {
+  font-size: 12px;
+  color: #ffbb00;
+}
+.expertos-rating__star.far {
+  opacity: 0.3;
+}
+.expertos-rating__nocount {
+  color: var(--admin-text-secondary);
+  font-size: 13px;
+}
