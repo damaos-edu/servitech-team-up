@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Expertos - ServiTech</title>
+    <title>Expertos - Servitech</title>
     <link rel="stylesheet" href="assets/css/base.css">
-    <link rel="stylesheet" href="assets/css/expertos.css"> <!-- Added link to new CSS file -->
+    <link rel="stylesheet" href="assets/css/expertos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <div class="navbar">
+        <nav class="navbar">
             <a href="index.html" class="logo">
                 <img src="assets/img/logo.png" alt="logo" class="logo-img">
             </a>
             <div class="nav-links">
-               <a href="feed.html" class="nav-item"><i class="fas fa-home"></i> Inicio</a>
+                <a href="feed.html" class="nav-item"><i class="fas fa-home"></i> Inicio</a>
                 <a href="index.html" class="nav-item"><i class="fas fa-home"></i> Principal</a>
                 <a href="expertos.html" class="nav-item"><i class="fas fa-users"></i> Expertos</a>
                 <a href="contacto.html" class="nav-item"><i class="fas fa-envelope"></i> Contacto</a>
@@ -25,130 +25,121 @@
                 <a href="login.html" class="btn btn-outline">Iniciar sesión</a>
                 <a href="registro.html" class="btn btn-primary">Registrarse</a>
             </div>
-        </div>
+        </nav>
     </header>
 
-    <div class="container">
-        <div class="card animate-fade">
-            <h3 class="card-title"><i class="fas fa-search"></i> Encuentra tu Experto</h3>
-            <form class="search-form">
-                <div class="form-group">
-                    <label class="form-label">Buscar por nombre o especialidad</label>
-                    <input type="text" class="form-control" placeholder="Ej: Desarrollo web, Bases de datos...">
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label">Precio por hora</label>
-                    <input type="number" class="form-control" placeholder="Ej: 25">
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label">Disponibilidad</label>
-                    <div>
-                        <label class="checkbox-container">
-                            <input type="checkbox" class="checkbox-input">
-                            Diurna
-                        </label>
-                        <label class="checkbox-container">
-                            <input type="checkbox" class="checkbox-input">
-                            Nocturna
-                        </label>
+    <main class="container">
+        <!-- Formulario de búsqueda -->
+        <section class="search-section">
+            <article class="card animate-fade">
+                <h3 class="card-title"><i class="fas fa-search"></i> Encuentra tu Experto</h3>
+                <form class="search-form">
+                    <div class="form-group">
+                        <label class="form-label">Por nombre o especialización</label>
+                        <input type="text" class="form-control" placeholder="Ej: JavaScript, React, Bases de datos...">
                     </div>
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label">Puntuación mínima</label>
-                    <select class="form-control">
-                        <option>Todas las puntuaciones</option>
-                        <option>⭐⭐⭐⭐⭐ (5 estrellas)</option>
-                        <option>⭐⭐⭐⭐ (4+ estrellas)</option>
-                        <option>⭐⭐⭐ (3+ estrellas)</option>
-                    </select>
-                </div>
-                
-                <button type="submit" class="btn btn-primary"><i class="fas fa-filter"></i> Aplicar filtros</button>
-            </form>
-        </div>
+                    <div class="form-group">
+                        <label class="form-label">Precio por hora</label>
+                        <input type="text" class="form-control" placeholder="Ej: 20">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Disponibilidad</label>
+                            <select class="form-control">
+                                <option>Todos los horarios</option>
+                                <option>Diurna</option>
+                                <option>Nocturna</option>
+                            </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="search-rating" class="form-label">Puntuación mínima</label>
+                        <select id="search-rating" class="form-control">
+                            <option>Todas las puntuaciones</option>
+                            <option>⭐⭐⭐⭐⭐ (5 estrellas)</option>
+                            <option>⭐⭐⭐⭐ (4+ estrellas)</option>
+                            <option>⭐⭐⭐ (3+ estrellas)</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-filter"></i> Aplicar filtros</button>
+                </form>
+            </article>
+        </section>
 
-        <div class="expert-grid">
-            <div class="expert-card animate-fade">
-                <div class="expert-header">
+        <!-- Lista de expertos -->
+        <section class="expert-grid">
+            <article class="expert-card animate-fade">
+                <header class="expert-header">
                     <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Foto de experto" class="expert-photo">
                     <div class="expert-info">
                         <h3 class="expert-name">Camilo Martínez Fernández</h3>
-                        <p class="expert-role">Experto ServiTech</p>
+                        <p class="expert-role">Experto Servitech</p>
                         <div class="rating">⭐⭐⭐⭐⭐</div>
                     </div>
-                </div>
+                </header>
                 <div class="expert-content">
                     <p>Especialización en desarrollo web y edición, con experiencia en React, Node.js y bases de datos. Más de 5 años de experiencia en proyectos internacionales.</p>
                 </div>
-                <div class="expert-footer">
-                    <a href="#" class="btn btn-primary">Contratar</a>
-                    <a href="#" class="btn btn-outline">Ver perfil</a>
-                </div>
-            </div>
+                <footer class="expert-footer">
+                    <a href="calendario.html" class="btn btn-primary">Ver perfil</a>
+                </footer>
+            </article>
             
-            <div class="expert-card animate-fade">
-                <div class="expert-header">
+            <article class="expert-card animate-fade">
+                <header class="expert-header">
                     <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Foto de experto" class="expert-photo">
                     <div class="expert-info">
                         <h3 class="expert-name">Ana García López</h3>
                         <p class="expert-role">Experta en UX/UI</p>
                         <div class="rating">⭐⭐⭐⭐⭐</div>
                     </div>
-                </div>
+                </header>
                 <div class="expert-content">
                     <p>Especialista en diseño de experiencia de usuario e interfaces. Amplia experiencia en Figma, Adobe XD, y prototipado. Enfoque en diseño centrado en el usuario.</p>
                 </div>
-                <div class="expert-footer">
-                    <a href="#" class="btn btn-primary">Contratar</a>
-                    <a href="#" class="btn btn-outline">Ver perfil</a>
-                </div>
-            </div>
+                <footer class="expert-footer">
+                    <a href="calendario.html" class="btn btn-primary">Ver perfil</a>
+                </footer>
+            </article>
             
-            <div class="expert-card animate-fade">
-                <div class="expert-header">
+            <article class="expert-card animate-fade">
+                <header class="expert-header">
                     <img src="https://i.pravatar.cc/300?img=59" alt="Foto de experto" class="expert-photo">
                     <div class="expert-info">
                         <h3 class="expert-name">Roberto Sánchez Torres</h3>
                         <p class="expert-role">DevOps Engineer</p>
                         <div class="rating">⭐⭐⭐⭐</div>
                     </div>
-                </div>
+                </header>
                 <div class="expert-content">
                     <p>Especialista en infraestructura como código, contenedores y automatización. Experiencia con Docker, Kubernetes, AWS y CI/CD pipelines. Enfoque en escalabilidad y seguridad.</p>
                 </div>
-                <div class="expert-footer">
-                    <a href="#" class="btn btn-primary">Contratar</a>
-                    <a href="#" class="btn btn-outline">Ver perfil</a>
-                </div>
-            </div>
+                <footer class="expert-footer">
+                    <a href="calendario.html" class="btn btn-primary">Ver perfil</a>
+                </footer>
+            </article>
             
-            <div class="expert-card animate-fade">
-                <div class="expert-header">
+            <article class="expert-card animate-fade">
+                <header class="expert-header">
                     <img src="https://i.pravatar.cc/300?img=26" alt="Foto de experto" class="expert-photo">
                     <div class="expert-info">
                         <h3 class="expert-name">Laura Méndez Ruiz</h3>
                         <p class="expert-role">Data Scientist</p>
                         <div class="rating">⭐⭐⭐⭐⭐</div>
                     </div>
-                </div>
+                </header>
                 <div class="expert-content">
                     <p>Experta en análisis de datos, machine learning y visualización. Experiencia con Python, R, TensorFlow y herramientas de BI. Especializada en proyectos de IA y analítica predictiva.</p>
                 </div>
-                <div class="expert-footer">
-                    <a href="#" class="btn btn-primary">Contratar</a>
-                    <a href="#" class="btn btn-outline">Ver perfil</a>
-                </div>
-            </div>
-        </div>
-    </div>
+                <footer class="expert-footer">
+                    <a href="calendario.html" class="btn btn-primary">Ver perfil</a>
+                </footer>
+            </article>
+        </section>
+    </main>
 
     <footer>
         <div class="footer-content">
             <div class="footer-logo">
-                <img src="assets/img/logo.png" alt="Servitech Logo" srcset="" fill="currentColor" class="footer-logo-img" width="120" height="40">
+                <img src="assets/img/logo.png" alt="Servitech Logo" class="footer-logo-img" width="120" height="40">
                 <p>Conectando expertos con estudiantes</p>
             </div>
             <div class="link-column">

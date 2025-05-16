@@ -1,7 +1,4 @@
-/**
- * Funcionalidad específica para expertos.html
- */
-
+/*Funcionalidad específica para expertos.html*/
 document.addEventListener('DOMContentLoaded', function() {
    
     const searchForm = document.querySelector('.search-form');

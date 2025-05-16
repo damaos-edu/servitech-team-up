@@ -41,12 +41,13 @@ flex:1;
 display:flex;
 justify-content:center;
 align-items:center
+
 }
 
-.banner-image img,.banner-image svg {
-max-width:100%;
-height:auto;
-filter:drop-shadow(0 10px 20px #0000004d);
+.banner-image img {
+max-width:100%; 
+height:auto; 
+filter:drop-shadow(0 30px 10px #1110221e);
 animation:float 3s ease-in-out infinite
 }
 
@@ -138,7 +139,8 @@ font-size:.95rem
 .features {
 padding:5rem 5%;
 max-width:var(--content-max-width);
-margin:0 auto
+margin:0 auto;
+text-align:center;
 }
 
 .feature-grid {
@@ -156,6 +158,7 @@ transition:var(--transition);
 border:1px solid var(--border-light);
 position:relative;
 overflow:hidden
+
 }
 
 .feature-card::before {
@@ -191,7 +194,7 @@ color:var(--text-light)
 }
 
 .cta {
-background:linear-gradient(135deg,var(--primary-color),var(--accent-color));
+background:linear-gradient(135deg,var(--primary-color),var(--primary-hover));
 padding:5rem 5%;
 margin:5rem 0;
 position:relative;
