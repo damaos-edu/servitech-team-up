@@ -19,9 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // MODAL VER PUBLICACIÓN
   const modalVer = document.getElementById("modalVerPublicacion");
-  const closeVer = modalVer
-    ? modalVer.querySelector(".btn-close")
-    : null;
+  const closeVer = modalVer ? modalVer.querySelector(".btn-close") : null;
   const cerrarVer = modalVer
     ? modalVer.querySelector(".modal-publicacion-ver-cerrar")
     : null;
@@ -38,6 +36,37 @@ document.addEventListener("DOMContentLoaded", function () {
     ? modalInactivar.querySelector(".modal-publicacion-inactivar-confirmar")
     : null;
   let rowInactivar = null;
+
+  // Evento para abrir la modal de nueva publicación
+  const btnAddPost = document.getElementById("btnAddPost");
+  const postModal = document.getElementById("postModal");
+  const closePostModal = postModal
+    ? postModal.querySelector(".btn-close")
+    : null;
+  const cancelPostModal = postModal
+    ? postModal.querySelector('[data-dismiss="modal"]')
+    : null;
+
+  if (btnAddPost && postModal) {
+    btnAddPost.addEventListener("click", function () {
+      postModal.style.display = "flex";
+    });
+  }
+  if (closePostModal) {
+    closePostModal.addEventListener("click", function () {
+      postModal.style.display = "none";
+    });
+  }
+  if (cancelPostModal) {
+    cancelPostModal.addEventListener("click", function () {
+      postModal.style.display = "none";
+    });
+  }
+  if (postModal) {
+    window.addEventListener("click", function (e) {
+      if (e.target === postModal) postModal.style.display = "none";
+    });
+  }
 
   // Delegación de eventos para los íconos de acción en la tabla de publicaciones
   const tbody = document.querySelector(".publicaciones-table tbody");
@@ -125,10 +154,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Cerrar modal ver publicación
   if (closeVer)
-    closeVer.addEventListener(
-      "click",
-      () => (modalVer.style.display = "none")
-    );
+    closeVer.addEventListener("click", () => (modalVer.style.display = "none"));
   if (cerrarVer)
     cerrarVer.addEventListener(
       "click",
