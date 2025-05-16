@@ -85,10 +85,11 @@
   padding: 10px 20px;
   color: var(--admin-text-secondary);
   text-decoration: none;
-  border-radius: 0;
+  border-radius: 12px; /* Más redondeado */
   margin: 0;
   width: 100%;
-  transition: background 0.25s, color 0.2s;
+  transition: background 0.25s, color 0.2s, box-shadow 0.3s, border-radius 0.3s,
+    transform 0.15s;
   position: relative;
   z-index: 1;
   overflow: hidden;
@@ -97,11 +98,30 @@
 .sidebar-nav .nav-item.active a {
   background-color: var(--admin-accent-color);
   color: #fff;
-  border-radius: 0;
+  border-radius: 12px; /* Más redondeado */
   width: 100%;
   left: 0;
   transition: background 0.25s, color 0.2s;
-  box-shadow: 0 2px 8px 0 #3a8eff33;
+  box-shadow: 0 4px 16px 0 #3a8eff44;
+  animation: sidebarActivePulse 0.35s cubic-bezier(0.4, 1.6, 0.6, 1) both;
+}
+
+@keyframes sidebarActivePulse {
+  0% {
+    box-shadow: 0 0 0 0 #3a8eff44;
+    transform: scale(0.97);
+    border-radius: 24px;
+  }
+  70% {
+    box-shadow: 0 0 12px 6px #3a8eff33;
+    transform: scale(1.03);
+    border-radius: 18px;
+  }
+  100% {
+    box-shadow: 0 4px 16px 0 #3a8eff44;
+    transform: scale(1);
+    border-radius: 12px;
+  }
 }
 
 .sidebar-nav .nav-item a::before {
@@ -132,6 +152,12 @@
 .sidebar-nav .nav-item a:hover {
   background-color: var(--admin-hover-bg);
   color: var(--admin-text-primary);
+}
+
+.sidebar-nav .nav-item a:active {
+  transform: scale(0.96);
+  box-shadow: 0 2px 8px 0 #3a8eff33;
+  transition: transform 0.1s, box-shadow 0.1s;
 }
 
 .sidebar-footer {
