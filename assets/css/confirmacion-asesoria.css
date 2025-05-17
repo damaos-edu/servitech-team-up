@@ -1,0 +1,396 @@
+/* confirmacion-asesoria.css */
+
+/* Container principal */
+.container {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.confirmation-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Enlace para volver */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.back-link i {
+  margin-right: 0.5rem;
+}
+
+.back-link:hover {
+  color: var(--accent-color);
+  transform: translateX(-5px);
+}
+
+/* Tarjeta de confirmación */
+.confirmation-card {
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  background-color: var(--card-bg);
+  box-shadow: var(--card-shadow);
+  transition: var(--transition);
+  position: relative;
+}
+
+/* Encabezado de la confirmación */
+.confirmation-header {
+  background-color: var(--background);
+  background-image: radial-gradient(circle at 70% 30%, rgba(58, 142, 255, 0.15) 0%, transparent 60%);
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-color);
+  padding: 3rem 2rem;
+  text-align: center;
+  position: relative;
+}
+
+.confirmation-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0.5rem 0;
+  color: var(--text-color);
+}
+
+.confirmation-message {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-top: 0.5rem;
+}
+
+.logo-img {
+  max-height: 50px;
+  margin-bottom: 1.5rem;
+}
+
+.success-icon {
+  font-size: 4rem;
+  color: #2ecc71; /* Verde para éxito */
+  margin: 1rem 0;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.8; }
+}
+
+/* Cuerpo de la confirmación */
+.confirmation-body {
+  padding: 2rem;
+}
+
+.confirmation-section {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.confirmation-section:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.confirmation-section h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  color: var(--text-color);
+}
+
+.confirmation-section h3 i {
+  margin-right: 0.75rem;
+  color: var(--primary-color);
+}
+
+/* Elementos de detalle */
+.detail-item {
+  display: flex;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px dashed var(--border-light);
+}
+
+.detail-item:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.detail-item .label {
+  font-weight: 600;
+  color: var(--text-secondary);
+  width: 140px;
+  flex-shrink: 0;
+}
+
+.detail-item .value {
+  color: var(--text-color);
+}
+
+/* Información del experto */
+.expert-info {
+  display: flex;
+  align-items: center;
+  padding: 1.25rem;
+  background-color: rgba(58, 142, 255, 0.08);
+  border-radius: var(--border-radius);
+  border: 1px solid rgba(58, 142, 255, 0.2);
+}
+
+.expert-avatar {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 1.25rem;
+  flex-shrink: 0;
+  border: 2px solid var(--primary-color);
+}
+
+.expert-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.expert-details h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 0.25rem 0;
+  color: var(--text-color);
+}
+
+.expert-details p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin: 0 0 0.75rem 0;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+}
+
+.rating i {
+  color: #ffcb45; /* Color dorado para estrellas */
+  font-size: 0.9rem;
+  margin-right: 0.15rem;
+}
+
+.rating span {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin-left: 0.5rem;
+}
+
+/* Tarjetas de instrucciones */
+.instruction-card {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1.25rem;
+  padding: 1.25rem;
+  background-color: var(--input-bg);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  transition: var(--transition);
+}
+
+.instruction-card:last-child {
+  margin-bottom: 0;
+}
+
+.instruction-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border-color: var(--border-light);
+}
+
+.instruction-icon {
+  font-size: 1.5rem;
+  color: var(--accent-color);
+  margin-right: 1rem;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(18, 216, 250, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.instruction-text h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+  color: var(--text-color);
+}
+
+.instruction-text p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Acciones de confirmación */
+.confirmation-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  padding: 0 2rem 2rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1.5rem;
+  border-radius: var(--btn-radius);
+  font-weight: 600;
+  transition: var(--transition);
+  text-align: center;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--btn-shadow);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+}
+
+.btn-outline:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+  transform: translateY(-2px);
+}
+
+/* Footer de confirmación */
+.confirmation-footer {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 1.5rem 2rem;
+  text-align: center;
+  border-top: 1px solid var(--border-color);
+}
+
+.confirmation-footer p {
+  color: var(--text-secondary);
+  margin-bottom: 0.75rem;
+}
+
+.accent-link {
+  color: var(--accent-color);
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.accent-link:hover {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+.support-contact {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.contact-item i {
+  color: var(--accent-color);
+  margin-right: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+  
+  .confirmation-header {
+    padding: 2rem 1.5rem;
+  }
+  
+  .confirmation-body {
+    padding: 1.5rem;
+  }
+  
+  .confirmation-actions {
+    grid-template-columns: 1fr;
+    padding: 0 1.5rem 1.5rem;
+  }
+  
+  .detail-item {
+    flex-direction: column;
+  }
+  
+  .detail-item .label {
+    width: 100%;
+    margin-bottom: 0.35rem;
+  }
+  
+  .expert-info {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .expert-avatar {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+  
+  .support-contact {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .instruction-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .instruction-icon {
+    margin-right: 0;
+    margin-bottom: 1rem;
+    width: 50px;
+    height: 50px;
+    font-size: 1.75rem;
+  }
+}
