@@ -254,10 +254,18 @@
         creditCardForm.style.display = 'none';
         paymentMethodSection.style.display = 'block';
       });
-      
-      // Evento para continuar
+        // Evento para continuar
       continueBtn.addEventListener('click', function() {
-        alert('¡Procesando pago! Esta es una simulación de pasarela de pagos.');
+        // Mostrar mensaje de procesamiento
+        const originalText = continueBtn.innerHTML;
+        continueBtn.disabled = true;
+        continueBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Procesando...';
+        
+        // Simulación de procesamiento de pago (2 segundos)
+        setTimeout(function() {
+          // Redirigir a la página de confirmación
+          window.location.href = 'confirmacion-asesoria.html';
+        }, 2000);
       });
     });
   </script>
