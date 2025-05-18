@@ -21,10 +21,27 @@
                 <a href="feed.html" class="nav-item"><i class="fas fa-home"></i> Inicio</a>
                 <a href="expertos.html" class="nav-item"><i class="fas fa-users"></i> Expertos</a>
                 <a href="contacto.html" class="nav-item"><i class="fas fa-envelope"></i> Contacto</a>
-            </div>
-            <div class="auth-buttons">
+            </div>            <div class="auth-buttons">
                 <a href="login.html" class="btn btn-outline">Iniciar sesión</a>
                 <a href="registro.html" class="btn btn-primary">Registrarse</a>
+            </div>
+            <div class="user-menu" id="userMenuContainer" style="display: none;">
+                <div class="user-avatar">
+                    <img src="" alt="Usuario" id="userAvatar">
+                </div>
+                <span class="d-none d-md-inline" id="userDisplayName">Mi cuenta</span>
+                <i class="fas fa-chevron-down"></i>
+                <div class="user-dropdown" id="userDropdown">
+                    <a href="perfil.html" class="dropdown-item">
+                        <i class="fas fa-user"></i> Mi perfil
+                    </a>
+                    <a href="calendario.html" class="dropdown-item active">
+                        <i class="fas fa-calendar-alt"></i> Mis asesorías
+                    </a>
+                    <a href="#" class="dropdown-item" id="logoutBtn">
+                        <i class="fas fa-sign-out-alt"></i> Cerrar sesión
+                    </a>
+                </div>
             </div>
         </div>
     </header>
@@ -197,8 +214,7 @@
                 </div>
             </div>
     </div>
-  <br><br>
-  <footer>
+  <br><br>  <footer>
         <div class="footer-content">
             <div class="footer-logo">
                 <img src="assets/img/logo.png" alt="Servitech Logo" srcset="" fill="currentColor" class="footer-logo-img" width="120" height="40">
@@ -230,8 +246,11 @@
                 <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
                 <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
                 <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
-            </div>
-        </div>
+            </div>        </div>
     </footer>
+    
+    <!-- Scripts -->
+    <script src="assets/js/common.js"></script>
+    <script src="assets/js/calendario.js"></script>
 </body>
 </html>
