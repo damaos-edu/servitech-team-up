@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Calendario</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/calendario.css">
   <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/calendario.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -29,78 +29,174 @@
         </div>
     </header>
   <main class="container mt-3">
+    
     <section>
+      <br>
       <h1 class="text-center mb-4">Agenda tu asesoría con tu experto <br>aquí</h1>
     </section>
-    
-    <section class="mb-4 text-white">
-      <article class="d-flex align-items-center mb-3">
-        <img src="assets/img/expert/expert03.png" alt="Carlos Rodríguez" class="rounded-circle me-3" width="80">
-        <div>
-          <h5 class="mb-0">Carlos Rodríguez</h5>
-          <p class="mb-0">Especialista en IA</p>
-          <p class="text-warning mb-0"><i class="bi bi-star-fill"></i> 4.0 (56 Reviews)</p>
-        </div>
-      </article>
-      <article>
-        <h6>Descripción del asesor:</h6>
-        <p>Soy un profesional en inteligencia artificial con más de 5 años de experiencia en el desarrollo de soluciones innovadoras para empresas tecnológicas.<br>Mi enfoque principal es la implementación de modelos de aprendizaje automático y análisis de datos, estaré para brindarte asesoría y resolver tus dudas de tus proyectos y así seguir contribuyendo a la innovación y crecimiento.</p>
-      </article>
-      <br>
-    </section>
-    <section class="row align-items-start">
-      <article class="col-lg-6 col-md-12 d-flex justify-content-center mb-4">
-        <section id="calendar" class="p-3 bg-dark text-white rounded">
-          <header class="d-flex justify-content-between align-items-center mb-3">
-            <button class="btn btn-outline-light" id="prevMonth">&lt;</button>
-            <h5 id="currentMonth">Mayo 2025</h5>
-            <button class="btn btn-outline-light" id="nextMonth">&gt;</button>
-          </header>
-          <div class="table-responsive">
-            <table class="table table-bordered text-center text-white">
-              <thead>
-                <tr>
-                  <th>LUN</th>
-                  <th>MAR</th>
-                  <th>MIÉ</th>
-                  <th>JUE</th>
-                  <th>VIE</th>
-                  <th>SÁB</th>
-                  <th>DOM</th>
-                </tr>
-              </thead>
-              <tbody id="calendarBody">
-                <!-- Días generados dinámicamente. Buscar como hacer bien el calendario... -->
-              </tbody>
-            </table>
-          </div>
-        </section>
-      </article>
-      
-      <aside class="col-lg-6 col-md-12 d-flex flex-column align-items-center">
-        <h5 class="text-white mb-4">Horas Disponibles</h5>
-        <div class="row text-center">
-          <div class="col-6 mb-2"><button class="btn btn-outline-secondary w-100">07:00</button></div>
-          <div class="col-6 mb-2"><button class="btn btn-outline-secondary w-100">08:00</button></div>
-          <div class="col-6 mb-2"><button class="btn btn-outline-secondary w-100" disabled>9:00</button></div>
-          <div class="col-6 mb-2"><button class="btn btn-outline-secondary w-100">10:00</button></div>
-          <div class="col-6 mb-2"><button class="btn btn-outline-secondary w-100">11:00</button></div>
-          <div class="col-6 mb-2"><button class="btn btn-outline-secondary w-100" disabled>12:00</button></div>
-          <div class="col-6 mb-2"><button class="btn btn-outline-secondary w-100">14:00</button></div>
-          <div class="col-6 mb-2"><button class="btn btn-outline-secondary w-100">15:00</button></div> 
-          <div class="col-6 mb-2"><button class="btn btn-outline-secondary w-100">16:00</button></div>
-          <div class="col-6 mb-2"><button class="btn btn-outline-secondary w-100">17:00</button></div>
-        </div>
-      </aside>
-    </section>
-  </main>
-  
-  <div class="text-center mt-4">
-    <button class="btn btn-primary px-4 py-2" onclick="window.location.href='pasarela-pagos.html' ">Pagar asesoría</button>
-    <button class="btn btn-outline-warning border border-warning px-4 py-2" onclick="window.location.href='expertos.html'">
-      <i class="bi bi-person-lines-fill"></i> Ver más expertos
-    </button>
-  </div>
+    <br>
+    <!-- Calendario -->
+            <div id="calendar-view">
+                <div class="appointment-system">
+                    <div class="calendar-container">
+                        <div class="month-navigation">
+                            <button class="nav-btn">&#8249;</button>
+                            <div class="month-title">Mayo 2025</div>
+                            <button class="nav-btn">&#8250;</button>
+                        </div>
+                        <table class="calendar">
+                            <thead>
+                                <tr>
+                                    <th>Lu</th>
+                                    <th>Ma</th>
+                                    <th>Mi</th>
+                                    <th>Ju</th>
+                                    <th>Vi</th>
+                                    <th>Sa</th>
+                                    <th>Do</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span class="day inactive">28</span></td>
+                                    <td><span class="day inactive">29</span></td>
+                                    <td><span class="day inactive">30</span></td>
+                                    <td><span class="day">1</span></td>
+                                    <td><span class="day">2</span></td>
+                                    <td><span class="day">3</span></td>
+                                    <td><span class="day">4</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="day">5</span></td>
+                                    <td><span class="day">6</span></td>
+                                    <td><span class="day">7</span></td>
+                                    <td><span class="day">8</span></td>
+                                    <td><span class="day">9</span></td>
+                                    <td><span class="day">10</span></td>
+                                    <td><span class="day">11</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="day">12</span></td>
+                                    <td><span class="day">13</span></td>
+                                    <td><span class="day">14</span></td>
+                                    <td><span class="day">15</span></td>
+                                    <td><span class="day today">16</span></td>
+                                    <td><span class="day selected">17</span></td>
+                                    <td><span class="day">18</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="day">19</span></td>
+                                    <td><span class="day">20</span></td>
+                                    <td><span class="day">21</span></td>
+                                    <td><span class="day">22</span></td>
+                                    <td><span class="day">23</span></td>
+                                    <td><span class="day">24</span></td>
+                                    <td><span class="day">25</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="day">26</span></td>
+                                    <td><span class="day">27</span></td>
+                                    <td><span class="day">28</span></td>
+                                    <td><span class="day">29</span></td>
+                                    <td><span class="day">30</span></td>
+                                    <td><span class="day">31</span></td>
+                                    <td><span class="day inactive">1</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <!-- Disponibilidad de horas  -->
+                        <div class="time-slots">
+                            <h3>Horarios disponibles - 17 Mayo</h3>
+                            <div class="slots-container">
+                                <div class="time-slot booked">09:00</div>
+                                <div class="time-slot">10:00</div>
+                                <div class="time-slot selected">11:00</div>
+                                <div class="time-slot">12:00</div>
+                                <div class="time-slot booked">13:00</div>
+                                <div class="time-slot">14:00</div>
+                                <div class="time-slot">15:00</div>
+                                <div class="time-slot booked">16:00</div>
+                                <div class="time-slot">17:00</div>
+                                <div class="time-slot">18:00</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Presentación breve del experto seleccionado -->
+                    <div class="expert-info">
+                        <div class="expert-card">
+                            <div class="expert-avatar">MR</div>
+                            <div class="expert-details">
+                                <h3>María Rodríguez</h3>
+                                <p>Especialista en Desarrollo Web</p>
+                                <p>10 años de experiencia</p>
+                                <div class="rating">★★★★★</div>
+                            </div>
+                        </div>
+                        <div class="appointment-summary">
+                            <h3>Resumen de tu cita</h3>
+                            <div class="summary-item">
+                                <div class="summary-label">Fecha:</div>
+                                <div class="summary-value">17 de Mayo, 2025</div>
+                            </div>
+                            <div class="summary-item">
+                                <div class="summary-label">Hora:</div>
+                                <div class="summary-value">11:00</div>
+                            </div>
+                            <div class="summary-item">
+                                <div class="summary-label">Experto:</div>
+                                <div class="summary-value">María Rodríguez</div>
+                            </div>
+                            <div class="summary-item">
+                                <div class="summary-label">Servicio:</div>
+                                <div class="summary-value">Desarrollo Web</div>
+                            </div>
+                            <div class="summary-item">
+                                <div class="summary-label">Duración:</div>
+                                <div class="summary-value">60 minutos</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary ">Confirmar Cita</button>
+
+                <!-- Modal de confirmacion  -->
+            <div id="confirmation-section">
+                <div class="confirmation-container">
+                    <div class="confirmation-icon">✓</div>
+                    <h2 class="confirmation-title">¡Cita Agendada con Éxito!</h2>
+                    <p>Tu cita ha sido confirmada. Recibirás un correo electrónico con los detalles.</p>
+
+                    <div class="confirmation-details">
+                        <div class="confirmation-detail-item">
+                            <div class="confirmation-detail-label">Fecha:</div>
+                            <div>17 de Mayo, 2025</div>
+                        </div>
+                        <div class="confirmation-detail-item">
+                            <div class="confirmation-detail-label">Hora:</div>
+                            <div>11:00</div>
+                        </div>
+                        <div class="confirmation-detail-item">
+                            <div class="confirmation-detail-label">Experto:</div>
+                            <div>María Rodríguez</div>
+                        </div>
+                        <div class="confirmation-detail-item">
+                            <div class="confirmation-detail-label">Servicio:</div>
+                            <div>Consultoría de Desarrollo Web</div>
+                        </div>
+                        <div class="confirmation-detail-item">
+                            <div class="confirmation-detail-label">ID de Cita:</div>
+                            <div>APT-2025-05-17-001</div>
+                        </div>
+                    </div>
+
+                    <p>Puedes modificar o cancelar tu cita hasta 24 horas antes.</p>
+                    <a href="#calendar-view" class="btn">Volver al Calendario</a>
+                </div>
+            </div>
+    </div>
   <br><br>
   <footer>
         <div class="footer-content">
