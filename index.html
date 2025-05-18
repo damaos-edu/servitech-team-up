@@ -19,10 +19,30 @@
                 <a href="index.html" class="nav-item"><i class="fas fa-home"></i> Principal</a>
                 <a href="expertos.html" class="nav-item"><i class="fas fa-users"></i> Expertos</a>
                 <a href="contacto.html" class="nav-item"><i class="fas fa-envelope"></i> Contacto</a>
-            </div>
-            <div class="auth-buttons">
+            </div>            <div class="auth-buttons">
                 <a href="login.html" class="btn btn-outline">Iniciar sesión</a>
                 <a href="registro.html" class="btn btn-primary">Registrarse</a>
+            </div>
+            <!-- Menú de usuario (se muestra/oculta con JavaScript) -->
+            <div class="user-menu" id="userMenuContainer" style="display: none;">
+                <div class="user-avatar">
+                    <img src="" alt="Usuario" id="userAvatar">
+                </div>
+                <span class="d-none d-md-inline" id="userDisplayName">Mi cuenta</span>
+                <i class="fas fa-chevron-down"></i>
+                
+                <!-- Menú desplegable (se muestra/oculta con JavaScript) -->
+                <div class="user-dropdown" id="userDropdown">
+                    <a href="perfil.html" class="dropdown-item">
+                        <i class="fas fa-user"></i> Mi perfil
+                    </a>
+                    <a href="calendario.html" class="dropdown-item">
+                        <i class="fas fa-calendar-alt"></i> Mis asesorías
+                    </a>
+                    <a href="#" class="dropdown-item" id="logoutBtn">
+                        <i class="fas fa-sign-out-alt"></i> Cerrar sesión
+                    </a>
+                </div>
             </div>
         </nav>
     </header>
@@ -167,9 +187,9 @@
                 <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
             </div>
         </div>
-    </footer>
-
-    <script src="assets/js/common.js"></script>
+    </footer>    <script src="assets/js/common.js"></script>
     <script src="assets/js/index.js"></script>
+    <!-- Script de prueba para autenticación (remover en producción) -->
+    <script src="assets/js/test-auth.js"></script>
 </body>
 </html>

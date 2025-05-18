@@ -23,11 +23,31 @@
                 <a href="feed.html" class="nav-item"><i class="fas fa-home"></i> Inicio</a>
                 <a href="expertos.html" class="nav-item"><i class="fas fa-users"></i> Expertos</a>
                 <a href="contacto.html" class="nav-item"><i class="fas fa-envelope"></i> Contacto</a>
-            </div>
-            <!-- Botones de autenticación -->
+            </div>            <!-- Botones de autenticación -->
             <div class="auth-buttons">
                 <a href="login.html" class="btn btn-outline">Iniciar sesión</a>
                 <a href="registro.html" class="btn btn-primary">Registrarse</a>
+            </div>
+            <!-- Menú de usuario (se muestra/oculta con JavaScript) -->
+            <div class="user-menu" id="userMenuContainer" style="display: none;">
+                <div class="user-avatar">
+                    <img src="" alt="Usuario" id="userAvatar">
+                </div>
+                <span class="d-none d-md-inline" id="userDisplayName">Mi cuenta</span>
+                <i class="fas fa-chevron-down"></i>
+                
+                <!-- Menú desplegable (se muestra/oculta con JavaScript) -->
+                <div class="user-dropdown" id="userDropdown">
+                    <a href="perfil.html" class="dropdown-item">
+                        <i class="fas fa-user"></i> Mi perfil
+                    </a>
+                    <a href="calendario.html" class="dropdown-item">
+                        <i class="fas fa-calendar-alt"></i> Mis asesorías
+                    </a>
+                    <a href="#" class="dropdown-item" id="logoutBtn">
+                        <i class="fas fa-sign-out-alt"></i> Cerrar sesión
+                    </a>
+                </div>
             </div>
         </nav>
     </header>
@@ -263,8 +283,9 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="assets/js/common.js"></script>
+    <!-- Scripts -->    <script src="assets/js/common.js"></script>
     <script src="assets/js/feed.js"></script>
+    <!-- Script de prueba para autenticación (remover en producción) -->
+    <script src="assets/js/test-auth.js"></script>
 </body>
 </html>

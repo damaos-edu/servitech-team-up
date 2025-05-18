@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Perfil | ServiTech</title>
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/perfil.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header de navegación principal -->
+  <header class="main-header">
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <img src="assets/img/logo.png" alt="ServiTech Logo">
+      </a>
+      
+      <nav class="main-nav d-none d-md-flex">
+        <a href="index.html">Inicio</a>
+        <a href="expertos.html">Expertos</a>
+        <a href="feed.html">Feed</a>
+        <a href="calendario.html">Calendario</a>
+        <a href="mensajes.html">Mensajes</a>
+      </nav>
+
+      <div class="header-actions">
+        <div class="user-menu" id="userMenuContainer">
+          <div class="user-avatar">
+            <img src="https://ui-avatars.com/api/?name=Usuario&background=3a8eff&color=fff" alt="Usuario" id="userAvatar">
+          </div>
+          <span class="d-none d-md-inline" id="userDisplayName">Mi cuenta</span>
+          <i class="fas fa-chevron-down"></i>
+          
+          <!-- Menú desplegable (se muestra/oculta con JavaScript) -->
+          <div class="user-dropdown" id="userDropdown">
+            <a href="perfil.html" class="dropdown-item active">
+              <i class="fas fa-user"></i> Mi perfil
+            </a>
+            <a href="calendario.html" class="dropdown-item">
+              <i class="fas fa-calendar-alt"></i> Mis asesorías
+            </a>
+            <a href="#" class="dropdown-item" id="logoutBtn">
+              <i class="fas fa-sign-out-alt"></i> Cerrar sesión
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <button class="mobile-menu-toggle d-md-none">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Contenido principal -->
+  <div class="profile-container">
+    <!-- Información del perfil -->
+    <div class="profile-header">
+      <div class="profile-cover">
+        <!-- Imagen de fondo -->
+        <div class="cover-overlay"></div>
+      </div>
+      
+      <div class="profile-info">
+        <div class="profile-avatar">
+          <img src="https://ui-avatars.com/api/?name=Usuario&background=3a8eff&color=fff" alt="Usuario" id="profileAvatar">
+          <button class="change-avatar-btn">
+            <i class="fas fa-camera"></i>
+          </button>
+        </div>
+        
+        <div class="profile-details">
+          <h1 id="profileName">Cargando...</h1>
+          <p class="profile-email" id="profileEmail">cargando@email.com</p>
+          <div class="profile-stats">
+            <div class="stat-item">
+              <span class="stat-value">4</span>
+              <span class="stat-label">Asesorías completadas</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value">2</span>
+              <span class="stat-label">Pendientes</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="profile-actions">
+          <button class="btn btn-primary">
+            <i class="fas fa-pencil-alt"></i> Editar perfil
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Contenido principal del perfil -->
+    <div class="profile-content">
+      <div class="profile-sidebar">
+        <div class="profile-section">
+          <h3 class="section-title">Menú</h3>
+          <nav class="profile-nav">
+            <a href="#" class="profile-nav-item active">
+              <i class="fas fa-user"></i> Información personal
+            </a>
+            <a href="#" class="profile-nav-item">
+              <i class="fas fa-calendar-check"></i> Mis asesorías
+            </a>
+            <a href="#" class="profile-nav-item">
+              <i class="fas fa-credit-card"></i> Métodos de pago
+            </a>
+            <a href="#" class="profile-nav-item">
+              <i class="fas fa-bell"></i> Notificaciones
+            </a>
+            <a href="#" class="profile-nav-item">
+              <i class="fas fa-lock"></i> Seguridad
+            </a>
+          </nav>
+        </div>
+        
+        <div class="profile-section">
+          <h3 class="section-title">Plan actual</h3>
+          <div class="profile-plan">
+            <div class="plan-badge free">Básico</div>
+            <div class="plan-features">
+              <div class="plan-feature">
+                <i class="fas fa-check"></i> Acceso a expertos
+              </div>
+              <div class="plan-feature">
+                <i class="fas fa-check"></i> Chat con asesores
+              </div>
+              <div class="plan-feature inactive">
+                <i class="fas fa-times"></i> Prioridad de atención
+              </div>
+              <div class="plan-feature inactive">
+                <i class="fas fa-times"></i> Descuentos en asesorías
+              </div>
+            </div>
+            <button class="btn btn-upgrade">
+              <i class="fas fa-crown"></i> Mejorar plan
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="profile-main">
+        <div class="profile-tab" id="personalInfo">
+          <h2>Información personal</h2>
+          
+          <form class="profile-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName">Nombre</label>
+                <input type="text" id="firstName" value="" placeholder="Tu nombre" disabled>
+              </div>
+              <div class="form-group">
+                <label for="lastName">Apellido</label>
+                <input type="text" id="lastName" value="" placeholder="Tu apellido" disabled>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="profileEmail">Email</label>
+              <input type="email" id="formEmail" value="" placeholder="tucorreo@ejemplo.com" disabled>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="phone">Teléfono</label>
+                <input type="tel" id="phone" placeholder="Añadir número de teléfono" disabled>
+              </div>
+              <div class="form-group">
+                <label for="location">Ciudad</label>
+                <input type="text" id="location" placeholder="Añadir ciudad" disabled>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="aboutMe">Sobre mí</label>
+              <textarea id="aboutMe" rows="4" placeholder="Cuéntanos sobre ti..." disabled></textarea>
+            </div>
+            
+            <h3>Preferencias de contacto</h3>
+            
+            <div class="toggle-group">
+              <span>Recibir notificaciones por email</span>
+              <label class="toggle">
+                <input type="checkbox" checked>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            
+            <div class="toggle-group">
+              <span>Recibir notificaciones para nuevos expertos</span>
+              <label class="toggle">
+                <input type="checkbox" checked>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            
+            <div class="toggle-group">
+              <span>Recibir recordatorios de asesorías</span>
+              <label class="toggle">
+                <input type="checkbox" checked>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="footer-container">
+      <div class="footer-logo">
+        <img src="assets/img/logo.png" alt="ServiTech Logo">
+        <p>La plataforma de expertos en tecnología</p>
+      </div>
+      
+      <div class="footer-links">
+        <div class="footer-section">
+          <h4>ServiTech</h4>
+          <a href="index.html">Inicio</a>
+          <a href="expertos.html">Expertos</a>
+          <a href="feed.html">Feed</a>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Soporte</h4>
+          <a href="contacto.html">Contacto</a>
+          <a href="terminos.html">Términos y Condiciones</a>
+          <a href="privacidad.html">Política de Privacidad</a>
+        </div>
+      </div>
+      
+      <div class="footer-social">
+        <h4>Síguenos</h4>
+        <div class="social-icons">
+          <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-copyright">
+      <p>&copy; 2025 ServiTech. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/perfil.js"></script>
+</body>
+</html>
