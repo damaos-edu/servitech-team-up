@@ -181,3 +181,30 @@ function closeNotification(notification) {
         notification.remove();
     }, 300);
 }
+
+// Función para abrir un modal
+function openModal(modalId) {
+  document.getElementById(modalId).classList.add('show');
+  document.getElementById(modalId).style.display = 'block';
+}
+
+// Función para cerrar todos los modales
+function closeModals() {
+  document.querySelectorAll('.modal').forEach(modal => {
+    modal.classList.remove('show');
+    modal.style.display = 'none';
+  });
+}
+
+// Cerrar modal al hacer click en botones con data-dismiss="modal"
+document.querySelectorAll('[data-dismiss="modal"]').forEach(btn => {
+  btn.addEventListener('click', closeModals);
+});
+// Cerrar modal al hacer click fuera del modal
+document.querySelectorAll('.modal').forEach(modal => {
+  modal.addEventListener('click', function(event) {
+    if (event.target === this) {
+      closeModals();
+    }
+  });
+});
