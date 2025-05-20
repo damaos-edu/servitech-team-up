@@ -15,16 +15,16 @@ document.addEventListener('DOMContentLoaded', function() {
 function setupTabNavigation() {
     const tabLinks = document.querySelectorAll('.settings-nav a');
     const tabContents = document.querySelectorAll('.settings-content');
-    
+
     tabLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
-            
+
             const targetId = this.getAttribute('href').substring(1);
-            
+
             tabLinks.forEach(tab => tab.classList.remove('active'));
             tabContents.forEach(content => content.style.display = 'none');
-            
+
             this.classList.add('active');
             const activeContent = document.getElementById(targetId);
             if (activeContent) {
@@ -32,7 +32,8 @@ function setupTabNavigation() {
             }
         });
     });
-    
+
+    // Mostrar la primera pestaña y contenido por defecto
     if (tabLinks.length > 0 && tabContents.length > 0) {
         tabLinks[0].classList.add('active');
         tabContents[0].style.display = 'block';
@@ -139,6 +140,9 @@ function setupNotificationSettings() {
 /**
  * Muestra una notificación en la página de configuración
  */
+/**
+ * Muestra una notificación en la página de configuración
+ */
 function showSettingsNotification(message, type = 'info') {
     const notification = document.createElement('div');
     notification.className = `settings-notification ${type}`;
@@ -149,22 +153,20 @@ function showSettingsNotification(message, type = 'info') {
               '<i class="fas fa-info-circle"></i>'}
             <span>${message}</span>
         </div>
-        <button class="close-notification"><i class="fas fa-times"></i></button>
-    `;
-    
+        <button class="close-notification"><i class="fas fa-times"></i></button>`;
     document.body.appendChild(notification);
-    
+
     setTimeout(() => {
         notification.classList.add('show');
     }, 10);
-    
+
     const closeBtn = notification.querySelector('.close-notification');
     if (closeBtn) {
         closeBtn.addEventListener('click', function() {
             closeNotification(notification);
         });
     }
-    
+
     if (type === 'success') {
         setTimeout(() => {
             closeNotification(notification);
@@ -181,3 +183,30 @@ function closeNotification(notification) {
         notification.remove();
     }, 300);
 }
+
+// Función para abrir un modal
+function openModal(modalId) {
+  document.getElementById(modalId).classList.add('show');
+  document.getElementById(modalId).style.display = 'block';
+}
+
+// Función para cerrar todos los modales
+function closeModals() {
+  document.querySelectorAll('.modal').forEach(modal => {
+    modal.classList.remove('show');
+    modal.style.display = 'none';
+  });
+}
+
+// Cerrar modal al hacer click en botones con data-dismiss="modal"
+document.querySelectorAll('[data-dismiss="modal"]').forEach(btn => {
+  btn.addEventListener('click', closeModals);
+});
+// Cerrar modal al hacer click fuera del modal
+document.querySelectorAll('.modal').forEach(modal => {
+  modal.addEventListener('click', function(event) {
+    if (event.target === this) {
+      closeModals();
+    }
+  });
+});
