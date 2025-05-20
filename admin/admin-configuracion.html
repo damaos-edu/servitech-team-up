@@ -7,25 +7,15 @@
     <link rel="stylesheet" href="../assets/css/admin.css" />
     <link rel="stylesheet" href="../assets/css/admin-components.css" />
     <link rel="stylesheet" href="../assets/css/admin-configuracion.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   </head>
   <body>
     <div class="admin-layout">
       <aside class="admin-sidebar">
         <div class="sidebar-header">
           <a href="admin.html" class="logo">
-            <img
-              src="../assets/img/logo.png"
-              alt="Servitech Logo"
-              class="logo-img"
-            />
+            <img src="../assets/img/logo.png" alt="Servitech Logo" class="logo-img" />
             <span class="logo-text">Admin</span>
           </a>
         </div>
@@ -101,11 +91,7 @@
               <span class="notification-badge">5</span>
             </div>
             <div class="admin-profile">
-              <img
-                src="https://i.pravatar.cc/150?img=11"
-                alt="Admin profile"
-                class="profile-img"
-              />
+              <img src="https://i.pravatar.cc/150?img=11" alt="Admin profile" class="profile-img" />
               <div class="profile-info">
                 <span class="profile-name">Admin ServiTech</span>
                 <span class="profile-role">Administrador</span>
@@ -193,21 +179,145 @@
           </div>
 
           <!-- Contenido de pestañas -->
-          <div class="tab-content active" id="tab-general">
-            <div class="table-container">
-              <table class="admin-table">
-                <thead>
-                  <tr>
-                    <th>
-                      <div class="th-content">
-                        <input
-                          type="checkbox"
-                          class="table-checkbox"
-                          id="selectAllGeneral"
-                        />
-                        <label for="selectAllGeneral"></label>
-                      </div>
-                    </th>
+            <div class="tab-content active" id="tab-general">
+                    <div class="table-container">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th><div class="th-content"><input type="checkbox" class="table-checkbox" id="selectAllGeneral" /><label for="selectAllGeneral"></label></div></th>
+                                    <th>Clave</th><th>Valor</th><th>Descripción</th><th>Grupo</th><th>Estado</th><th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><div class="td-content"><input type="checkbox" class="table-checkbox" id="general1" /><label for="general1"></label></div></td>
+                                    <td>site_name</td><td>ServiTech</td><td>Nombre del sitio web</td><td>General</td>
+                                    <td><span class="status active">Activo</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn-icon" title="Editar"><i class="fas fa-edit"></i></button>
+                                            <button class="btn-icon" title="Ver historial"><i class="fas fa-history"></i></button>
+                                            <button class="btn-icon" title="Eliminar"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><div class="td-content"><input type="checkbox" class="table-checkbox" id="general2" /><label for="general2"></label></div></td>
+                                    <td>site_description</td><td>Plataforma de expertos técnicos</td><td>Descripción breve del sitio</td><td>General</td>
+                                    <td><span class="status active">Activo</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn-icon" title="Editar"><i class="fas fa-edit"></i></button>
+                                            <button class="btn-icon" title="Ver historial"><i class="fas fa-history"></i></button>
+                                            <button class="btn-icon" title="Eliminar"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><div class="td-content"><input type="checkbox" class="table-checkbox" id="general3" /><label for="general3"></label></div></td>
+                                    <td>contact_email</td><td>info@servitech.com</td><td>Correo de contacto principal</td><td>General</td>
+                                    <td><span class="status active">Activo</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn-icon" title="Editar"><i class="fas fa-edit"></i></button>
+                                            <button class="btn-icon" title="Ver historial"><i class="fas fa-history"></i></button>
+                                            <button class="btn-icon" title="Eliminar"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><div class="td-content"><input type="checkbox" class="table-checkbox" id="general4" /><label for="general4"></label></div></td>
+                                    <td>phone_number</td><td>+57 300 123 4567</td><td>Número de teléfono de contacto</td><td>General</td>
+                                    <td><span class="status active">Activo</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn-icon" title="Editar"><i class="fas fa-edit"></i></button>
+                                            <button class="btn-icon" title="Ver historial"><i class="fas fa-history"></i></button>
+                                            <button class="btn-icon" title="Eliminar"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><div class="td-content"><input type="checkbox" class="table-checkbox" id="general5" /><label for="general5"></label></div></td>
+                                    <td>items_per_page</td><td>10</td><td>Elementos por página en listados</td><td>General</td>
+                                    <td><span class="status active">Activo</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn-icon" title="Editar"><i class="fas fa-edit"></i></button>
+                                            <button class="btn-icon" title="Ver historial"><i class="fas fa-history"></i></button>
+                                            <button class="btn-icon" title="Eliminar"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><div class="td-content"><input type="checkbox" class="table-checkbox" id="general6" /><label for="general6"></label></div></td>
+                                    <td>maintenance_mode</td><td>false</td><td>Activar/desactivar modo mantenimiento</td><td>General</td>
+                                    <td><span class="status inactive">Inactivo</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn-icon" title="Editar"><i class="fas fa-edit"></i></button>
+                                            <button class="btn-icon" title="Ver historial"><i class="fas fa-history"></i></button>
+                                            <button class="btn-icon" title="Eliminar"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- Apariencia -->
+                <div class="tab-content" id="tab-apariencia">
+                    <div class="table-container">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th><div class="th-content"><input type="checkbox" class="table-checkbox" id="selectAllApariencia" /><label for="selectAllApariencia"></label></div></th>
+                                    <th>Clave</th><th>Valor</th><th>Descripción</th><th>Grupo</th><th>Estado</th><th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><div class="td-content"><input type="checkbox" class="table-checkbox" id="apariencia1" /><label for="apariencia1"></label></div></td>
+                                    <td>primary_color</td><td>#3a8eff</td><td>Color primario del sitio</td><td>Apariencia</td>
+                                    <td><span class="status active">Activo</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn-icon" title="Editar"><i class="fas fa-edit"></i></button>
+                                            <button class="btn-icon" title="Ver historial"><i class="fas fa-history"></i></button>
+                                            <button class="btn-icon" title="Eliminar"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><div class="td-content"><input type="checkbox" class="table-checkbox" id="apariencia2" /><label for="apariencia2"></label></div></td>
+                                    <td>secondary_color</td><td>#12d8fa</td><td>Color secundario del sitio</td><td>Apariencia</td>
+                                    <td><span class="status active">Activo</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn-icon" title="Editar"><i class="fas fa-edit"></i></button>
+                                            <button class="btn-icon" title="Ver historial"><i class="fas fa-history"></i></button>
+                                            <button class="btn-icon" title="Eliminar"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><div class="td-content"><input type="checkbox" class="table-checkbox" id="apariencia3" /><label for="apariencia3"></label></div></td>
+                                    <td>logo_path</td><td>/img/logo.png</td><td>Ruta del logo principal</td><td>Apariencia</td>
+                                    <td><span class="status active">Activo</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn-icon" title="Editar"><i class="fas fa-edit"></i></button>
+                                            <button class="btn-icon" title="Ver historial"><i class="fas fa-history"></i></button>
+                                            <button class="btn-icon" title="Eliminar"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><div class="td-content"><input type="checkbox" class="table-checkbox" id="apariencia4" /><label for="apariencia4"></label></div></td>
+                                    <td>favicon_path</td><td>/img/favicon.ico</td><td>Ruta del favicon</td><td>Apariencia</td>
+                    
+
+                                </th>
                     <th>Clave</th>
                     <th>Valor</th>
                     <th>Descripción</th>
@@ -254,7 +364,7 @@
                           type="checkbox"
                           class="table-checkbox"
                           id="general2"
-                        />
+            />
                         <label for="general2"></label>
                       </div>
                     </td>
@@ -316,6 +426,66 @@
                           id="general4"
                         />
                         <label for="general4"></label>
+                      </div>
+                    </td>
+                    <td>phone_number</td>
+                    <td>+57 300 123 4567</td>
+                    <td>Número de teléfono de contacto</td>
+                    <td>General</td>
+                    <td><span class="status active">Activo</span></td>
+                    <td>
+                      <div class="action-buttons">
+                        <button class="btn-icon" title="Editar">
+                          <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn-icon" title="Ver historial">
+                          <i class="fas fa-history"></i>
+                        </button>
+                        <button class="btn-icon" title="Eliminar">
+                          <i class="fas fa-trash"></i>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="td-content">
+                        <input
+                          type="checkbox"
+                          class="table-checkbox"
+                          id="general5"
+                        />
+                        <label for="general5"></label>
+                      </div>
+                    </td>
+                    <td>items_per_page</td>
+                    <td>10</td>
+                    <td>Elementos por página en listados</td>
+                    <td>General</td>
+                    <td><span class="status active">Activo</span></td>
+                    <td>
+                      <div class="action-buttons">
+                        <button class="btn-icon" title="Editar">
+                          <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn-icon" title="Ver historial">
+                          <i class="fas fa-history"></i>
+                        </button>
+                        <button class="btn-icon" title="Eliminar">
+                          <i class="fas fa-trash"></i>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="td-content">
+                        <input
+                          type="checkbox"
+                          class="table-checkbox"
+                          id="general6"
+                        />
+                               <label for="general4"></label>
                       </div>
                     </td>
                     <td>phone_number</td>
@@ -580,548 +750,9 @@
               </table>
             </div>
           </div>
-
-          <div class="tab-content" id="tab-email">
-            <div class="table-container">
-              <table class="admin-table">
-                <thead>
-                  <tr>
-                    <th>
-                      <div class="th-content">
-                        <input
-                          type="checkbox"
-                          class="table-checkbox"
-                          id="selectAllEmail"
-                        />
-                        <label for="selectAllEmail"></label>
-                      </div>
-                    </th>
-                    <th>Clave</th>
-                    <th>Valor</th>
-                    <th>Descripción</th>
-                    <th>Grupo</th>
-                    <th>Estado</th>
-                    <th>Acciones</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      <div class="td-content">
-                        <input
-                          type="checkbox"
-                          class="table-checkbox"
-                          id="email1"
-                        />
-                        <label for="email1"></label>
-                      </div>
-                    </td>
-                    <td>smtp_host</td>
-                    <td>smtp.servitech.com</td>
-                    <td>Host SMTP para envío de correos</td>
-                    <td>Email</td>
-                    <td><span class="status active">Activo</span></td>
-                    <td>
-                      <div class="action-buttons">
-                        <button class="btn-icon" title="Editar">
-                          <i class="fas fa-edit"></i>
-                        </button>
-                        <button class="btn-icon" title="Ver historial">
-                          <i class="fas fa-history"></i>
-                        </button>
-                        <button class="btn-icon" title="Eliminar">
-                          <i class="fas fa-trash"></i>
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div class="td-content">
-                        <input
-                          type="checkbox"
-                          class="table-checkbox"
-                          id="email2"
-                        />
-                        <label for="email2"></label>
-                      </div>
-                    </td>
-                    <td>smtp_port</td>
-                    <td>587</td>
-                    <td>Puerto SMTP</td>
-                    <td>Email</td>
-                    <td><span class="status active">Activo</span></td>
-                    <td>
-                      <div class="action-buttons">
-                        <button class="btn-icon" title="Editar">
-                          <i class="fas fa-edit"></i>
-                        </button>
-                        <button class="btn-icon" title="Ver historial">
-                          <i class="fas fa-history"></i>
-                        </button>
-                        <button class="btn-icon" title="Eliminar">
-                          <i class="fas fa-trash"></i>
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div class="td-content">
-                        <input
-                          type="checkbox"
-                          class="table-checkbox"
-                          id="email3"
-                        />
-                        <label for="email3"></label>
-                      </div>
-                    </td>
-                    <td>smtp_user</td>
-                    <td>no-reply@servitech.com</td>
-                    <td>Usuario SMTP</td>
-                    <td>Email</td>
-                    <td><span class="status active">Activo</span></td>
-                    <td>
-                      <div class="action-buttons">
-                        <button class="btn-icon" title="Editar">
-                          <i class="fas fa-edit"></i>
-                        </button>
-                        <button class="btn-icon" title="Ver historial">
-                          <i class="fas fa-history"></i>
-                        </button>
-                        <button class="btn-icon" title="Eliminar">
-                          <i class="fas fa-trash"></i>
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div class="td-content">
-                        <input
-                          type="checkbox"
-                          class="table-checkbox"
-                          id="email4"
-                        />
-                        <label for="email4"></label>
-                      </div>
-                    </td>
-                    <td>smtp_encryption</td>
-                    <td>tls</td>
-                    <td>Tipo de encriptación SMTP</td>
-                    <td>Email</td>
-                    <td><span class="status active">Activo</span></td>
-                    <td>
-                      <div class="action-buttons">
-                        <button class="btn-icon" title="Editar">
-                          <i class="fas fa-edit"></i>
-                        </button>
-                        <button class="btn-icon" title="Ver historial">
-                          <i class="fas fa-history"></i>
-                        </button>
-                        <button class="btn-icon" title="Eliminar">
-                          <i class="fas fa-trash"></i>
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div class="td-content">
-                        <input
-                          type="checkbox"
-                          class="table-checkbox"
-                          id="email5"
-                        />
-                        <label for="email5"></label>
-                      </div>
-                    </td>
-                    <td>email_footer</td>
-                    <td>© 2025 ServiTech. Todos los derechos reservados.</td>
-                    <td>Texto del pie de página en emails</td>
-                    <td>Email</td>
-                    <td><span class="status active">Activo</span></td>
-                    <td>
-                      <div class="action-buttons">
-                        <button class="btn-icon" title="Editar">
-                          <i class="fas fa-edit"></i>
-                        </button>
-                        <button class="btn-icon" title="Ver historial">
-                          <i class="fas fa-history"></i>
-                        </button>
-                        <button class="btn-icon" title="Eliminar">
-                          <i class="fas fa-trash"></i>
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <div class="tab-content" id="tab-integraciones">
-            <div class="table-container">
-              <table class="admin-table">
-                <thead>
-                  <tr>
-                    <th>
-                      <div class="th-content">
-                        <input
-                          type="checkbox"
-                          class="table-checkbox"
-                          id="selectAllIntegraciones"
-                        />
-                        <label for="selectAllIntegraciones"></label>
-                      </div>
-                    </th>
-                    <th>Clave</th>
-                    <th>Valor</th>
-                    <th>Descripción</th>
-                    <th>Grupo</th>
-                    <th>Estado</th>
-                    <th>Acciones</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      <div class="td-content">
-                        <input
-                          type="checkbox"
-                          class="table-checkbox"
-                          id="integracion1"
-                        />
-                        <label for="integracion1"></label>
-                      </div>
-                    </td>
-                    <td>paypal_client_id</td>
-                    <td>client_id_12345...</td>
-                    <td>Client ID de PayPal</td>
-                    <td>Integraciones</td>
-                    <td><span class="status active">Activo</span></td>
-                    <td>
-                      <div class="action-buttons">
-                        <button class="btn-icon" title="Editar">
-                          <i class="fas fa-edit"></i>
-                        </button>
-                        <button class="btn-icon" title="Ver historial">
-                          <i class="fas fa-history"></i>
-                        </button>
-                        <button class="btn-icon" title="Eliminar">
-                          <i class="fas fa-trash"></i>
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div class="td-content">
-                        <input
-                          type="checkbox"
-                          class="table-checkbox"
-                          id="integracion2"
-                        />
-                        <label for="integracion2"></label>
-                      </div>
-                    </td>
-                    <td>google_analytics_id</td>
-                    <td>UA-12345678-9</td>
-                    <td>ID de Google Analytics</td>
-                    <td>Integraciones</td>
-                    <td><span class="status active">Activo</span></td>
-                    <td>
-                      <div class="action-buttons">
-                        <button class="btn-icon" title="Editar">
-                          <i class="fas fa-edit"></i>
-                        </button>
-                        <button class="btn-icon" title="Ver historial">
-                          <i class="fas fa-history"></i>
-                        </button>
-                        <button class="btn-icon" title="Eliminar">
-                          <i class="fas fa-trash"></i>
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div class="td-content">
-                        <input
-                          type="checkbox"
-                          class="table-checkbox"
-                          id="integracion3"
-                        />
-                        <label for="integracion3"></label>
-                      </div>
-                    </td>
-                    <td>facebook_app_id</td>
-                    <td>123456789</td>
-                    <td>ID de aplicación de Facebook</td>
-                    <td>Integraciones</td>
-                    <td><span class="status active">Activo</span></td>
-                    <td>
-                      <div class="action-buttons">
-                        <button class="btn-icon" title="Editar">
-                          <i class="fas fa-edit"></i>
-                        </button>
-                        <button class="btn-icon" title="Ver historial">
-                          <i class="fas fa-history"></i>
-                        </button>
-                        <button class="btn-icon" title="Eliminar">
-                          <i class="fas fa-trash"></i>
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div class="td-content">
-                        <input
-                          type="checkbox"
-                          class="table-checkbox"
-                          id="integracion4"
-                        />
-                        <label for="integracion4"></label>
-                      </div>
-                    </td>
-                    <td>stripe_public_key</td>
-                    <td>pk_test_123...</td>
-                    <td>Clave pública de Stripe</td>
-                    <td>Integraciones</td>
-                    <td><span class="status inactive">Inactivo</span></td>
-                    <td>
-                      <div class="action-buttons">
-                        <button class="btn-icon" title="Editar">
-                          <i class="fas fa-edit"></i>
-                        </button>
-                        <button class="btn-icon" title="Ver historial">
-                          <i class="fas fa-history"></i>
-                        </button>
-                        <button class="btn-icon" title="Eliminar">
-                          <i class="fas fa-trash"></i>
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div class="td-content">
-                        <input
-                          type="checkbox"
-                          class="table-checkbox"
-                          id="integracion5"
-                        />
-                        <label for="integracion5"></label>
-                      </div>
-                    </td>
-                    <td>zoom_api_key</td>
-                    <td>api_key_123...</td>
-                    <td>API Key de Zoom</td>
-                    <td>Integraciones</td>
-                    <td><span class="status active">Activo</span></td>
-                    <td>
-                      <div class="action-buttons">
-                        <button class="btn-icon" title="Editar">
-                          <i class="fas fa-edit"></i>
-                        </button>
-                        <button class="btn-icon" title="Ver historial">
-                          <i class="fas fa-history"></i>
-                        </button>
-                        <button class="btn-icon" title="Eliminar">
-                          <i class="fas fa-trash"></i>
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <div class="tab-content" id="tab-seguridad">
-            <div class="table-container">
-              <table class="admin-table">
-                <thead>
-                  <tr>
-                    <th>
-                      <div class="th-content">
-                        <input
-                          type="checkbox"
-                          class="table-checkbox"
-                          id="selectAllSeguridad"
-                        />
-                        <label for="selectAllSeguridad"></label>
-                      </div>
-                    </th>
-                    <th>Clave</th>
-                    <th>Valor</th>
-                    <th>Descripción</th>
-                    <th>Grupo</th>
-                    <th>Estado</th>
-                    <th>Acciones</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      <div class="td-content">
-                        <input
-                          type="checkbox"
-                          class="table-checkbox"
-                          id="seguridad1"
-                        />
-                        <label for="seguridad1"></label>
-                      </div>
-                    </td>
-                    <td>enable_2fa</td>
-                    <td>true</td>
-                    <td>Habilitar autenticación de dos factores</td>
-                    <td>Seguridad</td>
-                    <td><span class="status active">Activo</span></td>
-                    <td>
-                      <div class="action-buttons">
-                        <button class="btn-icon" title="Editar">
-                          <i class="fas fa-edit"></i>
-                        </button>
-                        <button class="btn-icon" title="Ver historial">
-                          <i class="fas fa-history"></i>
-                        </button>
-                        <button class="btn-icon" title="Eliminar">
-                          <i class="fas fa-trash"></i>
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div class="td-content">
-                        <input
-                          type="checkbox"
-                          class="table-checkbox"
-                          id="seguridad2"
-                        />
-                        <label for="seguridad2"></label>
-                      </div>
-                    </td>
-                    <td>session_timeout</td>
-                    <td>60</td>
-                    <td>Tiempo de sesión en minutos</td>
-                    <td>Seguridad</td>
-                    <td><span class="status active">Activo</span></td>
-                    <td>
-                      <div class="action-buttons">
-                        <button class="btn-icon" title="Editar">
-                          <i class="fas fa-edit"></i>
-                        </button>
-                        <button class="btn-icon" title="Ver historial">
-                          <i class="fas fa-history"></i>
-                        </button>
-                        <button class="btn-icon" title="Eliminar">
-                          <i class="fas fa-trash"></i>
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div class="td-content">
-                        <input
-                          type="checkbox"
-                          class="table-checkbox"
-                          id="seguridad3"
-                        />
-                        <label for="seguridad3"></label>
-                      </div>
-                    </td>
-                    <td>password_min_length</td>
-                    <td>8</td>
-                    <td>Longitud mínima de contraseña</td>
-                    <td>Seguridad</td>
-                    <td><span class="status active">Activo</span></td>
-                    <td>
-                      <div class="action-buttons">
-                        <button class="btn-icon" title="Editar">
-                          <i class="fas fa-edit"></i>
-                        </button>
-                        <button class="btn-icon" title="Ver historial">
-                          <i class="fas fa-history"></i>
-                        </button>
-                        <button class="btn-icon" title="Eliminar">
-                          <i class="fas fa-trash"></i>
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div class="td-content">
-                        <input
-                          type="checkbox"
-                          class="table-checkbox"
-                          id="seguridad4"
-                        />
-                        <label for="seguridad4"></label>
-                      </div>
-                    </td>
-                    <td>failed_login_attempts</td>
-                    <td>5</td>
-                    <td>Intentos fallidos antes de bloqueo</td>
-                    <td>Seguridad</td>
-                    <td><span class="status active">Activo</span></td>
-                    <td>
-                      <div class="action-buttons">
-                        <button class="btn-icon" title="Editar">
-                          <i class="fas fa-edit"></i>
-                        </button>
-                        <button class="btn-icon" title="Ver historial">
-                          <i class="fas fa-history"></i>
-                        </button>
-                        <button class="btn-icon" title="Eliminar">
-                          <i class="fas fa-trash"></i>
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div class="td-content">
-                        <input
-                          type="checkbox"
-                          class="table-checkbox"
-                          id="seguridad5"
-                        />
-                        <label for="seguridad5"></label>
-                      </div>
-                    </td>
-                    <td>captcha_enabled</td>
-                    <td>true</td>
-                    <td>Habilitar CAPTCHA en formularios</td>
-                    <td>Seguridad</td>
-                    <td><span class="status active">Activo</span></td>
-                    <td>
-                      <div class="action-buttons">
-                        <button class="btn-icon" title="Editar">
-                          <i class="fas fa-edit"></i>
-                        </button>
-                        <button class="btn-icon" title="Ver historial">
-                          <i class="fas fa-history"></i>
-                        </button>
-                        <button class="btn-icon" title="Eliminar">
-                          <i class="fas fa-trash"></i>
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
+       
           <div class="pagination">
-            <span class="pagination-info"
-              >Mostrando 1-6 de 42 configuraciones</span
-            >
+            <span class="pagination-info">Mostrando 1-6 de 42 configuraciones</span>
             <div class="pagination-controls">
               <button class="btn-page" disabled>
                 <i class="fas fa-chevron-left"></i>
@@ -1140,6 +771,7 @@
       </main>
     </div>
 
+    <!-- Modal Agregar Configuración -->
     <div class="modal" id="configModal">
       <div class="modal-content">
         <div class="modal-header">
@@ -1150,24 +782,14 @@
           <form id="configForm">
             <div class="form-row">
               <div class="form-group">
-                <label for="configKey"
-                  >Clave <span class="required">*</span></label
-                >
+                <label for="configKey">Clave <span class="required">*</span></label>
                 <div class="input-with-icon">
                   <i class="fas fa-key"></i>
-                  <input
-                    type="text"
-                    id="configKey"
-                    class="form-control"
-                    placeholder="Ej: site_name"
-                    required
-                  />
+                  <input type="text" id="configKey" class="form-control" placeholder="Ej: site_name" required />
                 </div>
               </div>
               <div class="form-group">
-                <label for="configGroup"
-                  >Grupo <span class="required">*</span></label
-                >
+                <label for="configGroup">Grupo <span class="required">*</span></label>
                 <div class="input-with-icon">
                   <i class="fas fa-layer-group"></i>
                   <select id="configGroup" class="form-control" required>
@@ -1182,18 +804,10 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="configValue"
-                >Valor <span class="required">*</span></label
-              >
+              <label for="configValue">Valor <span class="required">*</span></label>
               <div class="input-with-icon">
                 <i class="fas fa-edit"></i>
-                <input
-                  type="text"
-                  id="configValue"
-                  class="form-control"
-                  placeholder="Valor de la configuración"
-                  required
-                />
+                <input type="text" id="configValue" class="form-control" placeholder="Valor de la configuración" required />
               </div>
               <div class="form-hint" id="valueHint">
                 Ingresa el valor para esta configuración
@@ -1203,12 +817,7 @@
               <label for="configDescription">Descripción</label>
               <div class="input-with-icon">
                 <i class="fas fa-info-circle"></i>
-                <textarea
-                  id="configDescription"
-                  class="form-control"
-                  rows="3"
-                  placeholder="Descripción breve de esta configuración"
-                ></textarea>
+                <textarea id="configDescription" class="form-control" rows="3" placeholder="Descripción breve de esta configuración"></textarea>
               </div>
             </div>
             <div class="form-row">

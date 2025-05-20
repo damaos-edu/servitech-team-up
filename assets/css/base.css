@@ -330,6 +330,92 @@ transform:translateY(0)
 animation:fadeIn .5s ease-out forwards
 }
 
+/* --- Estilos para el menú de usuario --- */
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: var(--input-radius);
+  transition: var(--transition);
+  position: relative;
+}
+
+.user-menu:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.user-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+}
+
+.user-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.user-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  width: 200px;
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  padding: 0.5rem;
+  display: none;
+  z-index: 1000;
+  border: 1px solid var(--border-color);
+}
+
+.user-dropdown.show {
+  display: block;
+  animation: dropdown-fade 0.2s ease;
+}
+
+@keyframes dropdown-fade {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+  color: var(--text-secondary);
+  border-radius: var(--btn-radius);
+  transition: var(--transition);
+  text-decoration: none;
+  gap: 0.5rem;
+}
+
+.dropdown-item:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--text-color);
+}
+
+.dropdown-item.active {
+  color: var(--primary-color);
+  background-color: rgba(58, 142, 255, 0.1);
+}
+
+.dropdown-item i {
+  width: 20px;
+  text-align: center;
+}
+
 @media (max-width: 992px) {
 .container {
 padding:20px 5%
@@ -358,6 +444,18 @@ flex-wrap:wrap
 width:100%;
 justify-content:center
 }
+
+.user-menu {
+    padding: 0.25rem;
+  }
+  
+  .user-menu .fa-chevron-down {
+    display: none;
+  }
+  
+  .user-dropdown {
+    right: -10px;
+  }
 }
 
 @media (max-width: 576px) {
@@ -374,4 +472,35 @@ flex-direction:column;
 gap:15px;
 text-align:center
 }
+}
+
+/* --- Compatibilidad con diferentes headers --- */
+.navbar .user-menu,
+.header-container .user-menu,
+.main-header .user-menu {
+  display: flex;
+  align-items: center;
+}
+
+/* --- Correcciones para cuando el usuario está logueado --- */
+.d-none {
+  display: none;
+}
+
+.d-md-inline {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .d-md-none {
+    display: none;
+  }
+  
+  .d-md-inline {
+    display: inline;
+  }
+  
+  .d-md-flex {
+    display: flex;
+  }
 }

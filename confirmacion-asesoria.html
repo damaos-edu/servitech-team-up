@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confirmación de Asesoría | ServiTech</title>
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/confirmacion-asesoria.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <div class="confirmation-container">
+      <!-- Enlace para volver al inicio o al dashboard -->
+      <a href="index.html" class="back-link"><i class="fas fa-home"></i> Ir al inicio</a>
+
+      <div class="confirmation-card">
+        <div class="confirmation-header">
+          <img src="assets/img/logo.png" alt="ServiTech Logo" class="logo-img">
+          <div class="success-icon">
+            <i class="fas fa-check-circle"></i>
+          </div>
+          <h1>¡Pago Confirmado!</h1>
+          <p class="confirmation-message">Tu asesoría técnica ha sido agendada exitosamente</p>
+        </div>
+
+        <div class="confirmation-body">
+          <!-- Detalles de la asesoría -->
+          <div class="confirmation-section">
+            <h3><i class="fas fa-info-circle"></i> Detalles de la asesoría</h3>
+            <div class="detail-item">
+              <span class="label">Servicio:</span>
+              <span class="value">Asesoría técnica personalizada</span>
+            </div>
+            <div class="detail-item">
+              <span class="label">Duración:</span>
+              <span class="value">1 hora</span>
+            </div>
+            <div class="detail-item">
+              <span class="label">Fecha:</span>
+              <span class="value" id="sessionDate">15 de mayo, 2025</span>
+            </div>
+            <div class="detail-item">
+              <span class="label">Hora:</span>
+              <span class="value" id="sessionTime">3:00 PM - 4:00 PM</span>
+            </div>
+            <div class="detail-item">
+              <span class="label">ID de transacción:</span>
+              <span class="value" id="transactionId">ST-2025517-9384</span>
+            </div>
+          </div>
+
+          <!-- Información del experto -->
+          <div class="confirmation-section">
+            <h3><i class="fas fa-user-tie"></i> Tu experto</h3>
+            <div class="expert-info">
+              <div class="expert-avatar">
+                <img src="https://ui-avatars.com/api/?name=Carlos+Rodriguez&background=3a8eff&color=fff" alt="Foto del experto">
+              </div>
+              <div class="expert-details">
+                <h4>Carlos Rodriguez</h4>
+                <p>Especialista en Soporte Técnico</p>
+                <div class="rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                  <span>4.8 (120 reseñas)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Instrucciones para la asesoría -->
+          <div class="confirmation-section">
+            <h3><i class="fas fa-clipboard-list"></i> Instrucciones para tu asesoría</h3>
+            <div class="instruction-card">
+              <div class="instruction-icon">
+                <i class="fas fa-calendar-check"></i>
+              </div>
+              <div class="instruction-text">
+                <h4>Marca tu calendario</h4>
+                <p>Recibirás una invitación en tu correo electrónico con el enlace para unirte a la sesión.</p>
+              </div>
+            </div>
+            <div class="instruction-card">
+              <div class="instruction-icon">
+                <i class="fas fa-list-check"></i>
+              </div>
+              <div class="instruction-text">
+                <h4>Prepara tus dudas</h4>
+                <p>Haz una lista de preguntas o problemas específicos que quieras resolver durante la asesoría.</p>
+              </div>
+            </div>
+            <div class="instruction-card">
+              <div class="instruction-icon">
+                <i class="fas fa-laptop-code"></i>
+              </div>
+              <div class="instruction-text">
+                <h4>Prepara tu equipo</h4>
+                <p>Asegúrate de tener listo tu computador y una conexión a internet estable para la videollamada.</p>
+              </div>
+            </div>
+          </div>
+        </div>        <!-- Acciones disponibles para el usuario -->
+        <div class="confirmation-actions">
+          <a href="mensajes.html" class="btn btn-primary">
+            <i class="fas fa-comment-dots"></i> Contactar al experto
+          </a>
+          <a href="calendario.html" class="btn btn-outline">
+            <i class="fas fa-calendar-alt"></i> Ver mi calendario
+          </a>
+        </div>
+
+        <div class="confirmation-footer">
+          <p>¿Necesitas ayuda? <a href="contacto.html" class="accent-link">Contáctanos</a></p>
+          <div class="support-contact">
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i> soporte@servitech.co
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-phone"></i> +57 601 123 4567
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/common.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Generar fecha y hora aleatoria para la demostración
+      const randomDate = getRandomFutureDate();
+      const randomTime = getRandomTimeSlot();
+      const randomTransactionId = generateTransactionId();
+      
+      document.getElementById('sessionDate').textContent = randomDate;
+      document.getElementById('sessionTime').textContent = randomTime;
+      document.getElementById('transactionId').textContent = randomTransactionId;
+      
+      // Funciones para generar datos aleatorios
+      function getRandomFutureDate() {
+        const today = new Date();
+        const futureDate = new Date(today);
+        futureDate.setDate(today.getDate() + Math.floor(Math.random() * 10) + 1);
+        
+        // Formatear fecha en español
+        const options = { day: 'numeric', month: 'long', year: 'numeric' };
+        return futureDate.toLocaleDateString('es-ES', options);
+      }
+      
+      function getRandomTimeSlot() {
+        const hours = ['9:00 AM - 10:00 AM', '10:30 AM - 11:30 AM', '1:00 PM - 2:00 PM', 
+                      '2:30 PM - 3:30 PM', '4:00 PM - 5:00 PM', '5:30 PM - 6:30 PM'];
+        return hours[Math.floor(Math.random() * hours.length)];
+      }
+      
+      function generateTransactionId() {
+        const prefix = 'ST-2025517-';
+        const randomNum = Math.floor(1000 + Math.random() * 9000);
+        return prefix + randomNum;
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,65 +1,273 @@
-<!-- haz la pasarela de pago como gustes, esto solo es la base del archivo y links. estaría bien que se pareciera al diseño de registrarse. ten cuidado con poner styles en todas partes,se organizado.-->
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pasarela de Pago</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/pasarela-pagos.css">
+  <title>Pasarela de Pago | ServiTech</title>
   <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/pasarela-pagos.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
-<body class="bg-dark text-black">
-  <main class="container py-5">
-    <section class="payment-card mx-auto shadow bg-darker text-black" style="max-width: 700px;">
-      <header class="payment-header bg-secondary text-white text-center">
-        <h5 class="mb-0">SERVITECH PASARELA DE PAGOS</h5>
-        <p class="mb-0">Pago de 1h de asesoría</p>
-        <h6 class="fw-bold">$20.000 COP</h6>
-      </header>
-      <article class="payment-body card-body">
-        <form>
-          <div class="mb-3">
-            <label for="country" class="form-label text-black">País:</label>
-            <select id="country" class="form-select bg-dark text-white border-muted">
-              <option value="colombia" selected>Colombia</option>
-            </select>
+<body>
+  <div class="container">
+    <div class="payment-container">
+      <a href="calendario.html" class="back-link"><i class="fas fa-arrow-left"></i> Volver al calendario</a>
+
+      <div class="payment-card">
+        <div class="payment-header">
+          <img src="assets/img/logo.png" alt="ServiTech Logo" class="logo-img">
+          <h1>Pasarela de Pago</h1>
+          <div class="service-info">
+            <p>Pago de 1h de asesoría técnica</p>
+            <div class="price">$20.000 COP</div>
           </div>
-          <div class="mb-3">
-            <label for="email" class="form-label text-black">Correo electrónico:</label>
-            <input type="email" id="email" class="form-control bg-dark text-white border-muted" placeholder="Ingresa tu correo electrónico" required>
-          </div>
-          <p class="mb-2 text-black">Elige tu método de pago:</p>
-          <div class="payment-methods list-group">
-            <button type="button" class="list-group-item list-group-item-action d-flex align-items-center bg-dark text-white border-muted">
-              Davivienda
-            </button>
-            <button type="button" class="list-group-item list-group-item-action d-flex align-items-center bg-dark text-white border-muted">
-              Tarjeta de Crédito y Débito
-            </button>
-            <button type="button" class="list-group-item list-group-item-action d-flex align-items-center bg-dark text-white border-muted">
-              Cuentas de ahorro y corriente
-            </button>
-            <button type="button" class="list-group-item list-group-item-action d-flex align-items-center bg-dark text-white border-muted">
-              DaviPlata
-            </button>
-            <button type="button" class="list-group-item list-group-item-action d-flex align-items-center bg-dark text-white border-muted">
-              Nequi
-            </button>
-          </div>
-        </form>
-        <div class="text-center mt-4 d-flex justify-content-center gap-3">
-          <button class="btn btn-warning px-4 py-2">Continuar</button>
-          <button class="btn btn-outline-primary px-4 py-2" onclick="window.location.href='calendario.html'">Ver el calendario del experto</button>
         </div>
-        <br>
-      </article>
-    </section>
-  </main>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <div class="payment-steps">
+          <div class="step active">
+            <div class="step-number">1</div>
+            <span class="step-text">Método de pago</span>
+          </div>
+          <div class="step-line"></div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <span class="step-text">Datos del pago</span>
+          </div>
+          <div class="step-line"></div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <span class="step-text">Confirmación</span>
+          </div>
+        </div>
 
+        <div class="payment-body">
+          <form id="paymentMethodForm">
+            <div class="input-group">
+              <label for="country">País</label>
+              <div class="input-wrapper">
+                <i class="fas fa-globe-americas input-icon"></i>
+                <select id="country" name="country">
+                  <option value="colombia" selected>Colombia</option>
+                  <option value="ecuador">Ecuador</option>
+                  <option value="peru">Perú</option>
+                  <option value="mexico">México</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="input-group">
+              <label for="email">Correo electrónico</label>
+              <div class="input-wrapper">
+                <i class="fas fa-envelope input-icon"></i>
+                <input type="email" id="email" name="email" placeholder="nombre@ejemplo.com" required>
+              </div>
+              <p class="error-message" id="emailError">Ingresa un correo electrónico válido</p>
+            </div>
+
+            <div class="payment-method-section">
+              <h3>Elige tu método de pago:</h3>
+              
+              <div class="payment-methods">
+                <div class="payment-method" data-method="credit-card">
+                  <div class="payment-method-icon">
+                    <i class="fas fa-credit-card"></i>
+                  </div>
+                  <div class="payment-method-info">
+                    <div class="payment-method-title">Tarjeta de Crédito/Débito</div>
+                    <div class="payment-method-brands">
+                      <i class="fab fa-cc-visa"></i>
+                      <i class="fab fa-cc-mastercard"></i>
+                      <i class="fab fa-cc-amex"></i>
+                    </div>
+                  </div>
+                  <i class="fas fa-chevron-right payment-method-arrow"></i>
+                </div>
+
+                <div class="payment-method" data-method="pse">
+                  <div class="payment-method-icon">
+                    <i class="fas fa-university"></i>
+                  </div>
+                  <div class="payment-method-info">
+                    <div class="payment-method-title">PSE - Transferencia Bancaria</div>
+                    <div class="payment-method-description">Débito directo desde tu cuenta</div>
+                  </div>
+                  <i class="fas fa-chevron-right payment-method-arrow"></i>
+                </div>
+
+                <div class="payment-method" data-method="nequi">
+                  <div class="payment-method-icon nequi-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                  </div>
+                  <div class="payment-method-info">
+                    <div class="payment-method-title">Nequi</div>
+                    <div class="payment-method-description">Paga desde tu cuenta Nequi</div>
+                  </div>
+                  <i class="fas fa-chevron-right payment-method-arrow"></i>
+                </div>
+
+                <div class="payment-method" data-method="daviplata">
+                  <div class="payment-method-icon daviplata-icon">
+                    <i class="fas fa-wallet"></i>
+                  </div>
+                  <div class="payment-method-info">
+                    <div class="payment-method-title">Daviplata</div>
+                    <div class="payment-method-description">Paga desde tu cuenta Daviplata</div>
+                  </div>
+                  <i class="fas fa-chevron-right payment-method-arrow"></i>
+                </div>
+
+                <div class="payment-method" data-method="payu">
+                  <div class="payment-method-icon payu-icon">
+                    <i class="fas fa-money-bill-wave"></i>
+                  </div>
+                  <div class="payment-method-info">
+                    <div class="payment-method-title">PayU</div>
+                    <div class="payment-method-description">Plataforma de pagos segura</div>
+                  </div>
+                  <i class="fas fa-chevron-right payment-method-arrow"></i>
+                </div>
+
+                <div class="payment-method" data-method="efecty">
+                  <div class="payment-method-icon efecty-icon">
+                    <i class="fas fa-store"></i>
+                  </div>
+                  <div class="payment-method-info">
+                    <div class="payment-method-title">Efecty</div>
+                    <div class="payment-method-description">Pago en efectivo en puntos Efecty</div>
+                  </div>
+                  <i class="fas fa-chevron-right payment-method-arrow"></i>
+                </div>
+              </div>
+            </div>
+
+            <!-- Formulario para Tarjeta de Crédito/Débito (inicialmente oculto) -->
+            <div id="creditCardForm" class="payment-detail-form" style="display: none;">
+              <h3>Detalles de la tarjeta</h3>
+              
+              <div class="input-group">
+                <label for="cardName">Nombre en la tarjeta</label>
+                <div class="input-wrapper">
+                  <i class="fas fa-user input-icon"></i>
+                  <input type="text" id="cardName" name="cardName" placeholder="Nombre como aparece en la tarjeta" required>
+                </div>
+              </div>
+              
+              <div class="input-group">
+                <label for="cardNumber">Número de tarjeta</label>
+                <div class="input-wrapper">
+                  <i class="fas fa-credit-card input-icon"></i>
+                  <input type="text" id="cardNumber" name="cardNumber" placeholder="XXXX XXXX XXXX XXXX" required>
+                </div>
+              </div>
+              
+              <div class="input-row">
+                <div class="input-group">
+                  <label for="expiryDate">Fecha de vencimiento</label>
+                  <div class="input-wrapper">
+                    <i class="fas fa-calendar-alt input-icon"></i>
+                    <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/AA" required>
+                  </div>
+                </div>
+                <div class="input-group">
+                  <label for="cvv">Código de seguridad</label>
+                  <div class="input-wrapper">
+                    <i class="fas fa-lock input-icon"></i>
+                    <input type="text" id="cvv" name="cvv" placeholder="CVV" required>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="input-group">
+                <label for="cuotas">Número de cuotas</label>
+                <div class="input-wrapper">
+                  <i class="fas fa-layer-group input-icon"></i>
+                  <select id="cuotas" name="cuotas">
+                    <option value="1">1 cuota</option>
+                    <option value="3">3 cuotas</option>
+                    <option value="6">6 cuotas</option>
+                    <option value="12">12 cuotas</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- Botones de acción -->
+            <div class="payment-actions">
+              <button type="button" id="returnBtn" class="btn btn-secondary">Volver</button>
+              <button type="button" id="continueBtn" class="btn btn-primary">Continuar</button>
+            </div>
+
+            <!-- Sección de seguridad y garantías -->
+            <div class="payment-security">
+              <div class="security-item">
+                <i class="fas fa-lock"></i>
+                <span>Pago seguro</span>
+              </div>
+              <div class="security-item">
+                <i class="fas fa-shield-alt"></i>
+                <span>Datos encriptados</span>
+              </div>
+              <div class="security-item">
+                <i class="fas fa-check-circle"></i>
+                <span>Garantía ServiTech</span>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/common.js"></script>
+  <script>
+    // Script para manejar la selección de métodos de pago
+    document.addEventListener('DOMContentLoaded', function() {
+      const paymentMethods = document.querySelectorAll('.payment-method');
+      const creditCardForm = document.getElementById('creditCardForm');
+      const paymentMethodSection = document.querySelector('.payment-method-section');
+      const returnBtn = document.getElementById('returnBtn');
+      const continueBtn = document.getElementById('continueBtn');
+      
+      // Evento para seleccionar método de pago
+      paymentMethods.forEach(method => {
+        method.addEventListener('click', function() {
+          const selectedMethod = this.dataset.method;
+          
+          // Eliminar selección previa
+          paymentMethods.forEach(m => m.classList.remove('selected'));
+          
+          // Marcar como seleccionado
+          this.classList.add('selected');
+          
+          // Mostrar formulario específico según método
+          if (selectedMethod === 'credit-card') {
+            paymentMethodSection.style.display = 'none';
+            creditCardForm.style.display = 'block';
+          }
+        });
+      });
+      
+      // Evento para botón volver
+      returnBtn.addEventListener('click', function() {
+        creditCardForm.style.display = 'none';
+        paymentMethodSection.style.display = 'block';
+      });
+        // Evento para continuar
+      continueBtn.addEventListener('click', function() {
+        // Mostrar mensaje de procesamiento
+        const originalText = continueBtn.innerHTML;
+        continueBtn.disabled = true;
+        continueBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Procesando...';
+        
+        // Simulación de procesamiento de pago (2 segundos)
+        setTimeout(function() {
+          // Redirigir a la página de confirmación
+          window.location.href = 'confirmacion-asesoria.html';
+        }, 2000);
+      });
+    });
+  </script>
 </body>
-
 </html>
