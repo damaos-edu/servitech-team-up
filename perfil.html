@@ -10,48 +10,45 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Header de navegación principal -->
-  <header class="main-header">
-    <div class="header-container">
-      <a href="index.html" class="logo">
-        <img src="assets/img/logo.png" alt="ServiTech Logo">
-      </a>
-      
-      <nav class="main-nav d-none d-md-flex">
-        <a href="index.html">Inicio</a>
-        <a href="expertos.html">Expertos</a>
-        <a href="feed.html">Feed</a>
-        <a href="calendario.html">Calendario</a>
-        <a href="mensajes.html">Mensajes</a>
+  <!-- Encabezado del sitio -->
+  <header>
+      <nav class="navbar">
+          <!-- Logo del sitio -->
+          <a href="index.html" class="logo">
+              <img src="assets/img/logo.png" alt="logo" class="logo-img">
+          </a>
+          <!-- Navegación principal -->
+          <div class="nav-links">
+              <a href="feed.html" class="nav-item"><i class="fas fa-home"></i> Inicio</a>
+              <a href="expertos.html" class="nav-item"><i class="fas fa-users"></i> Expertos</a>
+              <a href="contacto.html" class="nav-item"><i class="fas fa-envelope"></i> Contacto</a>
+          </div>            <!-- Botones de autenticación -->
+          <div class="auth-buttons">
+              <a href="login.html" class="btn btn-outline">Iniciar sesión</a>
+              <a href="registro.html" class="btn btn-primary">Registrarse</a>
+          </div>
+          <!-- Menú de usuario (se muestra/oculta con JavaScript) -->
+          <div class="user-menu" id="userMenuContainer" style="display: none;">
+              <div class="user-avatar">
+                  <img src="" alt="Usuario" id="userAvatar">
+              </div>
+              <span class="d-none d-md-inline" id="userDisplayName">Mi cuenta</span>
+              <i class="fas fa-chevron-down"></i>
+              
+              <!-- Menú desplegable (se muestra/oculta con JavaScript) -->
+              <div class="user-dropdown" id="userDropdown">
+                  <a href="perfil.html" class="dropdown-item">
+                      <i class="fas fa-user"></i> Mi perfil
+                  </a>
+                  <a href="calendario.html" class="dropdown-item">
+                      <i class="fas fa-calendar-alt"></i> Mis asesorías
+                  </a>
+                  <a href="#" class="dropdown-item" id="logoutBtn">
+                      <i class="fas fa-sign-out-alt"></i> Cerrar sesión
+                  </a>
+              </div>
+          </div>
       </nav>
-
-      <div class="header-actions">
-        <div class="user-menu" id="userMenuContainer">
-          <div class="user-avatar">
-            <img src="https://ui-avatars.com/api/?name=Usuario&background=3a8eff&color=fff" alt="Usuario" id="userAvatar">
-          </div>
-          <span class="d-none d-md-inline" id="userDisplayName">Mi cuenta</span>
-          <i class="fas fa-chevron-down"></i>
-          
-          <!-- Menú desplegable (se muestra/oculta con JavaScript) -->
-          <div class="user-dropdown" id="userDropdown">
-            <a href="perfil.html" class="dropdown-item active">
-              <i class="fas fa-user"></i> Mi perfil
-            </a>
-            <a href="calendario.html" class="dropdown-item">
-              <i class="fas fa-calendar-alt"></i> Mis asesorías
-            </a>
-            <a href="#" class="dropdown-item" id="logoutBtn">
-              <i class="fas fa-sign-out-alt"></i> Cerrar sesión
-            </a>
-          </div>
-        </div>
-      </div>
-      
-      <button class="mobile-menu-toggle d-md-none">
-        <i class="fas fa-bars"></i>
-      </button>
-    </div>
   </header>
 
   <!-- Contenido principal -->
