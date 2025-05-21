@@ -234,36 +234,36 @@ border-top:1px solid var(--border-light)
 .footer-content {
 display:grid;
 grid-template-columns:1.5fr repeat(3,1fr);
-gap:50px;
+gap:30px;
 max-width:var(--content-max-width);
 margin:0 auto;
-padding:50px 5% 30px
-}
-
-.footer-content {
+padding:50px 5% 30px;
 display:flex;
 flex-wrap:wrap;
 justify-content:space-between
-}
-
-.footer-logo {
-margin-bottom:1rem
-}
-
-.footer-logo-img {
-height:50px;
-width: 220px;
-margin-bottom:1rem
-}
-
-.footer-logo p {
-color:var(--text-light)
 }
 
 .footer-links {
 display:flex;
 flex-wrap:wrap;
 gap:4rem
+}
+
+.footer-logo {
+display:flex;
+flex-direction:column;
+gap:15px
+}
+
+.footer-logo p {
+color:var(--text-light);
+margin:0
+}
+
+.footer-logo-img {
+  width: 60%;
+  height:25%;
+margin-bottom:10px
 }
 
 .link-column {

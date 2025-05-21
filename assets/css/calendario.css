@@ -283,6 +283,7 @@ flex-wrap:wrap;
 justify-content:space-between
 }
 
+
 /* Responsividad */
 @media (max-width: 768px) {
     .appointment-system {
@@ -345,3 +346,4 @@ justify-content:space-between
         font-size: 1.5rem;
     }
 }
+
