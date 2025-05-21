@@ -13,38 +13,39 @@
 </head>
 <body>
   <header>
-        <div class="navbar">
-            <a href="index.html" class="logo">
-                <img src="assets/img/logo.png" alt="logo" class="logo-img">
-            </a>
-            <div class="nav-links">
-                <a href="feed.html" class="nav-item"><i class="fas fa-home"></i> Inicio</a>
-                <a href="expertos.html" class="nav-item"><i class="fas fa-users"></i> Expertos</a>
-                <a href="contacto.html" class="nav-item"><i class="fas fa-envelope"></i> Contacto</a>
-            </div>            <div class="auth-buttons">
-                <a href="login.html" class="btn btn-outline">Iniciar sesión</a>
-                <a href="registro.html" class="btn btn-primary">Registrarse</a>
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <img src="assets/img/logo.png" alt="logo" class="logo-img">
+        </a>
+        <div class="nav-links">
+            <a href="feed.html" class="nav-item"><i class="fas fa-home"></i> Inicio</a>
+            <a href="expertos.html" class="nav-item"><i class="fas fa-users"></i> Expertos</a>
+            <a href="contacto.html" class="nav-item"><i class="fas fa-envelope"></i> Contacto</a>
+        </div>
+        <div class="auth-buttons">
+            <a href="login.html" class="btn btn-outline">Iniciar sesión</a>
+            <a href="registro.html" class="btn btn-primary">Registrarse</a>
+        </div>
+        <div class="user-menu" id="userMenuContainer" style="display: none;">
+            <div class="user-avatar">
+                <img src="" alt="Usuario" id="userAvatar">
             </div>
-            <div class="user-menu" id="userMenuContainer" style="display: none;">
-                <div class="user-avatar">
-                    <img src="" alt="Usuario" id="userAvatar">
-                </div>
-                <span class="d-none d-md-inline" id="userDisplayName">Mi cuenta</span>
-                <i class="fas fa-chevron-down"></i>
-                <div class="user-dropdown" id="userDropdown">
-                    <a href="perfil.html" class="dropdown-item">
-                        <i class="fas fa-user"></i> Mi perfil
-                    </a>
-                    <a href="calendario.html" class="dropdown-item active">
-                        <i class="fas fa-calendar-alt"></i> Mis asesorías
-                    </a>
-                    <a href="#" class="dropdown-item" id="logoutBtn">
-                        <i class="fas fa-sign-out-alt"></i> Cerrar sesión
-                    </a>
-                </div>
+            <span class="d-none d-md-inline" id="userDisplayName">Mi cuenta</span>
+            <i class="fas fa-chevron-down"></i>
+            <div class="user-dropdown" id="userDropdown">
+                <a href="perfil.html" class="dropdown-item">
+                    <i class="fas fa-user"></i> Mi perfil
+                </a>
+                <a href="calendario.html" class="dropdown-item">
+                    <i class="fas fa-calendar-alt"></i> Mis asesorías
+                </a>
+                <a href="#" class="dropdown-item" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i> Cerrar sesión
+                </a>
             </div>
         </div>
-    </header>
+    </nav>
+</header>
   <main class="container mt-3">
     
     <section>
@@ -177,8 +178,7 @@
                     </div>
                 </div>
 
-                <button type="submit" class="btn btn-primary ">Confirmar Cita</button>
-        </div>
+                <button type="button" class="btn btn-primary" onclick="window.location.href='pasarela-pagos.html'">Confirmar cita</button>
         <br><br>  
 </main>
    <footer>

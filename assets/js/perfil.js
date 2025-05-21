@@ -88,31 +88,74 @@ document.addEventListener('DOMContentLoaded', function() {
     formEmailInput.value = currentUser.email;
   }
   
-  // Manejar el menú desplegable de usuario
-  const userMenuContainer = document.getElementById('userMenuContainer');
-  const userDropdown = document.getElementById('userDropdown');
-  
-  if (userMenuContainer && userDropdown) {
-    userMenuContainer.addEventListener('click', function(event) {
-      userDropdown.classList.toggle('show');
-      event.stopPropagation();
-    });
-    
-    // Cerrar el menú al hacer clic fuera de él
-    document.addEventListener('click', function(event) {
-      if (userDropdown.classList.contains('show') && !userMenuContainer.contains(event.target)) {
-        userDropdown.classList.remove('show');
-      }
-    });
-  }
-  
-  // Manejar el cierre de sesión
-  const logoutBtn = document.getElementById('logoutBtn');
-  if (logoutBtn) {
-    logoutBtn.addEventListener('click', function(event) {
-      event.preventDefault();
-      localStorage.removeItem('currentUser');
-      window.location.href = 'login.html';
-    });
-  }
-});
+ // Si tenemos los elementos necesarios y el usuario está logueado
+    if (authButtons && userMenu && currentUser) {
+        // Ocultar botones de autenticación y mostrar el menú de usuario
+        authButtons.style.display = 'none';
+        userMenu.style.display = 'flex';
+        
+        const userInfo = getUserNameFromEmail(currentUser.email);
+        
+        // Actualizar nombre de usuario en el header si existe el elemento
+        const userDisplayName = document.getElementById('userDisplayName');
+        if (userDisplayName) {
+            userDisplayName.textContent = userInfo.firstName;
+        }
+        
+        // Actualizar avatar con iniciales
+        const avatarUrl = `https://ui-avatars.com/api/?name=${encodeURIComponent(userInfo.firstName)}+${encodeURIComponent(userInfo.lastName)}&background=3a8eff&color=fff`;
+        
+        const userAvatarImg = document.getElementById('userAvatar');
+        if (userAvatarImg) {
+            userAvatarImg.src = avatarUrl;
+        }
+        
+        // Manejar el menú desplegable de usuario
+        const userMenuContainer = document.getElementById('userMenuContainer');
+        const userDropdown = document.getElementById('userDropdown');
+        
+        if (userMenuContainer && userDropdown) {
+            // Resaltar la página activa en el menú desplegable
+            const currentPageItems = document.querySelectorAll(`.dropdown-item[href="${currentPage}"]`);
+            currentPageItems.forEach(item => {
+                if (!item.classList.contains('active')) {
+                    item.classList.add('active');
+                }
+            });
+            
+            // Configurar la funcionalidad del menú desplegable
+            userMenuContainer.addEventListener('click', function(event) {
+                userDropdown.classList.toggle('show');
+                event.stopPropagation();
+            });
+            
+            // Cerrar el menú al hacer clic fuera de él
+            document.addEventListener('click', function(event) {
+                if (userDropdown.classList.contains('show') && !userMenuContainer.contains(event.target)) {
+                    userDropdown.classList.remove('show');
+                }
+            });
+            
+            // Manejar el cierre de sesión
+            const logoutBtn = document.getElementById('logoutBtn');
+            if (logoutBtn) {
+                logoutBtn.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    localStorage.removeItem('currentUser');
+                    window.location.href = 'login.html';
+                });
+            }
+        }
+    } else if (authButtons && userMenu && !currentUser) {
+        // Si el usuario no está logueado, mostrar botones de autenticación y ocultar menú de usuario
+        authButtons.style.display = 'flex';
+        userMenu.style.display = 'none';
+    }
+}
+
+// Inicializar las funciones comunes cuando el DOM está listo
+.document.addEventListener('DOMContentLoaded', function() {
+    setupScrollAnimations();
+    setupSmoothScroll();
+    setupUserInterface();
+}));
