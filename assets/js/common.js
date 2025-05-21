@@ -57,7 +57,7 @@ function setupUserInterface() {
     const userMenu = document.querySelector('.user-menu');
     
     // Páginas que requieren autenticación
-    const restrictedPages = ['feed.html', 'calendario.html', 'mensajes.html', 'perfil.html'];
+    const restrictedPages = ['calendario.html', 'mensajes.html', 'perfil.html'];
     const currentPage = window.location.pathname.split('/').pop();
     
     // Verificar si estamos en una página de admin
