@@ -21,16 +21,6 @@
   padding: 0 1.5rem;
 }
 
-.logo {
-  display: flex;
-  align-items: center;
-  margin-right: 2rem;
-}
-
-.logo img {
-  height: 40px;
-}
-
 .main-nav {
   display: flex;
   gap: 1.5rem;
@@ -988,11 +978,6 @@
     max-width: 85%;
   }
 }
-border:1px solid var(--border-color);
-color:var(--text-secondary);
-background-color:transparent
-}
-
 .btn-outline:hover {
 color:var(--primary-color);
 border-color:var(--primary-color);

@@ -1,7 +1,6 @@
 /**
  * Funcionalidad compartida para páginas legales (privacidad.html y terminos.html)
  */
-
 document.addEventListener('DOMContentLoaded', function() {
    
     const highlightSections = document.querySelectorAll('.highlight-section');
@@ -46,3 +45,4 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+

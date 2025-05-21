@@ -13,38 +13,39 @@
 </head>
 <body>
   <header>
-        <div class="navbar">
-            <a href="index.html" class="logo">
-                <img src="assets/img/logo.png" alt="logo" class="logo-img">
-            </a>
-            <div class="nav-links">
-                <a href="feed.html" class="nav-item"><i class="fas fa-home"></i> Inicio</a>
-                <a href="expertos.html" class="nav-item"><i class="fas fa-users"></i> Expertos</a>
-                <a href="contacto.html" class="nav-item"><i class="fas fa-envelope"></i> Contacto</a>
-            </div>            <div class="auth-buttons">
-                <a href="login.html" class="btn btn-outline">Iniciar sesión</a>
-                <a href="registro.html" class="btn btn-primary">Registrarse</a>
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <img src="assets/img/logo.png" alt="logo" class="logo-img">
+        </a>
+        <div class="nav-links">
+            <a href="feed.html" class="nav-item"><i class="fas fa-home"></i> Inicio</a>
+            <a href="expertos.html" class="nav-item"><i class="fas fa-users"></i> Expertos</a>
+            <a href="contacto.html" class="nav-item"><i class="fas fa-envelope"></i> Contacto</a>
+        </div>
+        <div class="auth-buttons">
+            <a href="login.html" class="btn btn-outline">Iniciar sesión</a>
+            <a href="registro.html" class="btn btn-primary">Registrarse</a>
+        </div>
+        <div class="user-menu" id="userMenuContainer" style="display: none;">
+            <div class="user-avatar">
+                <img src="" alt="Usuario" id="userAvatar">
             </div>
-            <div class="user-menu" id="userMenuContainer" style="display: none;">
-                <div class="user-avatar">
-                    <img src="" alt="Usuario" id="userAvatar">
-                </div>
-                <span class="d-none d-md-inline" id="userDisplayName">Mi cuenta</span>
-                <i class="fas fa-chevron-down"></i>
-                <div class="user-dropdown" id="userDropdown">
-                    <a href="perfil.html" class="dropdown-item">
-                        <i class="fas fa-user"></i> Mi perfil
-                    </a>
-                    <a href="calendario.html" class="dropdown-item active">
-                        <i class="fas fa-calendar-alt"></i> Mis asesorías
-                    </a>
-                    <a href="#" class="dropdown-item" id="logoutBtn">
-                        <i class="fas fa-sign-out-alt"></i> Cerrar sesión
-                    </a>
-                </div>
+            <span class="d-none d-md-inline" id="userDisplayName">Mi cuenta</span>
+            <i class="fas fa-chevron-down"></i>
+            <div class="user-dropdown" id="userDropdown">
+                <a href="perfil.html" class="dropdown-item">
+                    <i class="fas fa-user"></i> Mi perfil
+                </a>
+                <a href="calendario.html" class="dropdown-item">
+                    <i class="fas fa-calendar-alt"></i> Mis asesorías
+                </a>
+                <a href="#" class="dropdown-item" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i> Cerrar sesión
+                </a>
             </div>
         </div>
-    </header>
+    </nav>
+</header>
   <main class="container mt-3">
     
     <section>
@@ -53,7 +54,7 @@
     </section>
     <br>
     <!-- Calendario -->
-            <div id="calendar-view">
+        <div id="calendar-view">
                 <div class="appointment-system">
                     <div class="calendar-container">
                         <div class="month-navigation">
@@ -154,12 +155,12 @@
                         <div class="appointment-summary">
                             <h3>Resumen de tu cita</h3>
                             <div class="summary-item">
-                                <div class="summary-label">Fecha:</div>
-                                <div class="summary-value">17 de Mayo, 2025</div>
+                                <div class="summary-label">Fecha: </div>
+                                <div class="summary-value"> 17 de Mayo 2025</div>
                             </div>
                             <div class="summary-item">
                                 <div class="summary-label">Hora:</div>
-                                <div class="summary-value">11:00</div>
+                                <div class="summary-value"> 11:00</div>
                             </div>
                             <div class="summary-item">
                                 <div class="summary-label">Experto:</div>
@@ -177,88 +178,40 @@
                     </div>
                 </div>
 
-                <button type="submit" class="btn btn-primary ">Confirmar Cita</button>
-
-                <!-- Modal de confirmacion  -->
-            <div id="confirmation-section">
-                <div class="confirmation-container">
-                    <div class="confirmation-icon">✓</div>
-                    <h2 class="confirmation-title">¡Cita Agendada con Éxito!</h2>
-                    <p>Tu cita ha sido confirmada. Recibirás un correo electrónico con los detalles.</p>
-
-                    <div class="confirmation-details">
-                        <div class="confirmation-detail-item">
-                            <div class="confirmation-detail-label">Fecha:</div>
-                            <div>17 de Mayo, 2025</div>
-                        </div>
-                        <div class="confirmation-detail-item">
-                            <div class="confirmation-detail-label">Hora:</div>
-                            <div>11:00</div>
-                        </div>
-                        <div class="confirmation-detail-item">
-                            <div class="confirmation-detail-label">Experto:</div>
-                            <div>María Rodríguez</div>
-                        </div>
-                        <div class="confirmation-detail-item">
-                            <div class="confirmation-detail-label">Servicio:</div>
-                            <div>Consultoría de Desarrollo Web</div>
-                        </div>
-                        <div class="confirmation-detail-item">
-                            <div class="confirmation-detail-label">ID de Cita:</div>
-                            <div>APT-2025-05-17-001</div>
-                        </div>
-                    </div>
-
-                    <p>Puedes modificar o cancelar tu cita hasta 24 horas antes.</p>
-                    <a href="#calendar-view" class="btn">Volver al Calendario</a>
-                </div>
-            </div>
-    </div>
-  <br><br>  <footer>
-        <div class="footer-content">
-            <div class="footer-logo">
-                <img src="assets/img/logo.png" alt="Servitech Logo" class="footer-logo-img" width="120" height="40">
-                <p>Conectando expertos con estudiantes</p>
-            </div>
-            <div class="link-column">
-                <h3>Empresa</h3>
-                <a href="nosotros.html">Sobre nosotros</a>
-                <a href="empleo.html">Carreras</a>
-                <a href="blog.html">Blog</a>
-                <a href="testimonios.html">Testimonios</a>
-            </div>
-            <div class="link-column">
-                <h3>Ubicación</h3>
-                <div class="footer-map">
-                    <iframe
-                        src="https://www.google.com/maps?q=bogota+colombia&output=embed"
-                        width="220"
-                        height="120"
-                        style="border:0;"
-                        allowfullscreen=""
-                        loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                    <p>Bogotá, Colombia</p>
-                </div>
-            </div>
-            <div class="link-column">
-                <h3>Legal</h3>
-                <a href="faq.html">Centro de ayuda</a>
-                <a href="terminos.html" class="active-link">Términos de servicio</a>
-                <a href="privacidad.html">Política de privacidad</a>
-                <a href="cookies.html">Cookies</a>
-            </div>
+                <button type="button" class="btn btn-primary" onclick="window.location.href='pasarela-pagos.html'">Confirmar cita</button>
+        <br><br>  
+</main>
+   <footer>
+    <div class="footer-content">
+        <div class="footer-logo">
+            <img src="assets/img/logo.png" alt="Servitech Logo" class="footer-logo-img">
+            <p>Conectando expertos con estudiantes</p>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Servitech. Todos los derechos reservados.</p>
-            <div class="social-links">
-                <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
-                <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
-            </div>        </div>
-    </footer>
+        <div class="link-column">
+            <h3>Empresa</h3>
+            <a href="nosotros.html">Sobre nosotros</a>
+            <a href="empleo.html">Carreras</a>
+            <a href="blog.html">Blog</a>
+            <a href="testimonios.html">Testimonios</a>
+        </div>
+        <div class="link-column">
+            <h3>Legal</h3>
+            <a href="faq.html">Centro de ayuda</a>
+            <a href="terminos.html" class="active-link">Términos de servicio</a>
+            <a href="privacidad.html">Política de privacidad</a>
+            <a href="cookies.html">Cookies</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 Servitech. Todos los derechos reservados.</p>
+        <div class="social-links">
+            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </div>
+</footer>
     
     <!-- Scripts -->
     <script src="assets/js/common.js"></script>

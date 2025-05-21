@@ -237,7 +237,16 @@ grid-template-columns:1.5fr repeat(3,1fr);
 gap:30px;
 max-width:var(--content-max-width);
 margin:0 auto;
-padding:50px 5% 30px
+padding:50px 5% 30px;
+display:flex;
+flex-wrap:wrap;
+justify-content:space-between
+}
+
+.footer-links {
+display:flex;
+flex-wrap:wrap;
+gap:4rem
 }
 
 .footer-logo {
@@ -252,6 +261,8 @@ margin:0
 }
 
 .footer-logo-img {
+  width: 60%;
+  height:25%;
 margin-bottom:10px
 }
 
