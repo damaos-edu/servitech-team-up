@@ -443,11 +443,14 @@
 .chat-body {
   flex-grow: 1;
   overflow-y: auto;
+  overflow-x: hidden;
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
   background-color: var(--background);
   background-image: radial-gradient(circle at 85% 15%, rgba(58, 142, 255, 0.05) 0%, transparent 50%);
+  scroll-behavior: smooth; /* Para un desplazamiento suave */
+  max-height: calc(100% - 135px); /* Ajustar altura para evitar desbordamiento */
 }
 
 .chat-date-divider {
