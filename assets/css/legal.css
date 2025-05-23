@@ -1,18 +1,18 @@
 .container {
     max-width: var(--content-max-width);
-    margin: 40px auto;
+    margin: 2.5rem auto;
     padding: 0 5%;
 }
 
 .card-title {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 0.625rem;
     color: var(--text-color);
-    margin-bottom: 25px;
+    margin-bottom: 1.5625rem;
     font-size: 1.5rem;
-    border-bottom: 1px solid var(--border-light);
-    padding-bottom: 15px;
+    border-bottom: 0.0625rem solid var(--border-light);
+    padding-bottom: 0.9375rem;
 }
 
 .card-title i {
@@ -21,13 +21,13 @@
 
 .legal-section, /* Renamed from privacy-section */
 .privacy-section {
-    margin-top: 30px;
+    margin-top: 1.875rem;
 }
 
 .legal-section h4,
 .privacy-section h4 {
     color: var(--primary-color);
-    margin-bottom: 15px;
+    margin-bottom: 0.9375rem;
     font-weight: 600;
     font-size: 1.1rem;
     display: flex;
@@ -38,34 +38,34 @@
 .privacy-section h4::before {
     content: '';
     display: inline-block;
-    width: 5px;
-    height: 20px;
+    width: 0.3125rem;
+    height: 1.25rem;
     background: linear-gradient(to bottom, var(--primary-color), var(--accent-color));
-    margin-right: 10px;
-    border-radius: 3px;
+    margin-right: 0.625rem;
+    border-radius: 0.1875rem;
 }
 
 .legal-section p,
 .privacy-section p {
     color: var(--text-secondary);
     line-height: 1.7;
-    margin-bottom: 20px;
-    padding-left: 15px; /* Keep consistent indentation */
+    margin-bottom: 1.25rem;
+    padding-left: 0.9375rem;
 }
 
 .legal-toc, /* Renamed from privacy-toc */
 .privacy-toc {
     background-color: rgba(58, 142, 255, 0.05);
-    border: 1px solid var(--border-light);
+    border: 0.0625rem solid var(--border-light);
     border-radius: var(--border-radius);
-    padding: 20px;
-    margin-bottom: 30px;
+    padding: 1.25rem;
+    margin-bottom: 1.875rem;
 }
 
 .legal-toc h4,
 .privacy-toc h4 {
     margin-top: 0;
-    margin-bottom: 15px;
+    margin-bottom: 0.9375rem;
 }
 
 .legal-toc ul,
@@ -77,7 +77,7 @@
 
 .legal-toc li,
 .privacy-toc li {
-    margin-bottom: 10px;
+    margin-bottom: 0.625rem;
 }
 
 .legal-toc a,
@@ -91,11 +91,11 @@
 
 .legal-toc a:hover,
 .privacy-toc a:hover {
-    transform: translateX(5px);
+    transform: translateX(0.3125rem);
 }
 
 .legal-toc a i,
 .privacy-toc a i {
-    margin-right: 8px;
-    font-size: 12px;
+    margin-right: 0.5rem;
+    font-size: 0.75rem;
 }

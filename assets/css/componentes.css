@@ -1,7 +1,7 @@
 /* Estilos para los componentes */
 .header {
   background-color: var(--header-bg-color, #0f0f0f84);
-  backdrop-filter: blur(var(--header-blur, 5px));
+  backdrop-filter: blur(var(--header-blur, 0.3125rem));
   position: fixed;
   top: 0;
   left: 0;
@@ -37,10 +37,112 @@
   transform: scale(1.05);
 }
 
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-grow: 1;
+  margin-left: 2rem;
+}
+
 .nav-links {
   display: flex;
   gap: 1.5rem;
   align-items: center;
+}
+
+.mobile-menu-toggle {
+  display: none;
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.mobile-menu-toggle:hover {
+  color: var(--primary-color);
+}
+
+@media (max-width: 992px) {
+  .navbar {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .logo {
+    order: 2;
+    flex-grow: 1;
+    text-align: center;
+  }
+  
+  .hide-on-mobile {
+    display: none;
+  }
+  
+  .mobile-menu-toggle {
+    display: block;
+    order: 1;
+    flex: 0 0 auto;
+  }
+  
+  .user-menu {
+    order: 3;
+    flex: 0 0 auto;
+  }
+  
+  .nav-container {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: var(--header-bg-color, #0f0f0f84);
+    backdrop-filter: blur(var(--header-blur, 0.3125rem));
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5rem;
+    margin-left: 0;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s;
+    z-index: 999;
+    order: 4;
+    flex-basis: 100%;
+  }
+  
+  .nav-container.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .nav-item {
+    width: 100%;
+    padding: 0.75rem 1rem;
+  }
+  
+  .auth-buttons {
+    width: 100%;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  .logo img {
+    margin: 0 auto;
+  }
+
+  .user-dropdown {
+    right: 0;
+    left: auto;
+  }
 }
 
 .nav-item {
@@ -105,7 +207,7 @@
 footer {
   background-color: var(--card-bg);
   margin-top: auto;
-  border-top: 1px solid var(--border-light);
+  border-top: 0.0625rem solid var(--border-light);
 }
 
 .footer-content {
@@ -158,7 +260,7 @@ footer {
   max-width: var(--content-max-width);
   margin: 0 auto;
   padding: 1.25rem 5%;
-  border-top: 1px solid var(--border-light);
+  border-top: 0.0625rem solid var(--border-light);
 }
 
 .footer-bottom p {
@@ -185,6 +287,13 @@ footer {
   gap: 0.5rem;
   position: relative;
   cursor: pointer;
+  padding: 0.5rem;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+}
+
+.user-menu:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .user-avatar img {
@@ -192,6 +301,15 @@ footer {
   height: 2rem;
   border-radius: 50%;
   object-fit: cover;
+  border: 2px solid var(--primary-color);
+}
+
+.user-menu i.fas.fa-chevron-down {
+  transition: transform 0.3s ease;
+}
+
+.user-menu:hover i.fas.fa-chevron-down {
+  transform: rotate(180deg);
 }
 
 .user-dropdown {
@@ -199,42 +317,172 @@ footer {
   position: absolute;
   top: calc(100% + 0.5rem); /* Separación del contenedor */
   right: 0;
+  min-width: 200px;
   background-color: var(--card-bg);
-  box-shadow: var(--card-shadow);
-  border-radius: 0.5rem; /* Bordes redondeados */
-  z-index: 1000;
-  padding: 1rem;
-  width: 220px; /* Ancho fijo */
+  border-radius: var(--border-radius);
+  box-shadow: var(--dropdown-shadow);
+  z-index: 1001;
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+  animation: fadeInDown 0.3s ease;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+  color: var(--text-secondary);
+  transition: var(--transition);
+  text-decoration: none;
+  gap: 0.5rem;
+}
+
+.dropdown-item:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--text-color);
+}
+
+.dropdown-item.active {
+  color: var(--primary-color);
+  background-color: rgba(58, 142, 255, 0.1);
+}
+
+.dropdown-item i {
+  width: 1.25rem;
+  text-align: center;
 }
 
 .user-dropdown.show {
-  display: block; /* Mostrar cuando se active */
+  display: block; /* Mostrar cuando tiene la clase show */
 }
 
-.user-dropdown a {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem; /* Espaciado entre icono y texto */
-  padding: 0.5rem 0.75rem;
-  color: var(--text-secondary);
-  text-decoration: none;
-  font-size: 0.9rem;
-  border-radius: 0.375rem; /* Bordes redondeados para los enlaces */
-  transition: var(--transition);
+@media (max-width: 992px) {
+  .user-menu {
+    order: 3;
+    margin-left: auto;
+    position: static;
+  }
+  
+  .user-dropdown {
+    position: absolute;
+    top: var(--header-height);
+    right: 0;
+    width: 100%;
+    max-width: 250px;
+    border-top: none;
+    border-top-right-radius: 0;
+  }
+
+  .mobile-menu-toggle {
+    order: 1;
+    margin-right: auto;
+    margin-left: 1rem;
+  }
+
+  .navbar {
+    position: relative;
+  }
 }
 
-.user-dropdown a:hover {
-  background-color: var(--nav-item-hover-bg, #ffffff1a);
+/* Estilos para el menú de usuario móvil */
+.mobile-user-menu {
+  display: none; /* Oculto por defecto en TODOS los casos hasta que se aplique logged-in */
+  width: 100%;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-light);
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+/* Animación para el menú de usuario móvil cuando está visible */
+.logged-in .mobile-user-menu {
+  animation: slideDown 0.3s ease forwards;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.user-nav-item {
+  width: 100%;
+  font-weight: 500;
+  background-color: rgba(58, 142, 255, 0.08);
+  border-left: 3px solid var(--primary-color);
+  margin-left: 0.5rem;
+  padding-left: 1rem;
+}
+
+/* Estilo hover específico para opciones de usuario móvil */
+.user-nav-item:hover {
+  background-color: rgba(58, 142, 255, 0.15);
   color: var(--primary-color);
 }
 
-.user-dropdown a i {
-  font-size: 1rem; /* Tamaño del icono */
-  color: var(--text-secondary);
+/* En dispositivos móviles y tablet */
+@media (max-width: 992px) {
+  /* Forzamos ocultar el menú de usuario desktop en móvil/tablet */
+  .user-menu {
+    display: none !important; /* !important para asegurar que se aplique siempre */
+  }
+  
+  /* Mostramos las opciones de usuario en el menú móvil cuando está logueado */
+  .logged-in .mobile-user-menu {
+    display: flex;
+  }
+  
+  /* Añadir un título para la sección de usuario en el menú móvil */
+  .logged-in .mobile-user-menu::before {
+    content: "Mi cuenta";
+    display: block;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+  }
 }
 
-.user-dropdown a:hover i {
-  color: var(--primary-color);
+/* En desktop */
+@media (min-width: 993px) {
+  .mobile-user-menu {
+    display: none !important; /* Siempre oculto en desktop, con !important para forzar la regla */
+  }
+  
+  /* Aseguramos que el menú de usuario desktop sea visible */
+  .user-menu {
+    display: flex;
+  }
+}
+
+@media (max-width: 576px) {
+  .logo img {
+    width: 10rem;
+    height: 2rem;
+  }
+  
+  .user-avatar img {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
 }
 
 /* Estilos responsive para el header y footer */
