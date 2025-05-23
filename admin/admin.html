@@ -4,89 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard - Servitech Admin</title>
+    <link rel="stylesheet" href="../assets/css/administrador.css" />
     <link rel="stylesheet" href="../assets/css/admin.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
     <div class="admin-layout">
-      <aside class="admin-sidebar">
-        <div class="sidebar-header">
-          <a href="admin.html" class="logo">
-            <img
-              src="../assets/img/logo.png"
-              alt="Servitech Logo"
-              class="logo-img"
-            />
-            <span class="logo-text">Admin</span>
-          </a>
-        </div>
-        <div class="sidebar-content">
-          <nav class="sidebar-nav">
-            <ul>
-              <li class="nav-item active">
-                <a href="admin.html">
-                  <i class="fas fa-tachometer-alt"></i>
-                  <span>Dashboard</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="admin-expertos.html">
-                  <i class="fas fa-users"></i>
-                  <span>Gestión de Expertos</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="admin-usuarios.html">
-                  <i class="fas fa-user-friends"></i>
-                  <span>Gestión de Usuarios</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="admin-categorias.html">
-                  <i class="fas fa-tags"></i>
-                  <span>Categorías</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="admin-publicaciones.html">
-                  <i class="fas fa-clipboard-list"></i>
-                  <span>Publicaciones</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="admin-mensajes.html">
-                  <i class="fas fa-envelope"></i>
-                  <span>Mensajes</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="admin-configuracion.html">
-                  <i class="fas fa-cog"></i>
-                  <span>Configuración</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-        <div class="sidebar-footer">
-          <a href="/feed.html" class="btn-outline">
-            <i class="fas fa-globe"></i>
-            <span>Ver sitio</span>
-          </a>
-          <a href="/login.html" class="btn-logout">
-            <i class="fas fa-sign-out-alt"></i>
-            <span>Cerrar sesión</span>
-          </a>
-        </div>
-      </aside>
+      <!-- Sidebar dinámico -->
+      <div id="admin-sidebar-container"></div>
 
       <main class="admin-main">
         <header class="admin-header">
@@ -477,49 +404,31 @@
                   <td>Cuenta</td>
                   <td>10/04/2025</td>
                   <td><span class="status active">Asignado</span></td>
-                  <td>
-                    <div class="action-buttons">
-                      <button class="btn-icon dashboard-view-btn" title="Ver detalles">
-                        <i class="fas fa-eye"></i>
-                      </button>
-                  </td>
                 </tr>
               </tbody>
             </table>
-            <div class="dashboard-table-footer">
-              <a href="#" class="dashboard-link">
-                Ver todas las solicitudes
-                <i class="fas fa-chevron-right dashboard-link-icon"></i>
-              </a>
-            </div>
           </div>
         </div>
       </main>
     </div>
 
-    <!-- Modal Detalle Novedad Dashboard -->
-    <div id="dashboardModal" class="modal-publicacion">
-      <div class="modal-publicacion__content">
-        <div class="modal-publicacion__header">
-          <h2 class="modal-publicacion__title">Detalle de la novedad</h2>
-          <button class="btn-close" id="dashboardModalClose"><i class="fas fa-times"></i></button>
-        </div>
-        <div class="modal-publicacion__body">
-          <form id="dashboardModalForm">
-            <div id="dashboardModalFields">
-              <!-- Aquí se llenan los campos dinámicamente -->
-            </div>
-          </form>
-        </div>
-        <div class="modal-publicacion__footer">
-          <button class="btn-primary" id="dashboardModalViewBtn">Ver la novedad</button>
-          <button class="btn-outline" id="dashboardModalCloseBtn">Cerrar</button>
-        </div>
-      </div>
-    </div>
-
+    <script>
+      // Cargar el sidebar dinámicamente
+      document.addEventListener("DOMContentLoaded", () => {
+        const sidebarContainer = document.getElementById("admin-sidebar-container");
+        if (sidebarContainer) {
+          fetch("../assets/componentes/navbar-admin.html")
+            .then((response) => response.text())
+            .then((html) => {
+              sidebarContainer.innerHTML = html;
+            })
+            .catch((error) => console.error("Error al cargar el sidebar:", error));
+        }
+      });
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../assets/js/admin/admin-common.js"></script>
     <script src="../assets/js/admin/admin.js"></script>
+
   </body>
 </html>
