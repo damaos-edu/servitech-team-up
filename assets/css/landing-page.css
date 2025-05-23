@@ -31,9 +31,20 @@ color:var(--text-secondary);
 margin-bottom:2rem
 }
 
+/* Botones del banner */
 .banner-buttons {
 display:flex;
+justify-content:center; 
 gap:1rem
+}
+
+.banner-buttons .btn-primary,
+.banner-buttons .btn-secondary { 
+  font-size: 1rem; 
+  text-align: center; 
+  display: flex; 
+  justify-content: center;
+  align-items: center;
 }
 
 .banner-image {

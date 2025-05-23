@@ -1,11 +1,7 @@
-/**
- * Funciones comunes para todas las páginas de Servitech
- */
+/* Funciones comunes para todas las páginas de Servitech*/
 
-/**
- * Configura animaciones de aparición al hacer scroll
- * @param {string} selector - Selector CSS para los elementos a animar
- */
+/*Configura animaciones de aparición al hacer scroll* 
+  @param {string} selector - Selector CSS para los elementos a animar*/
 function setupScrollAnimations(selector = '.animate-fade') {
     const animateElements = document.querySelectorAll(selector);
     
@@ -28,9 +24,7 @@ function setupScrollAnimations(selector = '.animate-fade') {
     });
 }
 
-/**
- * Configura el comportamiento de desplazamiento suave para los anclajes internos
- */
+/*Configura el comportamiento de desplazamiento suave para los anclajes internos*/
 function setupSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -45,9 +39,7 @@ function setupSmoothScroll() {
     });
 }
 
-/**
- * Actualiza la interfaz de usuario según el estado de autenticación
- */
+/*Actualiza la interfaz de usuario según el estado de autenticación*/
 function setupUserInterface() {
     // Obtener el usuario actual del localStorage
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
@@ -83,7 +75,6 @@ function setupUserInterface() {
     }
     
     function getUserNameFromEmail(email) {
-        // Si el email tiene formato nombre.apellido@dominio.com
         const nameParts = email.split('@')[0].split('.');
         
         if (nameParts.length > 1) {
@@ -93,8 +84,7 @@ function setupUserInterface() {
                 fullName: `${capitalizeFirstLetter(nameParts[0])} ${capitalizeFirstLetter(nameParts[1])}`
             };
         }
-        
-        // Si el email no tiene formato con punto, usar solo la parte antes del @
+
         return {
             firstName: capitalizeFirstLetter(nameParts[0]),
             lastName: '',
@@ -102,21 +92,17 @@ function setupUserInterface() {
         };
     }
     
-    // Si tenemos los elementos necesarios y el usuario está logueado
     if (authButtons && userMenu && currentUser) {
-        // Ocultar botones de autenticación y mostrar el menú de usuario
         authButtons.style.display = 'none';
         userMenu.style.display = 'flex';
         
         const userInfo = getUserNameFromEmail(currentUser.email);
         
-        // Actualizar nombre de usuario en el header si existe el elemento
         const userDisplayName = document.getElementById('userDisplayName');
         if (userDisplayName) {
             userDisplayName.textContent = userInfo.firstName;
         }
         
-        // Actualizar avatar con iniciales
         const avatarUrl = `https://ui-avatars.com/api/?name=${encodeURIComponent(userInfo.firstName)}+${encodeURIComponent(userInfo.lastName)}&background=3a8eff&color=fff`;
         
         const userAvatarImg = document.getElementById('userAvatar');
@@ -124,12 +110,10 @@ function setupUserInterface() {
             userAvatarImg.src = avatarUrl;
         }
         
-        // Manejar el menú desplegable de usuario
         const userMenuContainer = document.getElementById('userMenuContainer');
         const userDropdown = document.getElementById('userDropdown');
         
         if (userMenuContainer && userDropdown) {
-            // Resaltar la página activa en el menú desplegable
             const currentPageItems = document.querySelectorAll(`.dropdown-item[href="${currentPage}"]`);
             currentPageItems.forEach(item => {
                 if (!item.classList.contains('active')) {
@@ -137,20 +121,19 @@ function setupUserInterface() {
                 }
             });
             
-            // Configurar la funcionalidad del menú desplegable
+            // Alternar visibilidad del menú al hacer clic en el contenedor
             userMenuContainer.addEventListener('click', function(event) {
                 userDropdown.classList.toggle('show');
-                event.stopPropagation();
+                event.stopPropagation(); // Evitar que el clic se propague
             });
             
-            // Cerrar el menú al hacer clic fuera de él
+            // Ocultar el menú al hacer clic fuera de él
             document.addEventListener('click', function(event) {
                 if (userDropdown.classList.contains('show') && !userMenuContainer.contains(event.target)) {
                     userDropdown.classList.remove('show');
                 }
             });
             
-            // Manejar el cierre de sesión
             const logoutBtn = document.getElementById('logoutBtn');
             if (logoutBtn) {
                 logoutBtn.addEventListener('click', function(event) {
@@ -161,15 +144,66 @@ function setupUserInterface() {
             }
         }
     } else if (authButtons && userMenu && !currentUser) {
-        // Si el usuario no está logueado, mostrar botones de autenticación y ocultar menú de usuario
         authButtons.style.display = 'flex';
         userMenu.style.display = 'none';
     }
 }
 
-// Inicializar las funciones comunes cuando el DOM está listo
-document.addEventListener('DOMContentLoaded', function() {
-    setupScrollAnimations();
-    setupSmoothScroll();
-    setupUserInterface();
+/*Carga el header y luego ejecuta los setups comunes*/
+document.addEventListener("DOMContentLoaded", () => {
+    const headerContainer = document.getElementById("header-container");
+
+    if (!headerContainer) {
+        // Si no hay header, ejecuta las funciones comunes de inmediato igual
+        setupScrollAnimations();
+        setupSmoothScroll();
+        setupUserInterface();
+        return;
+    }
+
+    fetch("assets/componentes/header.html")
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error(`Error al cargar el header: ${response.statusText}`);
+            }
+            return response.text();
+        })
+        .then((html) => {
+            headerContainer.innerHTML = html;
+            console.log("Header cargado correctamente.");
+
+            // Ejecuta funciones comunes después de insertar el header
+            setupScrollAnimations();
+            setupSmoothScroll();
+            setupUserInterface();
+        })
+        .catch((error) => {
+            console.error("Error al cargar el header:", error);
+            setupScrollAnimations();
+            setupSmoothScroll();
+            setupUserInterface();
+        });
+});
+
+/* Carga el footer en todas las páginas*/
+function loadFooter() {
+  const footerContainer = document.getElementById("footer-container");
+  if (footerContainer) {
+    fetch("assets/componentes/footer.html")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Error al cargar el footer: ${response.statusText}`);
+        }
+        return response.text();
+      })
+      .then((html) => {
+        footerContainer.innerHTML = html;
+        console.log("Footer cargado correctamente.");
+      })
+      .catch((error) => console.error("Error al cargar el footer:", error));
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  loadFooter();
 });
