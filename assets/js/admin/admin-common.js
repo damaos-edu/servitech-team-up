@@ -1,11 +1,29 @@
 /**
  * Funciones comunes para todas las páginas del panel de administración
  */
+document.addEventListener("DOMContentLoaded", () => {
+  // Inyectar sidebar
+  const sidebarContainer = document.getElementById("admin-sidebar-container");
+  if (sidebarContainer) {
+    fetch("../assets/componentes/navbar-admin.html")
+      .then((response) => {
+        if (!response.ok) throw new Error(response.statusText);
+        return response.text();
+      })
+      .then((html) => {
+        sidebarContainer.innerHTML = html;
+        // Resalta el item activo
+        const current = window.location.pathname.split("/").pop();
+        const link = sidebarContainer.querySelector(`.sidebar-nav a[href="${current}"]`);
+        if (link) link.parentElement.classList.add("active");
+      })
+      .catch((error) => console.error("Error al cargar el sidebar:", error));
+  }
 
-document.addEventListener('DOMContentLoaded', function() {
-    setupNotifications();
-    setupProfileDropdown();
-    setupInteractionEffects();
+  // 2) Setups restantes
+  setupNotifications();
+  setupProfileDropdown();
+  setupInteractionEffects();
 });
 
 /**
@@ -13,11 +31,8 @@ document.addEventListener('DOMContentLoaded', function() {
  */
 function setupNotifications() {
     const notificationIcon = document.querySelector('.notification-icon');
-    
     if (notificationIcon) {
-        notificationIcon.addEventListener('click', function(e) {
-            console.log('Notificaciones clickeadas');
-        });
+        notificationIcon.addEventListener('click', () => console.log('Notificaciones clickeadas'));
     }
 }
 
@@ -26,11 +41,8 @@ function setupNotifications() {
  */
 function setupProfileDropdown() {
     const adminProfile = document.querySelector('.admin-profile');
-    
     if (adminProfile) {
-        adminProfile.addEventListener('click', function(e) {
-            console.log('Perfil clickeado');
-        });
+        adminProfile.addEventListener('click', () => console.log('Perfil clickeado'));
     }
 }
 
@@ -38,25 +50,15 @@ function setupProfileDropdown() {
  * Configura efectos visuales para elementos interactivos
  */
 function setupInteractionEffects() {
-    const actionButtons = document.querySelectorAll('.action-buttons .btn-icon');
-    actionButtons.forEach(button => {
-        button.addEventListener('mouseenter', function() {
-            this.style.backgroundColor = 'rgba(58, 142, 255, 0.1)';
-        });
-        
-        button.addEventListener('mouseleave', function() {
-            this.style.backgroundColor = '';
-        });
-    });
-    
-    const primaryButtons = document.querySelectorAll('.btn-primary');
-    primaryButtons.forEach(button => {
-        button.addEventListener('mouseenter', function() {
-            this.style.filter = 'brightness(1.1)';
-        });
-        
-        button.addEventListener('mouseleave', function() {
-            this.style.filter = '';
-        });
-    });
+    document.querySelectorAll('.action-buttons .btn-icon')
+      .forEach(btn => {
+        btn.addEventListener('mouseenter', () => btn.style.backgroundColor = 'rgba(58, 142, 255, 0.1)');
+        btn.addEventListener('mouseleave', () => btn.style.backgroundColor = '');
+      });
+
+    document.querySelectorAll('.btn-primary')
+      .forEach(btn => {
+        btn.addEventListener('mouseenter', () => btn.style.filter = 'brightness(1.1)');
+        btn.addEventListener('mouseleave', () => btn.style.filter = '');
+      });
 }

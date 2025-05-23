@@ -207,3 +207,6 @@ function loadFooter() {
 document.addEventListener("DOMContentLoaded", () => {
   loadFooter();
 });
+
+
+
