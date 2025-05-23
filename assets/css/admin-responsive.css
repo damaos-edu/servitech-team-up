@@ -1,0 +1,132 @@
+/* Estilos responsivos para el panel de administración */
+
+/* Botón de menú hamburguesa - oculto por defecto en escritorio */
+.menu-toggle {
+  display: none;
+  position: fixed;
+  top: 0.75rem;
+  left: 1rem;
+  z-index: 1000;
+  background-color: var(--admin-accent-color);
+  color: white;
+  border: none;
+  border-radius: 0.25rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
+}
+
+.menu-toggle:hover {
+  background-color: var(--admin-accent-secondary);
+}
+
+.menu-toggle:active {
+  transform: scale(0.95);
+}
+
+/* Overlay para cerrar el menú al tocar fuera en móvil */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 40;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Clase que se añade cuando el menú está abierto */
+body.menu-open .sidebar-overlay {
+  display: block;
+  opacity: 1;
+}
+
+/* Animación para el botón de menú cuando está abierto */
+body.menu-open .menu-toggle i {
+  transform: rotate(90deg);
+}
+
+.menu-toggle i {
+  transition: transform 0.3s ease;
+}
+
+/* Clase para indicar que el menú está listo (evita transiciones no deseadas durante la carga) */
+body.mobile-menu-ready .admin-sidebar {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Media queries para tablets y móviles */
+@media screen and (max-width: 991px) {
+  /* Ajustes para el layout */
+  .admin-main {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  /* Mostrar el botón de menú */
+  .menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Ocultar la barra lateral por defecto */
+  .admin-sidebar {
+    transform: translateX(-100%);
+    box-shadow: none;
+    position: fixed;
+    z-index: 900;
+  }
+
+  /* Clase para mostrar el menú */
+  body.menu-open .admin-sidebar {
+    transform: translateX(0);
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Ajustes para encabezado en modo responsive */
+  .admin-header {
+    padding: 0.75rem 1rem;
+  }
+  
+  /* Ajustes para tabla y contenido */
+  .admin-content {
+    padding: 1rem;
+  }
+  
+  .table-container {
+    overflow-x: auto;
+  }
+  
+  /* Mejorar visibilidad del menú activo en móvil */
+  .sidebar-nav .nav-item.active a {
+    background-color: var(--admin-accent-color);
+    color: white;
+    border-radius: 0.375rem;
+  }
+  
+  /* Mejorar espacio del contenido en móvil */
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .page-header .page-actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+
+/* Ajustes específicos para móviles */
+@media screen and (max-width: 576px) {
+  .admin-sidebar {
+    width: 85%; /* Hacerlo más ancho en móviles */
+  }
+}

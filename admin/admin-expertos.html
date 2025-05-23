@@ -3,91 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gestión de Expertos - ServiTech Admin</title>
-    <link rel="stylesheet" href="../assets/css/admin.css" />
+    <title>Gestión de Expertos - Servitech Admin</title>    <link rel="stylesheet" href="../assets/css/admin.css" />
+    <link rel="stylesheet" href="../assets/css/admin-responsive.css" />
+    <link rel="stylesheet" href="../assets/css/administrador.css" />
     <link rel="stylesheet" href="../assets/css/Admin-components.css" />
     <link rel="stylesheet" href="../assets/css/Admin-expertos.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   </head>
   <body>
     <div class="admin-layout">
-      <aside class="admin-sidebar">
-        <div class="sidebar-header">
-          <a href="admin.html" class="logo">
-            <img
-              src="../assets/img/logo.png"
-              alt="Servitech Logo"
-              class="logo-img"
-            />
-            <span class="logo-text">Admin</span>
-          </a>
-        </div>
-        <div class="sidebar-content">
-          <nav class="sidebar-nav">
-            <ul>
-              <li class="nav-item">
-                <a href="admin.html">
-                  <i class="fas fa-tachometer-alt"></i>
-                  <span>Dashboard</span>
-                </a>
-              </li>
-              <li class="nav-item active">
-                <a href="admin-expertos.html">
-                  <i class="fas fa-users"></i>
-                  <span>Gestión de Expertos</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="admin-usuarios.html">
-                  <i class="fas fa-user-friends"></i>
-                  <span>Gestión de Usuarios</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="admin-categorias.html">
-                  <i class="fas fa-tags"></i>
-                  <span>Categorías</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="admin-publicaciones.html">
-                  <i class="fas fa-clipboard-list"></i>
-                  <span>Publicaciones</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="admin-mensajes.html">
-                  <i class="fas fa-envelope"></i>
-                  <span>Mensajes</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="admin-configuracion.html">
-                  <i class="fas fa-cog"></i>
-                  <span>Configuración</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-        <div class="sidebar-footer">
-          <a href="/feed.html" class="btn-outline">
-            <i class="fas fa-globe"></i>
-            <span>Ver sitio</span>
-          </a>
-          <a href="/login.html" class="btn-logout">
-            <i class="fas fa-sign-out-alt"></i>
-            <span>Cerrar sesión</span>
-          </a>
-        </div>
-      </aside>
+      <div id="admin-sidebar-container"></div>
 
       <main class="admin-main">
         <header class="admin-header">

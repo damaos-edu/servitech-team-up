@@ -7,51 +7,13 @@
     <!-- Enlaces a estilos externos -->
     <link rel="stylesheet" href="assets/css/base.css">
     <link rel="stylesheet" href="assets/css/feed.css">
+    <link rel="stylesheet" href="assets/css/componentes.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Encabezado del sitio -->
-    <header>
-        <nav class="navbar">
-            <!-- Logo del sitio -->
-            <a href="index.html" class="logo">
-                <img src="assets/img/logo.png" alt="logo" class="logo-img">
-            </a>
-            <!-- Navegación principal -->
-            <div class="nav-links">
-                <a href="feed.html" class="nav-item"><i class="fas fa-home"></i> Inicio</a>
-                <a href="expertos.html" class="nav-item"><i class="fas fa-users"></i> Expertos</a>
-                <a href="contacto.html" class="nav-item"><i class="fas fa-envelope"></i> Contacto</a>
-                <a href="mensajes.html" class="nav-item"><i class="fas fa-comments"></i> Mensajes</a>
-            </div>            <!-- Botones de autenticación -->
-            <div class="auth-buttons">
-                <a href="login.html" class="btn btn-outline">Iniciar sesión</a>
-                <a href="registro.html" class="btn btn-primary">Registrarse</a>
-            </div>
-            <!-- Menú de usuario (se muestra/oculta con JavaScript) -->
-            <div class="user-menu" id="userMenuContainer" style="display: none;">
-                <div class="user-avatar">
-                    <img src="" alt="Usuario" id="userAvatar">
-                </div>
-                <span class="d-none d-md-inline" id="userDisplayName">Mi cuenta</span>
-                <i class="fas fa-chevron-down"></i>
-                
-                <!-- Menú desplegable (se muestra/oculta con JavaScript) -->
-                <div class="user-dropdown" id="userDropdown">
-                    <a href="perfil.html" class="dropdown-item">
-                        <i class="fas fa-user"></i> Mi perfil
-                    </a>
-                    <a href="calendario.html" class="dropdown-item">
-                        <i class="fas fa-calendar-alt"></i> Mis asesorías
-                    </a>
-                    <a href="#" class="dropdown-item" id="logoutBtn">
-                        <i class="fas fa-sign-out-alt"></i> Cerrar sesión
-                    </a>
-                </div>
-            </div>
-        </nav>
-    </header>
+    <!-- Header -->
+    <header id="header-container"></header>
 
     <main class="container">
         <section class="main-layout">
@@ -247,40 +209,10 @@
         </section>
     </main>
 
-    <!-- Pie de página -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-logo">
-                <img src="assets/img/logo.png" alt="Servitech Logo" class="footer-logo-img" >
-                <p>Conectando expertos con estudiantes</p>
-            </div>
-            <div class="link-column">
-                <h3>Empresa</h3>
-                <a href="nosotros.html">Sobre nosotros</a>
-                <a href="empleo.html">Carreras</a>
-                <a href="blog.html">Blog</a>
-                <a href="testimonios.html">Testimonios</a>
-            </div>
-            <div class="link-column">
-                <h3>Legal</h3>
-                <a href="faq.html">Centro de ayuda</a>
-                <a href="terminos.html" class="active-link">Términos de servicio</a>
-                <a href="privacidad.html">Política de privacidad</a>
-                <a href="cookies.html">Cookies</a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Servitech. Todos los derechos reservados.</p>
-            <div class="social-links">
-                <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
-                <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
-            </div>
-        </div>
-    </footer>
+    <!-- Footer -->
+    <footer id="footer-container"></footer>
 
-    <!-- Scripts -->    <script src="assets/js/common.js"></script>
+    <script src="assets/js/common.js"></script>
     <script src="assets/js/feed.js"></script>
     <!-- Script de prueba para autenticación (remover en producción) -->
     <script src="assets/js/test-auth.js"></script>
