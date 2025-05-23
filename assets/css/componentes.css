@@ -75,6 +75,10 @@
     text-align: center;
   }
   
+  .hide-on-mobile {
+    display: none;
+  }
+  
   .mobile-menu-toggle {
     display: block;
     order: 1;
