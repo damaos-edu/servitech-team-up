@@ -39,6 +39,73 @@ function setupSmoothScroll() {
     });
 }
 
+/*Configura el menú hamburguesa para dispositivos móviles*/
+function setupMobileMenu() {
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const navContainer = document.getElementById('navContainer');
+    
+    if (mobileMenuToggle && navContainer) {
+        // Verificar si el usuario está logueado para aplicar la clase logged-in
+        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        if (currentUser) {
+            navContainer.classList.add('logged-in');
+        } else {
+            navContainer.classList.remove('logged-in');
+        }
+        
+        // Eliminar event listeners anteriores para evitar duplicados
+        const newMobileMenuToggle = mobileMenuToggle.cloneNode(true);
+        mobileMenuToggle.parentNode.replaceChild(newMobileMenuToggle, mobileMenuToggle);
+        
+        newMobileMenuToggle.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevenir propagación para evitar conflictos
+            navContainer.classList.toggle('active');
+            const icon = newMobileMenuToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });        // Cerrar menú al hacer clic en un enlace (incluyendo las opciones de usuario)
+        const allNavLinks = navContainer.querySelectorAll('.nav-item:not(#mobileLogoutBtn)');
+        allNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navContainer.classList.remove('active');
+                const icon = document.querySelector('#mobileMenuToggle i');
+                if (icon) {
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-times');
+                }
+            });
+        });
+        
+        // Manejar específicamente el botón de cerrar sesión móvil
+        const mobileLogoutBtn = document.getElementById('mobileLogoutBtn');
+        if (mobileLogoutBtn) {
+            mobileLogoutBtn.addEventListener('click', function(event) {
+                event.preventDefault();
+                localStorage.removeItem('currentUser');
+                window.location.href = 'login.html';
+            });
+        }
+        
+        // Cerrar menú al hacer clic fuera del menú
+        document.addEventListener('click', (e) => {
+            const toggle = document.getElementById('mobileMenuToggle');
+            const nav = document.getElementById('navContainer');
+            
+            if (nav && nav.classList.contains('active') && 
+                toggle && !toggle.contains(e.target) && 
+                !nav.contains(e.target)) {
+                
+                nav.classList.remove('active');
+                const icon = toggle.querySelector('i');
+                if (icon) {
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-times');
+                }
+            }
+        });
+    }
+}
+
 /*Actualiza la interfaz de usuario según el estado de autenticación*/
 function setupUserInterface() {
     // Obtener el usuario actual del localStorage
@@ -47,6 +114,8 @@ function setupUserInterface() {
     // Buscar elementos de autenticación en la página
     const authButtons = document.querySelector('.auth-buttons');
     const userMenu = document.querySelector('.user-menu');
+    const mobileUserMenu = document.querySelector('.mobile-user-menu');
+    const navContainer = document.getElementById('navContainer');
     
     // Páginas que requieren autenticación
     const restrictedPages = ['calendario.html', 'mensajes.html', 'perfil.html'];
@@ -61,11 +130,17 @@ function setupUserInterface() {
         window.location.href = isAdminPage ? '../login.html' : 'login.html';
         return;
     }
-    
-    // Si el usuario está logueado y estamos en una página de admin pero no es admin
+      // Si el usuario está logueado y estamos en una página de admin pero no es admin
     if (currentUser && isAdminPage && currentUser.role !== 'admin') {
         window.location.href = '../feed.html';
         return;
+    }
+    
+    // Aplicar la clase logged-in al nav-container si el usuario está autenticado
+    if (currentUser && navContainer) {
+        navContainer.classList.add('logged-in');
+    } else if (navContainer) {
+        navContainer.classList.remove('logged-in');
     }
     
     // Funciones auxiliares para procesar nombres
@@ -90,11 +165,23 @@ function setupUserInterface() {
             lastName: '',
             fullName: capitalizeFirstLetter(nameParts[0])
         };
-    }
-    
-    if (authButtons && userMenu && currentUser) {
+    }    if (authButtons && currentUser) {
+        // Usuario logueado
         authButtons.style.display = 'none';
-        userMenu.style.display = 'flex';
+        
+        // Mostrar menú de usuario en desktop
+        if (userMenu) {
+            if (window.innerWidth >= 993) {
+                userMenu.style.display = 'flex';  // Solo mostrar en desktop
+            } else {
+                userMenu.style.display = 'none';  // Ocultar en móvil/tablet
+            }
+            
+            // Añadir clase al contenedor de navegación para indicar que el usuario está logueado
+            if (navContainer) {
+                navContainer.classList.add('logged-in');
+            }
+        }
         
         const userInfo = getUserNameFromEmail(currentUser.email);
         
@@ -109,8 +196,7 @@ function setupUserInterface() {
         if (userAvatarImg) {
             userAvatarImg.src = avatarUrl;
         }
-        
-        const userMenuContainer = document.getElementById('userMenuContainer');
+          const userMenuContainer = document.getElementById('userMenuContainer');
         const userDropdown = document.getElementById('userDropdown');
         
         if (userMenuContainer && userDropdown) {
@@ -120,34 +206,107 @@ function setupUserInterface() {
                     item.classList.add('active');
                 }
             });
+              // Eliminar event listeners anteriores para evitar duplicados
+            const newUserMenuContainer = userMenuContainer.cloneNode(true);
+            userMenuContainer.parentNode.replaceChild(newUserMenuContainer, userMenuContainer);
             
             // Alternar visibilidad del menú al hacer clic en el contenedor
-            userMenuContainer.addEventListener('click', function(event) {
-                userDropdown.classList.toggle('show');
+            newUserMenuContainer.addEventListener('click', function(event) {
+                const dropdown = document.getElementById('userDropdown');
+                dropdown.classList.toggle('show');
+                
+                // Girar el icono cuando el menú está abierto
+                const chevronIcon = newUserMenuContainer.querySelector('.fa-chevron-down');
+                if (chevronIcon) {
+                    chevronIcon.style.transform = dropdown.classList.contains('show') ? 'rotate(180deg)' : 'rotate(0)';
+                }
+                
                 event.stopPropagation(); // Evitar que el clic se propague
             });
-            
-            // Ocultar el menú al hacer clic fuera de él
+              // Ocultar el menú al hacer clic fuera de él
             document.addEventListener('click', function(event) {
-                if (userDropdown.classList.contains('show') && !userMenuContainer.contains(event.target)) {
-                    userDropdown.classList.remove('show');
+                const dropdown = document.getElementById('userDropdown');
+                const container = document.getElementById('userMenuContainer');
+                if (dropdown && dropdown.classList.contains('show') && container && !container.contains(event.target)) {
+                    dropdown.classList.remove('show');
+                    
+                    // Restaurar la rotación del icono
+                    const chevronIcon = container.querySelector('.fa-chevron-down');
+                    if (chevronIcon) {
+                        chevronIcon.style.transform = 'rotate(0)';
+                    }
                 }
-            });
-            
-            const logoutBtn = document.getElementById('logoutBtn');
-            if (logoutBtn) {
-                logoutBtn.addEventListener('click', function(event) {
-                    event.preventDefault();
-                    localStorage.removeItem('currentUser');
-                    window.location.href = 'login.html';
-                });
-            }
-        }
-    } else if (authButtons && userMenu && !currentUser) {
+            });            // Agregar funcionalidad a los botones de cerrar sesión (tanto en desktop como en móvil)
+            setTimeout(() => {
+                // Botón de cerrar sesión en desktop
+                const logoutBtn = document.getElementById('logoutBtn');
+                if (logoutBtn) {
+                    logoutBtn.addEventListener('click', function(event) {
+                        event.preventDefault();
+                        localStorage.removeItem('currentUser');
+                        window.location.href = 'login.html';
+                    });
+                }
+                  // Botón de cerrar sesión en móvil
+                const mobileLogoutBtn = document.getElementById('mobileLogoutBtn');
+                if (mobileLogoutBtn) {
+                    console.log("Configurando mobileLogoutBtn");
+                    mobileLogoutBtn.addEventListener('click', function(event) {
+                        event.preventDefault();
+                        console.log("Cerrando sesión desde móvil");
+                        localStorage.removeItem('currentUser');
+                        window.location.href = 'login.html';
+                    });
+                }
+            }, 100); // Pequeño retraso para asegurar que el DOM está listo
+        }    } else if (authButtons && !currentUser) {
+        // Usuario no logueado
         authButtons.style.display = 'flex';
-        userMenu.style.display = 'none';
+        
+        if (userMenu) {
+            userMenu.style.display = 'none';
+        }
+        
+        // Quitar clase de usuario logueado
+        if (navContainer) {
+            navContainer.classList.remove('logged-in');
+        }
     }
 }
+
+// Función para manejar los cambios de tamaño de la ventana
+function handleWindowResize() {
+    const userMenu = document.querySelector('.user-menu');
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    const navContainer = document.getElementById('navContainer');
+    
+    if (currentUser) {
+        // Usuario logueado
+        if (navContainer) {
+            navContainer.classList.add('logged-in');
+        }
+        
+        if (userMenu) {
+            if (window.innerWidth >= 993) {
+                userMenu.style.display = 'flex'; // Mostrar en desktop
+            } else {
+                userMenu.style.display = 'none'; // Ocultar en móvil
+            }
+        }
+    } else {
+        // Usuario no logueado
+        if (navContainer) {
+            navContainer.classList.remove('logged-in');
+        }
+        
+        if (userMenu) {
+            userMenu.style.display = 'none';
+        }
+    }
+}
+
+// Agregar listener para cambios de tamaño de ventana
+window.addEventListener('resize', handleWindowResize);
 
 /*Carga el header y luego ejecuta los setups comunes*/
 document.addEventListener("DOMContentLoaded", () => {
@@ -170,11 +329,10 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .then((html) => {
             headerContainer.innerHTML = html;
-            console.log("Header cargado correctamente.");
-
-            // Ejecuta funciones comunes después de insertar el header
+            console.log("Header cargado correctamente.");            
             setupScrollAnimations();
             setupSmoothScroll();
+            setupMobileMenu();
             setupUserInterface();
         })
         .catch((error) => {
