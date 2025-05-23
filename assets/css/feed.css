@@ -282,7 +282,7 @@
 }
 
 .accordion-content.open {
-    max-height: 500px; 
+    max-height: 31.25rem;
 }
 
 .accordion-header.active .accordion-icon {

@@ -31,13 +31,13 @@
 .checkbox-container {
     display: inline-flex;
     align-items: center;
-    margin-right: 20px;
+    margin-right: 1.25rem;
     color: var(--text-secondary);
     cursor: pointer;
 }
 
 .checkbox-input {
-    margin-right: 8px;
+    margin-right: 0.5rem;
     accent-color: var(--primary-color);
 }
 
@@ -57,30 +57,30 @@
 }
 
 .expert-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    transform: translateY(-0.3125rem);
+    box-shadow: 0 0.9375rem 1.875rem rgba(0, 0, 0, 0.4);
     border-color: var(--primary-color);
 }
 
 .expert-header {
     display: flex;
     align-items: center;
-    padding: 20px;
+    padding: 1.25rem;
     background: linear-gradient(45deg, rgba(18, 216, 250, 0.05), rgba(58, 142, 255, 0.05));
-    border-bottom: 1px solid var(--border-light);
+    border-bottom: 0.0625rem solid var(--border-light);
 }
 
 .expert-photo {
-    width: 60px;
-    height: 60px;
+    width: 3.75rem;
+    height: 3.75rem;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid var(--primary-color);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 0.125rem solid var(--primary-color);
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
 }
 
 .expert-info {
-    margin-left: 15px;
+    margin-left: 0.9375rem;
 }
 
 .expert-name {
@@ -94,18 +94,18 @@
 .expert-role {
     color: var(--primary-color);
     font-size: 0.9rem;
-    margin: 4px 0;
+    margin: 0.25rem 0;
     font-weight: 500;
 }
 
 .rating {
     color: #FFD700;
-    letter-spacing: 1px;
+    letter-spacing: 0.0625rem;
     font-size: 0.9rem;
 }
 
 .expert-content {
-    padding: 20px;
+    padding: 1.25rem;
     flex: 1;
 }
 
@@ -116,10 +116,10 @@
 }
 
 .expert-footer {
-    padding: 20px;
+    padding: 1.25rem;
     display: flex;
-    gap: 10px;
-    border-top: 1px solid var(--border-light);
+    gap: 0.625rem;
+    border-top: 0.0625rem solid var(--border-light);
 }
 
 .expert-footer .btn {
