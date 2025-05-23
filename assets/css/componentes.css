@@ -393,8 +393,9 @@ footer {
   .navbar {
     position: relative;
   }
+}
 
-  /* Estilos para el menú de usuario móvil */
+/* Estilos para el menú de usuario móvil */
 .mobile-user-menu {
   display: none; /* Oculto por defecto en TODOS los casos hasta que se aplique logged-in */
   width: 100%;
@@ -470,7 +471,6 @@ footer {
   .user-menu {
     display: flex;
   }
-}
 }
 
 @media (max-width: 576px) {
