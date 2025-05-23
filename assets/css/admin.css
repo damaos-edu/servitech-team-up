@@ -202,9 +202,10 @@
 
 .admin-main {
   flex: 1;
-  margin-left: 15.625rem;
+  margin-left: clamp(14rem, 15vw, 15rem);
   background-color: var(--admin-bg);
   min-height: 100vh;
+  transition: margin-left 0.25s ease;
 }
 
 .admin-header {
