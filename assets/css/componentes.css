@@ -1,7 +1,7 @@
 /* Estilos para los componentes */
 .header {
   background-color: var(--header-bg-color, #0f0f0f84);
-  backdrop-filter: blur(var(--header-blur, 5px));
+  backdrop-filter: blur(var(--header-blur, 0.3125rem));
   position: fixed;
   top: 0;
   left: 0;
@@ -105,7 +105,7 @@
 footer {
   background-color: var(--card-bg);
   margin-top: auto;
-  border-top: 1px solid var(--border-light);
+  border-top: 0.0625rem solid var(--border-light);
 }
 
 .footer-content {
@@ -158,7 +158,7 @@ footer {
   max-width: var(--content-max-width);
   margin: 0 auto;
   padding: 1.25rem 5%;
-  border-top: 1px solid var(--border-light);
+  border-top: 0.0625rem solid var(--border-light);
 }
 
 .footer-bottom p {
@@ -204,7 +204,7 @@ footer {
   border-radius: 0.5rem; /* Bordes redondeados */
   z-index: 1000;
   padding: 1rem;
-  width: 220px; /* Ancho fijo */
+  width: 13.75rem; /* Ancho fijo */
 }
 
 .user-dropdown.show {

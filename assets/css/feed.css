@@ -1,20 +1,20 @@
 /* Contenedor principal */
 .container {
     max-width: var(--content-max-width);
-    margin: 40px auto;
+    margin: 2.5rem auto;
     padding: 0 5%;
 }
 
 /* Diseño de la maquetación principal */
 .main-layout {
     display: grid;
-    grid-template-columns: 280px 1fr;
-    gap: 30px;
+    grid-template-columns: 17.5rem 1fr;
+    gap: 1.875rem;
 }
 
 @media (min-width: 1200px) {
     .main-layout {
-        grid-template-columns: 260px 1.2fr;
+        grid-template-columns: 16.25rem 1.2fr;
     }
 }
 
@@ -27,42 +27,42 @@
 /* Barra lateral */
 .sidebar {
     position: sticky;
-    top: 90px;
+    top: 5.625rem;
     height: max-content;
 }
 
 /* Encabezado de la barra lateral */
 .sidebar-heading {
     color: var(--text-color);
-    font-size: 18px;
-    margin: 40px 0 20px;
+    font-size: 1.125rem;
+    margin: 2.5rem 0 1.25rem;
     font-weight: 600;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 0.625rem;
 }
 
 .sidebar-heading::before {
     content: '';
-    width: 4px;
-    height: 18px;
+    width: 0.25rem;
+    height: 1.125rem;
     background: linear-gradient(to bottom, var(--primary-color), var(--accent-color));
-    border-radius: 2px;
+    border-radius: 0.125rem;
 }
 
 /* Grupos de filtros */
 .filter-group {
     background-color: var(--card-bg);
     border-radius: var(--border-radius);
-    border: 1px solid var(--border-light);
-    padding: 20px;
-    margin-bottom: 20px;
+    border: 0.0625rem solid var(--border-light);
+    padding: 1.25rem;
+    margin-bottom: 1.25rem;
     transition: var(--transition);
 }
 
 .filter-group:hover {
     border-color: rgba(58, 142, 255, 0.3);
-    transform: translateY(-2px);
+    transform: translateY(-0.125rem);
     box-shadow: var(--hover-shadow);
 }
 
@@ -70,12 +70,12 @@
 .filter-title {
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-size: 16px;
+    gap: 0.625rem;
+    font-size: 1rem;
     font-weight: 600;
     color: var(--primary-color);
     margin-top: 0;
-    margin-bottom: 12px;
+    margin-bottom: 0.75rem;
 }
 
 /* Opciones de los filtros */
@@ -88,25 +88,25 @@
 .filter-option {
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 8px 0;
+    gap: 0.625rem;
+    padding: 0.5rem 0;
     color: var(--text-secondary);
     cursor: pointer;
     transition: var(--transition);
-    border-radius: 4px;
+    border-radius: 0.25rem;
 }
 
 .filter-option input[type="checkbox"] {
     accent-color: var(--primary-color);
-    width: 16px;
-    height: 16px;
+    width: 1rem;
+    height: 1rem;
     margin: 0;
 }
 
 .filter-option label {
     cursor: pointer;
     color: var(--text-secondary);
-    font-size: 14px;
+    font-size: 0.875rem;
     transition: var(--transition);
 }
 
@@ -118,8 +118,8 @@
 /* Formulario de búsqueda */
 .search-form {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr));
+    gap: 0.9375rem;
 }
 
 .search-form button {
@@ -128,17 +128,17 @@
 
 /* Tarjetas generales */
 .card {
-    margin-bottom: 25px;
+    margin-bottom: 1.5625rem;
 }
 
 /* Títulos de las tarjetas */
 .card-title {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 0.625rem;
     color: var(--text-color);
-    font-size: 18px;
-    margin-bottom: 20px;
+    font-size: 1.125rem;
+    margin-bottom: 1.25rem;
 }
 
 .card-title i {
@@ -148,7 +148,7 @@
 /* Publicaciones */
 .posts {
     display: grid;
-    gap: 20px;
+    gap: 1.25rem;
 }
 
 .post-card {
@@ -157,7 +157,7 @@
 }
 
 .post-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-0.3125rem);
 }
 
 /* Encabezado de las publicaciones */
@@ -165,44 +165,44 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 15px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid var(--border-light);
+    margin-bottom: 0.9375rem;
+    padding-bottom: 0.625rem;
+    border-bottom: 0.0625rem solid var(--border-light);
 }
 
 /* Autor de las publicaciones */
 .post-author {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 0.5rem;
     color: var(--text-color);
     font-weight: 500;
 }
 
 .post-author i {
-    font-size: 20px;
+    font-size: 1.25rem;
     color: var(--primary-color);
 }
 
 /* Tiempo de las publicaciones */
 .post-time {
     color: var(--text-light);
-    font-size: 14px;
+    font-size: 0.875rem;
 }
 
 /* Contenido de las publicaciones */
 .post-content {
     color: var(--text-secondary);
     line-height: 1.6;
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
 }
 
 /* Acciones de las publicaciones */
 .post-actions {
     display: flex;
-    gap: 15px;
-    border-top: 1px solid var(--border-light);
-    padding-top: 15px;
+    gap: 0.9375rem;
+    border-top: 0.0625rem solid var(--border-light);
+    padding-top: 0.9375rem;
 }
 
 /* Botones de acción */
@@ -214,9 +214,9 @@
     transition: var(--transition);
     display: flex;
     align-items: center;
-    gap: 6px;
-    padding: 8px 12px;
-    border-radius: 6px;
+    gap: 0.375rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.375rem;
 }
 
 .action-btn:hover {
@@ -225,14 +225,14 @@
 }
 
 .action-btn i {
-    font-size: 16px;
+    font-size: 1rem;
 }
 
 /* Botón de negociación */
 .negotiate {
     margin-left: auto;
     color: var(--primary-color);
-    border: 1px solid var(--primary-color);
+    border: 0.0625rem solid var(--primary-color);
     border-radius: var(--btn-radius);
 }
 
@@ -250,7 +250,7 @@
     .sidebar {
         position: static;
         height: auto;
-        margin-bottom: 20px;
+        margin-bottom: 1.25rem;
     }
 }
 
@@ -260,7 +260,7 @@
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
-    padding: 10px 0;
+    padding: 0.625rem 0;
     color: var(--primary-color);
     font-weight: 600;
     transition: var(--transition);
@@ -271,7 +271,7 @@
 }
 
 .accordion-icon {
-    font-size: 14px;
+    font-size: 0.875rem;
     transition: transform 0.3s ease;
 }
 
@@ -305,22 +305,22 @@
 
 .modal-content {
     background-color: var(--card-bg);
-    padding: 20px;
+    padding: 1.25rem;
     border-radius: var(--border-radius);
     width: 90%;
-    max-width: 500px;
+    max-width: 31.25rem;
     box-shadow: var(--card-shadow);
     position: relative;
 }
 
 .close-modal {
     position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 20px;
-    color: var(--text-color); 
-    background: none; 
-    border: none; 
+    top: 0.625rem;
+    right: 0.9375rem;
+    font-size: 1.25rem;
+    color: var(--text-color);
+    background: none;
+    border: none;
     cursor: pointer;
     transition: var(--transition);
 }
@@ -331,12 +331,12 @@
 }
 
 .modal-title {
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
     color: var(--text-color);
-    font-size: 18px;
+    font-size: 1.125rem;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 0.625rem;
 }
 
 /* Botón "Crear nueva publicación" */
@@ -345,18 +345,18 @@
     width: 100%; 
     text-align: center;
     color: var(--primary-color);
-    border: 1px solid var(--primary-color);
+    border: 0.0625rem solid var(--primary-color);
     border-radius: var(--btn-radius);
     background: transparent;
-    padding: 12px 20px; 
+    padding: 0.75rem 1.25rem;
     font-weight: 600;
-    font-size: 16px; 
-    margin-bottom: 20px; 
+    font-size: 1rem; 
+    margin-bottom: 1.25rem; 
     transition: var(--transition);
 }
 
 .btn.negotiate:hover {
     background-color: var(--primary-color);
     color: white;
-    transform: translateY(-2px);
+    transform: translateY(-0.125rem);
 }

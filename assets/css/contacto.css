@@ -1,14 +1,14 @@
 .container {
     max-width: var(--content-max-width);
-    margin: 40px auto;
+    margin: 2.5rem auto;
     padding: 0 5%;
 }
 
 .card-title {
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin-bottom: 15px;
+    gap: 0.625rem;
+    margin-bottom: 0.9375rem;
     font-size: 1.5rem;
 }
 
@@ -22,31 +22,31 @@
 }
 
 .contact-form {
-    margin-top: 25px;
+    margin-top: 1.5625rem;
 }
 
 .form-control:focus {
-    transform: translateY(-2px);
+    transform: translateY(-0.125rem);
 }
 
 .contact-info-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
-    margin-top: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(15.625rem, 1fr));
+    gap: 1.5625rem;
+    margin-top: 1.25rem;
 }
 
 .contact-item {
     display: flex;
     align-items: flex-start;
-    margin-bottom: 15px;
+    margin-bottom: 0.9375rem;
 }
 
 .contact-icon {
     color: var(--primary-color);
-    font-size: 18px;
-    margin-right: 15px;
-    margin-top: 2px;
+    font-size: 1.125rem;
+    margin-right: 0.9375rem;
+    margin-top: 0.125rem;
 }
 
 .contact-text {
@@ -54,8 +54,8 @@
 }
 
 .contact-text h4 {
-    margin: 0 0 5px;
-    font-size: 16px;
+    margin: 0 0 0.3125rem;
+    font-size: 1rem;
     font-weight: 500;
     color: var(--text-color);
 }
@@ -67,18 +67,18 @@
 
 .form-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(15.625rem, 1fr));
+    gap: 1.25rem;
 }
 
 /* Efecto hover para botones de formulario */
 .card .btn-primary:hover {
-    transform: translateY(-3px);
+    transform: translateY(-0.1875rem);
     box-shadow: var(--btn-shadow);
 }
 
 .send-btn {
-    margin-top: 10px;
+    margin-top: 0.625rem;
     width: 100%;
-    padding: 12px;
+    padding: 0.75rem;
 }
