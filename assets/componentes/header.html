@@ -1,21 +1,37 @@
 <header class="header">
         <nav class="navbar">
+            <div class="mobile-menu-toggle" id="mobileMenuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
             <div class="logo">
                 <a href="index.html">
                     <img src="assets/img/logo.png" alt="logo" class="logo-img">
                 </a>
+            </div>            <div class="nav-container" id="navContainer">
+                <div class="nav-links">
+                    <a href="feed.html" class="nav-item"><i class="fas fa-home"></i> Inicio</a>
+                    <a href="expertos.html" class="nav-item"><i class="fas fa-users"></i> Expertos</a>
+                    <a href="contacto.html" class="nav-item"><i class="fas fa-envelope"></i> Contacto</a>
+                    <a href="mensajes.html" class="nav-item"><i class="fas fa-comments"></i> Mensajes</a>
+                    <!-- Menú de usuario móvil (solo visible cuando el usuario está logueado) -->
+                    <div class="mobile-user-menu">
+                        <!-- Opciones de usuario para móvil y tablet -->
+                        <a href="perfil.html" class="nav-item user-nav-item">
+                            <i class="fas fa-user"></i> Mi perfil
+                        </a>
+                        <a href="calendario.html" class="nav-item user-nav-item">
+                            <i class="fas fa-calendar-alt"></i> Mis asesorías
+                        </a>
+                        <a href="#" class="nav-item user-nav-item" id="mobileLogoutBtn">
+                            <i class="fas fa-sign-out-alt"></i> Cerrar sesión
+                        </a>
+                    </div>
+                </div>
+                <div class="auth-buttons">
+                    <a href="login.html" class="btn btn-outline">Iniciar sesión</a>
+                    <a href="registro.html" class="btn btn-primary">Registrarse</a>
+                </div>
             </div>
-            <div class="nav-links">
-                <a href="feed.html" class="nav-item"><i class="fas fa-home"></i> Inicio</a>
-                <a href="expertos.html" class="nav-item"><i class="fas fa-users"></i> Expertos</a>
-                <a href="contacto.html" class="nav-item"><i class="fas fa-envelope"></i> Contacto</a>
-                <a href="mensajes.html" class="nav-item"><i class="fas fa-comments"></i> Mensajes</a>
-            </div>
-            <div class="auth-buttons">
-                <a href="login.html" class="btn btn-outline">Iniciar sesión</a>
-                <a href="registro.html" class="btn btn-primary">Registrarse</a>
-            </div>
-            <!-- Menú de usuario -->
             <div class="user-menu" id="userMenuContainer" style="display: none;">
                 <div class="user-avatar">
                     <img src="" alt="Usuario" id="userAvatar">
