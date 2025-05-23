@@ -7,47 +7,16 @@
   <title>Calendario</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/componentes.css">
   <link rel="stylesheet" href="assets/css/calendario.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <nav class="navbar">
-        <a href="index.html" class="logo">
-            <img src="assets/img/logo.png" alt="logo" class="logo-img">
-        </a>
-        <div class="nav-links">
-            <a href="feed.html" class="nav-item"><i class="fas fa-home"></i> Inicio</a>
-            <a href="expertos.html" class="nav-item"><i class="fas fa-users"></i> Expertos</a>
-            <a href="contacto.html" class="nav-item"><i class="fas fa-envelope"></i> Contacto</a>
-        </div>
-        <div class="auth-buttons">
-            <a href="login.html" class="btn btn-outline">Iniciar sesión</a>
-            <a href="registro.html" class="btn btn-primary">Registrarse</a>
-        </div>
-        <div class="user-menu" id="userMenuContainer" style="display: none;">
-            <div class="user-avatar">
-                <img src="" alt="Usuario" id="userAvatar">
-            </div>
-            <span class="d-none d-md-inline" id="userDisplayName">Mi cuenta</span>
-            <i class="fas fa-chevron-down"></i>
-            <div class="user-dropdown" id="userDropdown">
-                <a href="perfil.html" class="dropdown-item">
-                    <i class="fas fa-user"></i> Mi perfil
-                </a>
-                <a href="calendario.html" class="dropdown-item">
-                    <i class="fas fa-calendar-alt"></i> Mis asesorías
-                </a>
-                <a href="#" class="dropdown-item" id="logoutBtn">
-                    <i class="fas fa-sign-out-alt"></i> Cerrar sesión
-                </a>
-            </div>
-        </div>
-    </nav>
-</header>
-  <main class="container mt-3">
+  <!-- Header -->
+    <header id="header-container"></header>
     
+  <main class="container mt-3">
     <section>
       <br>
       <h1 class="text-center mb-4">Agenda tu asesoría con tu experto <br>aquí</h1>
@@ -181,39 +150,9 @@
                 <button type="button" class="btn btn-primary" onclick="window.location.href='pasarela-pagos.html'">Confirmar cita</button>
         <br><br>  
 </main>
-   <footer>
-    <div class="footer-content">
-        <div class="footer-logo">
-            <img src="assets/img/logo.png" alt="Servitech Logo" class="footer-logo-img">
-            <p>Conectando expertos con estudiantes</p>
-        </div>
-        <div class="link-column">
-            <h3>Empresa</h3>
-            <a href="nosotros.html">Sobre nosotros</a>
-            <a href="empleo.html">Carreras</a>
-            <a href="blog.html">Blog</a>
-            <a href="testimonios.html">Testimonios</a>
-        </div>
-        <div class="link-column">
-            <h3>Legal</h3>
-            <a href="faq.html">Centro de ayuda</a>
-            <a href="terminos.html" class="active-link">Términos de servicio</a>
-            <a href="privacidad.html">Política de privacidad</a>
-            <a href="cookies.html">Cookies</a>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <p>&copy; 2025 Servitech. Todos los derechos reservados.</p>
-        <div class="social-links">
-            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
-            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
-        </div>
-    </div>
-</footer>
+   <!-- Footer -->
+    <footer id="footer-container"></footer>
     
-    <!-- Scripts -->
     <script src="assets/js/common.js"></script>
     <script src="assets/js/calendario.js"></script>
 </body>
