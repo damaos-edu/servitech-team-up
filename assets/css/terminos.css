@@ -1,28 +1,28 @@
 .container {
     max-width: var(--content-max-width);
-    margin: 40px auto;
+    margin: 2.5rem auto;
     padding: 0 5%;
 }
 
 .terms-section h4 {
     color: var(--primary-color);
-    margin-top: 30px;
-    margin-bottom: 12px;
+    margin-top: 1.875rem;
+    margin-bottom: 0.75rem;
     font-weight: 600;
 }
 
 .terms-section p {
     color: var(--text-secondary);
-    margin-bottom: 15px;
+    margin-bottom: 0.9375rem;
     line-height: 1.7;
 }
 
 .card-title {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 0.625rem;
     color: var(--text-color);
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
 }
 
 .card-title i {
