@@ -96,7 +96,7 @@
     left: 0;
     right: 0;
     width: 100%;
-    background-color: var(--header-bg-color, #0f0f0f84);
+    background-color: rgba(15, 15, 15, 0.965); /* Fondo al abrir el menú hamburguesa */
     backdrop-filter: blur(var(--header-blur, 0.3125rem));
     flex-direction: column;
     align-items: flex-start;
