@@ -39,16 +39,18 @@
 
 .nav-container {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  justify-content: space-between; 
   flex-grow: 1;
   margin-left: 2rem;
+  align-items: center;
 }
 
 .nav-links {
   display: flex;
   gap: 1.5rem;
   align-items: center;
+  justify-content: center;
+  flex-grow: 1; /* Permite que ocupen el espacio disponible */
 }
 
 .mobile-menu-toggle {
@@ -96,7 +98,7 @@
     left: 0;
     right: 0;
     width: 100%;
-    background-color: rgba(15, 15, 15, 0.965); /* Fondo al abrir el menú hamburguesa */
+    background-color: var(--header-bg-color, #0f0f0f);
     backdrop-filter: blur(var(--header-blur, 0.3125rem));
     flex-direction: column;
     align-items: flex-start;
@@ -133,6 +135,7 @@
     width: 100%;
     justify-content: center;
     margin-top: 1rem;
+    margin-left: auto; /* Asegura que los botones estén alineados a la derecha */
   }
 
   .logo img {
