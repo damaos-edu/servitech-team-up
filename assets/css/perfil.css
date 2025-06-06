@@ -8,7 +8,7 @@
   right: 0;
   height: var(--header-height);
   background-color: var(--background);
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 0.0625rem solid var(--border-color);
   z-index: 1000;
 }
 
@@ -47,10 +47,10 @@
 .main-nav a.active:after {
   content: '';
   position: absolute;
-  bottom: -1px;
+  bottom: -0.0625rem;
   left: 0;
   width: 100%;
-  height: 2px;
+  height: 0.125rem;
   background-color: var(--primary-color);
 }
 
@@ -76,11 +76,11 @@
 }
 
 .user-avatar {
-  width: 32px;
-  height: 32px;
+  width: 2rem;
+  height: 2rem;
   border-radius: 50%;
   overflow: hidden;
-  border: 1px solid var(--border-color);
+  border: 0.0625rem solid var(--border-color);
 }
 
 .user-avatar img {
@@ -91,16 +91,16 @@
 
 .user-dropdown {
   position: absolute;
-  top: calc(100% + 10px);
+  top: calc(100% + 0.625rem);
   right: 0;
-  width: 200px;
+  width: 12.5rem;
   background-color: var(--card-bg);
   border-radius: var(--border-radius);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.625rem 1.5625rem rgba(0, 0, 0, 0.2);
   padding: 0.5rem;
   display: none;
   z-index: 1000;
-  border: 1px solid var(--border-color);
+  border: 0.0625rem solid var(--border-color);
 }
 
 .user-dropdown.show {
@@ -111,7 +111,7 @@
 @keyframes dropdown-fade {
   from {
     opacity: 0;
-    transform: translateY(-10px);
+    transform: translateY(-0.625rem);
   }
   to {
     opacity: 1;
@@ -141,7 +141,7 @@
 }
 
 .dropdown-item i {
-  width: 20px;
+  width: 1.25rem;
   text-align: center;
 }
 
@@ -162,7 +162,7 @@
 }
 
 .profile-cover {
-  height: 180px;
+  height: 11.25rem;
   background-image: linear-gradient(135deg, var(--primary-color), var(--accent-color));
   position: relative;
 }
@@ -186,12 +186,12 @@
 }
 
 .profile-avatar {
-  width: 120px;
-  height: 120px;
+  width: 7.5rem;
+  height: 7.5rem;
   border-radius: 50%;
-  border: 5px solid var(--card-bg);
+  border: 0.3125rem solid var(--card-bg);
   overflow: hidden;
-  margin-top: -60px;
+  margin-top: -3.75rem;
   position: relative;
   background-color: var(--input-bg);
   z-index: 1;
@@ -205,10 +205,10 @@
 
 .change-avatar-btn {
   position: absolute;
-  right: 5px;
-  bottom: 5px;
-  width: 32px;
-  height: 32px;
+  right: 0.3125rem;
+  bottom: 0.3125rem;
+  width: 2rem;
+  height: 2rem;
   border-radius: 50%;
   background-color: var(--primary-color);
   color: #fff;
@@ -218,7 +218,7 @@
   justify-content: center;
   cursor: pointer;
   transition: var(--transition);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.2);
 }
 
 .change-avatar-btn:hover {
@@ -290,14 +290,14 @@
 
 .btn-primary:hover {
   background-color: var(--primary-hover);
-  transform: translateY(-2px);
+  transform: translateY(-0.125rem);
   box-shadow: var(--btn-shadow);
 }
 
 /* Contenido del perfil */
 .profile-content {
   display: grid;
-  grid-template-columns: 280px 1fr;
+  grid-template-columns: 17.5rem 1fr;
   gap: 2rem;
 }
 
@@ -352,7 +352,7 @@
 }
 
 .profile-nav-item i {
-  width: 20px;
+  width: 1.25rem;
   text-align: center;
 }
 
@@ -389,7 +389,7 @@
 }
 
 .plan-feature i {
-  width: 16px;
+  width: 1rem;
   text-align: center;
 }
 
@@ -519,8 +519,8 @@
 .toggle {
   position: relative;
   display: inline-block;
-  width: 48px;
-  height: 24px;
+  width: 3rem;
+  height: 1.5rem;
 }
 
 .toggle input {
@@ -538,16 +538,16 @@
   bottom: 0;
   background-color: var(--border-color);
   transition: var(--transition);
-  border-radius: 24px;
+  border-radius: 1.5rem;
 }
 
 .toggle-slider:before {
   position: absolute;
   content: "";
-  height: 18px;
-  width: 18px;
-  left: 3px;
-  bottom: 3px;
+  height: 1.125rem;
+  width: 1.125rem;
+  left: 0.1875rem;
+  bottom: 0.1875rem;
   background-color: var(--card-bg);
   transition: var(--transition);
   border-radius: 50%;
@@ -558,7 +558,7 @@
 }
 
 .toggle input:checked + .toggle-slider:before {
-  transform: translateX(24px);
+  transform: translateX(1.5rem);
 }
 
 .social-icons {
@@ -567,8 +567,8 @@
 }
 
 .social-icon {
-  width: 36px;
-  height: 36px;
+  width: 2.25rem;
+  height: 2.25rem;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.05);
   display: flex;
@@ -581,7 +581,7 @@
 .social-icon:hover {
   background-color: var(--primary-color);
   color: #fff;
-  transform: translateY(-3px);
+  transform: translateY(-0.1875rem);
 }
 
 .footer-copyright {
@@ -644,9 +644,9 @@
   }
   
   .profile-avatar {
-    width: 100px;
-    height: 100px;
-    margin-top: -50px;
+    width: 6.25rem;
+    height: 6.25rem;
+    margin-top: -3.125rem;
   }
   
   .profile-details h1 {

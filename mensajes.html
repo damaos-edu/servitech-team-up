@@ -4,60 +4,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mensajes | ServiTech</title>
+  <title>Mensajes | Servitech</title>
   <link rel="stylesheet" href="assets/css/base.css">
   <link rel="stylesheet" href="assets/css/mensajes.css">
+  <link rel="stylesheet" href="assets/css/componentes.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
- <header>
-        <nav class="navbar">
-            <a href="index.html" class="logo">
-                <img src="assets/img/logo.png" alt="logo" class="logo-img">
-            </a>
-            <div class="nav-links">
-                <a href="feed.html" class="nav-item"><i class="fas fa-home"></i> Inicio</a>
-                <a href="expertos.html" class="nav-item"><i class="fas fa-users"></i> Expertos</a>
-                <a href="contacto.html" class="nav-item"><i class="fas fa-envelope"></i> Contacto</a>
-                <a href="mensajes.html" class="nav-item"><i class="fas fa-comments"></i> Mensajes</a>
-            </div>            <div class="auth-buttons">
-                <a href="login.html" class="btn btn-outline">Iniciar sesión</a>
-                <a href="registro.html" class="btn btn-primary">Registrarse</a>
-            </div>
-            <!-- Menú de usuario (se muestra/oculta con JavaScript) -->
-            <div class="user-menu" id="userMenuContainer" style="display: none;">
-                <div class="user-avatar">
-                    <img src="" alt="Usuario" id="userAvatar">
-                </div>
-                <span class="d-none d-md-inline" id="userDisplayName">Mi cuenta</span>
-                <i class="fas fa-chevron-down"></i>
-                
-                <!-- Menú desplegable (se muestra/oculta con JavaScript) -->
-                <div class="user-dropdown" id="userDropdown">
-                    <a href="perfil.html" class="dropdown-item">
-                        <i class="fas fa-user"></i> Mi perfil
-                    </a>
-                    <a href="calendario.html" class="dropdown-item">
-                        <i class="fas fa-calendar-alt"></i> Mis asesorías
-                    </a>
-                    <a href="#" class="dropdown-item" id="logoutBtn">
-                        <i class="fas fa-sign-out-alt"></i> Cerrar sesión
-                    </a>
-                </div>
-            </div>
-        </nav>
-    </header>
-     
-
-  <!-- Título de la sección para móviles -->
-  <div class="section-title d-md-none">
-    <h1>Mensajes</h1>
-    <p>Chats con tus expertos</p>
-  </div>
+ <!-- Header -->
+  <header id="header-container"></header>
 
   <!-- Contenedor principal -->
-  <div class="chat-container">
+  <div class="chat-container" >
     <!-- Barra lateral izquierda -->
     <aside class="sidebar">
       <header class="sidebar-header">
@@ -210,7 +169,7 @@
         <!-- Mensajes del experto -->
         <div class="message received">
           <div class="message-content">
-            <p>¡Hola! Soy Carlos, tu asesor técnico de ServiTech. Veo que has reservado una sesión para el día 22 de mayo a las 7:00PM.</p>
+            <p>¡Hola! Soy Carlos, tu asesor técnico de Servitech. Veo que has reservado una sesión para el día 22 de mayo a las 7:00PM.</p>
           </div>
           <div class="message-meta">
             <span class="message-time">10:15 AM</span>
